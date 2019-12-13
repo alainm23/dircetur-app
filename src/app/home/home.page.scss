@@ -1,0 +1,472 @@
+#fondo_imagen{
+    --background: none;
+    background-image: url('/assets/img/jeremiah-berman-9dmycbFE7mQ-unsplash.png');
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 80vh;
+}
+#fondo_imagen:before {
+	content:'';
+	position: absolute;
+    top: 0;
+	bottom: 0;
+	left: 0;
+    right: 0;
+    height: 80vh;
+	background-color: #0000005c;
+}
+@media(min-width: 480px) and (min-height: 320px){
+    #fondo_imagen{
+        height: 169vh;
+    }
+    #fondo_imagen:before {
+        height: 169vh;
+    }
+}
+@media(min-width: 480px) and (min-height: 854px){
+    #fondo_imagen{
+        height: 80vh;
+    }
+    #fondo_imagen:before {
+        height: 80vh;
+    }
+}
+.padding_cero{
+    padding: 0;
+}
+.color_descripcion_blanco{
+    color: #ffffff;
+    font-weight: 500;
+    text-shadow: -1px 2px 6px #1F1F1F;
+    letter-spacing: 1px;
+    margin-top: 5rem;
+    font-size: 1.125rem;
+    font-family: 'Roboto', sans-serif;
+}
+@media(min-width: 1024px){
+    .color_descripcion_blanco{
+        font-size: 2.125rem;
+    }
+}
+.bajar_imagen_logo{
+    margin-top: -3rem;
+}
+@media(min-width: 360px){
+    .bajar_imagen_logo{
+        margin-top: -6rem;
+    }
+}
+.btn_menu{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    padding-top: 2px;
+    margin-top: 1rem;
+}
+.div_linea_color{
+    height: 1px;
+    background-color: #676767;
+    margin-bottom: 3px;
+}
+.div_line_menu{
+    width: 100%;
+}
+#div_line_menu_peque{
+    width: 50%;
+}
+#input_border_left{
+    border-left: 1px solid #C4C4C4;
+    height: 1.375rem;
+    color: #505050;
+    font-family: 'Roboto', sans-serif;
+    padding-left: 1rem;
+}
+#input_border_left::placeholder{
+    color: #505050;
+    font-family: 'Roboto', sans-serif;
+}
+@media(min-width: 768px){
+    #input_border_left{
+        height: 2.1875rem;
+        padding-left: 1rem;
+    } 
+}
+.fondo_blanco{
+    background-color: #ffffff;
+    -webkit-box-shadow: 3px 11px 17px -1px rgba(171,171,171,1);
+    -moz-box-shadow: 3px 11px 17px -1px rgba(171,171,171,1);
+    box-shadow: 3px 11px 17px -1px rgba(171,171,171,1);
+    margin-top: -1.625rem;
+    display: flex;
+    padding-top: 0.9375rem;
+    padding-bottom: 0.9375rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border-radius: 10px;
+}
+.icon_bajar_buscardor{
+    color: #D6D6D6;
+    font-size: 1.25rem;
+}
+@media(min-width: 768px){
+    .fondo_blanco{
+        margin-top: -2.6875rem;
+        padding-top: 0.9375rem;
+        padding-bottom: 0.9375rem;
+        padding-left: 1.875rem;
+        padding-right: 1.875rem;
+    }
+    .icon_bajar_buscardor{
+        font-size: 1.875rem;
+    }
+}
+.color_81{
+    color: #818181;
+}
+#espaciado_line{
+    line-height: 1.5;
+    margin-top: 2rem;
+}
+.btn_rojo{
+    background-color: #DB1D1D;
+    border: 1px solid #707070;
+    width: 100%;
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 300;
+    border-radius: 28px;
+    margin-bottom: 2rem;
+}
+button:focus{
+    outline:none;
+    box-shadow:none;
+}
+.color_65_titulos{
+    color: #656565;
+    font-weight: 700;
+    font-size: 1.875rem;
+}
+.espaciados_texto{
+    line-height: 1.6;
+}
+.lineas_texto_noticia{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 0;
+    color: #464646;
+    font-size: 0.875rem;
+}
+@media(min-width: 568px){
+    .lineas_texto_noticia{
+        margin-top: 2.5rem;
+    }
+}
+@media(min-width: 640px){
+    .lineas_texto_noticia{
+        margin-top: 2.5rem;
+        -webkit-line-clamp: 3;
+    }
+}
+@media(min-width: 731px){
+    .lineas_texto_noticia{
+        margin-top: 3.6875rem;
+    }
+}
+@media(min-width: 768px){
+    .lineas_texto_noticia{
+        margin-top: 1.875rem;
+        -webkit-line-clamp: 2;
+    }
+}
+.subtitulos_noticia{
+    color: #505050;
+    font-weight: bolder;
+    font-size: 0.9375rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.even_fecha_color{
+    color: #808080;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-size: 0.8125rem;
+}
+.paddign_top_bottom{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.margin_bottom_escpacio{
+    margin-bottom: 0.125rem;
+}
+#fondo_boleto_img{
+    --background: none;
+    background-image: url('/assets/img/thomas-griggs-HE78Yq11PMA-unsplash@3x.png');
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#subir_img_bloeto{
+    margin-top: -62px;
+    margin-left: -72px;
+    width: 100%;
+}
+@media(min-width: 568px){
+    #subir_img_bloeto{
+        margin-top: -87px;
+        margin-left: -110px;
+        width: 100%;
+    }
+}
+.margin_bottom_new{
+    margin-bottom: 44px;
+}
+#cuadrado_rojo_boleto{
+    background-color: #EC494B;
+    padding-left: 29px;
+    margin-top: -134px;
+    margin-bottom: 30px;
+}
+@media(min-width: 360px){
+    #cuadrado_rojo_boleto{
+        margin-top: -162px;
+    } 
+}
+@media(min-width: 568px){
+    #cuadrado_rojo_boleto{
+        margin-top: -250px;
+    } 
+}
+#paddining_right{
+    padding-right: 51px;
+}
+#bnt_blanco{
+    background-color: #ffffff;
+    color: #676767;
+    width: 100%;
+    padding-bottom: 0.625rem;
+    padding-top: 0.625rem;
+    border-radius: 21px;
+    font-size: 0.8125rem;
+    -webkit-box-shadow: -1px 9px 17px -10px rgba(0,0,0,1);
+    -moz-box-shadow: -1px 9px 17px -10px rgba(0,0,0,1);
+    box-shadow: -1px 9px 17px -10px rgba(0,0,0,1);
+    margin-bottom: 1.25rem;
+}
+.color_blanco{
+    color: #ffffff;
+}
+#subtitulo_bold{
+    font-weight: bolder;
+}
+#bajar_titutlo{
+    margin-top: 1.25rem;
+}
+.flechas_tamaño_calender{
+    width: 30%;
+    height: 50%;
+    background-color: #ffffff;
+    margin-top: 1.3125rem;
+}
+@media(min-width: 640px){
+    .flechas_tamaño_calender{
+        margin-top: 0.8125rem;
+    } 
+}
+@media(min-width: 768px){
+    .flechas_tamaño_calender{
+        margin-top: 1.6875rem;
+        width: 19%;
+        height: 44%;
+    } 
+}
+@media(min-width: 1024px){
+    .flechas_tamaño_calender{
+        margin-top: 1.25rem;
+        width: 20%;
+        height: 62%;
+    } 
+}
+#diciembre_year{
+    color: #707070;
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+@media(min-width: 768px){
+    #diciembre_year{
+        font-size: 2.1875rem;
+    }
+}
+@media(min-width: 1024px){
+    #diciembre_year{
+        font-size: 2.1875rem;
+    }
+}
+.cuadrado_azul_calender{
+    background-color: #3E729A;
+    padding-bottom: 10px;
+    padding-top: 3px;
+    box-shadow:3px 1px 6px 1px #c0c0c0;
+    -moz-box-shadow:3px 1px 6px 1px #c0c0c0;
+    -webkit-box-shadow:3px 1px 6px 1px #c0c0c0;
+}
+.fecha_number{
+    font-size: 2.5rem;
+    font-weight: 200;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+}
+.nombre_mes{
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: bolder;
+    margin-top: -5px;
+}
+@media(min-width: 480px){
+    .fecha_number{
+        margin-top: 0.875rem;
+    }
+}
+@media(min-width: 568px){
+    .fecha_number{
+        font-size: 3.375rem;
+        margin-top: 0.875rem;
+    }
+    .nombre_mes{
+        font-size: 1.5rem;
+        margin-top: -0.5625rem;
+    }
+}
+@media(min-width: 640px){
+    .fecha_number{
+        margin-top: 0.8125rem;
+        font-size: 4.0625rem;
+    }
+    .nombre_mes{
+        font-size: 1.5rem;
+        margin-top: -0.5625rem;
+    }
+}
+@media(min-width: 731px){
+    .fecha_number{
+        margin-top: 0.75rem;
+        font-size: 4.5625rem;
+    }
+    .nombre_mes{
+        font-size: 1.9375rem;
+        margin-top: -1rem;
+    }
+}
+@media(min-width: 768px){
+    .fecha_number{
+        margin-top:0.6875rem;
+        font-size: 2.8125rem;
+    }
+    .nombre_mes{
+        font-size: 1.125rem;
+        margin-top: -0.3125rem;
+    }
+}
+.titulo_calnedar{
+    color: #505050;
+    font-size: 0.9375rem;
+    font-weight: bolder;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.subtitulo_calendar{
+    color: #505050;
+    font-size: 11px;
+    font-weight: 100;
+    margin: 0;
+}
+.lugar_img{
+    color: #A0A0A0;
+    font-size: 11px;
+    font-weight: 100;
+    margin: 0;
+    margin-top: 10px;
+}
+@media(min-width: 568px){
+    .lugar_img{
+        font-size: 0.875rem;
+        margin-top: 2.625rem;
+    }
+}
+@media(min-width: 640px){
+    .titulo_calnedar{
+        font-size: 1.1875rem;
+    }
+    .subtitulo_calendar{
+        font-size: 0.875rem;
+    }
+    .lugar_img{
+        font-size: 0.875rem;
+        margin-top: 2.625rem;
+    }
+}
+@media(min-width: 731px){
+    .lugar_img{
+        margin-top: 4.9375rem;
+    }
+}
+@media(min-width: 768px){
+    .titulo_calnedar{
+        font-size: 1rem;
+    }
+    .lugar_img{
+        position: absolute;
+        bottom: 10px;
+    }
+}
+.lugar_img::before{
+  content: url('/assets/img/icono-img1.png');
+}
+.padding_derecha_izquierda{
+    padding-left: 18px;
+    padding-right: 0;
+    padding-top: 11px;
+}
+.padding_derecha_izquierda{
+    box-shadow:3px 1px 6px 1px #c0c0c0;
+    -moz-box-shadow:3px 1px 6px 1px #c0c0c0;
+    -webkit-box-shadow:3px 1px 6px 1px #c0c0c0;
+}
+.sombra_img{
+    box-shadow:3px 1px 6px 1px #c0c0c0;
+    -moz-box-shadow:3px 1px 6px 1px #c0c0c0;
+    -webkit-box-shadow:3px 1px 6px 1px #c0c0c0;
+}
+.btn_blanco_calendario{
+    background-color: #ffffff;
+    box-shadow:3px 1px 6px 1px #c0c0c0;
+    -moz-box-shadow:3px 1px 6px 1px #c0c0c0;
+    -webkit-box-shadow:3px 1px 6px 1px #c0c0c0;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 13px;
+    color: #818181;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.padding_eventos{
+    padding: 0;
+}
+@media(min-width: 768px){
+    .padding_eventos{
+        padding-left: 0.3125rem;
+        padding-right: 0.3125rem;
+    }
+    .largo_eventos{
+        height: 99%;
+    }
+}
