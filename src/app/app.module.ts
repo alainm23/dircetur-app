@@ -15,9 +15,10 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
+import { SlugifyPipe } from './pipes/slugify.pipe';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, SlugifyPipe],
   entryComponents: [],
   imports: [
     BrowserModule, 

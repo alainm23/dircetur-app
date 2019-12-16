@@ -4,6 +4,9 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
+// moment.js
+import * as moment from 'moment';  
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -22,6 +25,8 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
+      moment.locale ('es');
     });
   }
 }
