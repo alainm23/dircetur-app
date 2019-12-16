@@ -10,6 +10,13 @@
     <ion-col size="5" size-sm="3">
       <ion-img :src="assets/img/dircetur@3x.png"></ion-img>
     </ion-col>
+    <ion-col size="2" size-sm="1" offset="5" offset-sm="8">
+      <button class="btn_menu">
+        <div class="div_linea_color div_line_menu"></div>
+        <div class="div_linea_color div_line_menu"></div>
+        <div class="div_linea_color" id="div_line_menu_peque"></div>
+      </button>
+    </ion-col>
   </ion-row>
   <ion-row class="padding_espacio">
     <ion-col size="12">
@@ -20,23 +27,163 @@
         El boleto turístico es un boleto de ingreso con el cual se tiene acceso a 16 lugares entre sitios arqueológicos, museos y el Centro Qosqo de Arte Nativo. El boleto se puede comprar de forma general y parcial. Los precios se detallas a continuación:
       </p>
     </ion-col>
-    <ion-col>
+    <ion-col id="ocultar_img">
       <ion-img :src="assets/img/boleto-2.png"></ion-img>
     </ion-col>
   </ion-row>
-  <ion-row id="fondo_select" class="padding_espacio">
+  <ion-row id="fondo_select">
     <ion-col size="12" text-center>
       <ion-text>
         <h2 class="color_titulos">How much does it cost</h2>
       </ion-text>
     </ion-col>
     <ion-col size="12">
-        <ion-select placeholder="Select One">
+        <ion-select placeholder="Select One" class="select_boleto">
           <ion-select-option value="f">Female</ion-select-option>
           <ion-select-option value="m">Male</ion-select-option>
         </ion-select>
+        <ion-select placeholder="Boleto turistico general" class="select_boleto">
+          <ion-select-option value="f">Female</ion-select-option>
+          <ion-select-option value="m">Male</ion-select-option>
+        </ion-select>
+        <p text-center id="costo_font_size">
+          Cost per person:<ion-text color="#656565" style="font-weight: 800;">S/.130.00</ion-text> 
+        </p>
     </ion-col>
     <ion-col size="12"></ion-col>
+  </ion-row>
+  <ion-row class="padding_espacio">
+    <ion-col size="12" text-center>
+      <ion-text>
+        <h2 class="color_titulos">Where to purchase</h2>
+      </ion-text>
+    </ion-col>
+    <ion-col size="12" size-sm="6" text-center text-sm-left id="padding_rigth">
+      <ion-text>
+        <h6 class="subtitulos_map">Counter Central</h6>
+      </ion-text>
+      <ion-img :src="assets/img/2462836393e5ddb12e855df06c422bf8.png" class="img_border_map"></ion-img>
+      <p class="direcciones_map">Av. El Sol 103 Galerías Turísticas</p>
+      <p class="horario_map">Mon - Sun 8am - 6pm</p>
+    </ion-col>
+    <ion-col size="12" size-sm="6" text-center text-sm-left id="padding_left">
+      <ion-text>
+        <h6 class="subtitulos_map">Tourist Information office</h6>
+      </ion-text>
+      <ion-img :src="assets/img/2462836393e5ddb12e855df06c422bf8.png" class="img_border_map"></ion-img>
+      <p class="direcciones_map">Av. El Sol 103 Galerías Turísticas</p>
+      <p class="horario_map">Mon - Sun 8am - 6pm</p>
+    </ion-col>
+  </ion-row>
+  <ion-row class="padding_espacio">
+    <ion-col size="12">
+      <ion-text>
+        <h2 class="color_titulos" text-center>Where to purchase</h2>
+      </ion-text>
+      <p class="color_81 texto_espaciados">
+        La Vigencia del boleto turístico completo es de 10 días.<br><br> Los niños pagan desde los 10 años de edad, de 10 a 17 años, pueden adquirir el boleto de estudiante previa presentación del documento de identidad (DNI, Pasaporte, etc.)<br><br> El Boleto Turístico no incluye servicio de guía y movilidad.<br><br> No existen boletos individuales para cada atractivo turístico, se debe adquirir el boleto general o parcial.
+      </p>
+    </ion-col>
+  </ion-row>
+  <ion-row class="padding_espacio">
+     <ion-col size="12" text-center>
+      <ion-text>
+        <h2 class="color_titulos">Where to purchase</h2>
+      </ion-text>
+      <p class="color_81 texto_espaciados">
+        El boleto turístico completo tiene una valides de 10 días, sin embargo también existe la posibilidad de comprarlo de forma parcial como se detalla a continuación:
+      </p>
+     </ion-col>
+     <ion-col size="12" size-md="6" class="margin_bottom_card">
+      <ion-card class="ion-no-margin alturar_igualar">
+        <img src="assets/img/98388e36e175d1659d272d0494772f0e.png" class="sombra_car_img">
+        <ion-card-content class="padding_top_car_conten cantidad_datos">
+          <ion-text>
+            <h3 class="titulo_card">Circuit 1</h3>
+          </ion-text>
+          <ion-list lines="none">
+            <ion-item class="altura_list">
+              <ion-label class="espacio_list">- Parque Arqueológico de Saqsayhuaman  </ion-label>
+            </ion-item>
+            <ion-item class="altura_list">
+              <ion-label class="espacio_list">- Sitio Arqueológico de Qenqo</ion-label>
+            </ion-item>
+            <ion-item class="altura_list">
+              <ion-label class="espacio_list">- Grupo Arqueológico de Puka Pukara</ion-label>
+            </ion-item>
+          </ion-list>
+          <p class="color_viegencia">Vigencia<ion-text class="dia_bolder">1 dia</ion-text></p>
+        </ion-card-content>
+      </ion-card>
+     </ion-col>
+     <ion-col size="12" size-md="6" class="margin_bottom_card">
+      <ion-card class="ion-no-margin alturar_igualar">
+        <img src="assets/img/7c07407dbaadac20d72d3043fe17fdec.png" class="sombra_car_img">
+        <ion-card-content class="padding_top_car_conten">
+          <ion-text>
+            <h3 class="titulo_card">Circuit 1</h3>
+          </ion-text>
+          <ion-list lines="none">
+            <ion-item class="altura_list">
+              <ion-label class="espacio_list">- Museo Histórico Regional</ion-label>
+            </ion-item>
+            <ion-item class="altura_list">
+              <ion-label class="espacio_list">- Museo de Arte contemporáneo</ion-label>
+            </ion-item>
+            <ion-item class="altura_list">
+              <ion-label class="espacio_list">- Museo de Arte Popular</ion-label>
+            </ion-item>
+            <ion-item class="altura_list">
+              <ion-label class="espacio_list">- Museo de Sitio de Qorikancha</ion-label>
+            </ion-item>
+            <ion-item class="altura_list">
+              <ion-label class="espacio_list">- Centro Qosqo de Arte Nativo</ion-label>
+            </ion-item>
+            <ion-item class="altura_list">
+              <ion-label class="espacio_list">- Monumento al Inca Pachacutec</ion-label>
+            </ion-item>
+            <ion-item class="altura_list">
+              <ion-label class="espacio_list">- Parque Arqueológico de Tipón</ion-label>
+            </ion-item>
+            <ion-item class="altura_list">
+              <ion-label class="espacio_list">- Parque Arqueológico de Pikillacta</ion-label>
+            </ion-item>
+          </ion-list>
+          <p class="color_viegencia">Vigencia<ion-text class="dia_bolder">1 dia</ion-text></p>
+        </ion-card-content>
+      </ion-card>
+     </ion-col>
+     <ion-col size="12" size-md="6" class="margin_bottom_card">
+      <ion-card class="ion-no-margin alturar_igualar">
+        <img src="assets/img/ed3ef9205e87a0734a9b922608591f49.png" class="sombra_car_img">
+        <ion-card-content class="padding_top_car_conten">
+          <ion-text>
+            <h3 class="titulo_card">Circuit 1</h3>
+          </ion-text>
+          <ion-list lines="none">
+            <ion-item class="altura_list">
+              <ion-label class="espacio_list">- Parque Arqueológico de Pisac</ion-label>
+            </ion-item>
+            <ion-item class="altura_list">
+              <ion-label class="espacio_list">- Parque Arqueológico de Ollantaytambo</ion-label>
+            </ion-item>
+            <ion-item class="altura_list">
+              <ion-label class="espacio_list">- Parque Arqueológico de Chinchero</ion-label>
+            </ion-item>
+            <ion-item class="altura_list">
+              <ion-label class="espacio_list">- Parque Arqueológico de Moray</ion-label>
+            </ion-item>
+          </ion-list>
+          <p class="color_viegencia">Vigencia<ion-text class="dia_bolder">1 dia</ion-text></p>
+        </ion-card-content>
+      </ion-card>
+     </ion-col>
+  </ion-row>
+  <ion-row id="fondoazul" class="padding_espacio">
+     <p id="decripcion_ultimo">To view full site list visit our website</p>
+     <ion-col size="10" size-sm="8" size-md="6" offset="1" offset-sm="2" offset-md="3">
+       <button id="btn_blanco_ultimo">Go to website ></button>
+     </ion-col>
   </ion-row>
 </ion-grid>
 </ion-content>
