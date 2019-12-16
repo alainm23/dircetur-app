@@ -148,6 +148,11 @@ button:focus{
     font-weight: 700;
     font-size: 1.875rem;
 }
+@media(min-width: 1024px){
+    .color_65_titulos{
+        font-size: 3.75rem;
+    }
+}
 .espaciados_texto{
     line-height: 1.6;
 }
@@ -269,13 +274,19 @@ button:focus{
 }
 .flechas_tamaño_calender{
     width: 30%;
-    height: 50%;
+    height: 1.75rem;
     background-color: #ffffff;
-    margin-top: 1.3125rem;
+    margin-top: 2.0625rem;
+}
+@media(min-width: 360px){
+    .flechas_tamaño_calender{
+        height: 1.875rem;
+        margin-top: 2.25rem;
+    }  
 }
 @media(min-width: 640px){
     .flechas_tamaño_calender{
-        margin-top: 0.8125rem;
+        margin-top: 2rem;
     } 
 }
 @media(min-width: 768px){
@@ -287,25 +298,37 @@ button:focus{
 }
 @media(min-width: 1024px){
     .flechas_tamaño_calender{
-        margin-top: 35px;
+        margin-top: 54px;
         width: 26%;
-        height: 2.8125rem;
+      height: 2.8125rem;
     } 
 }
 #diciembre_year{
-    color: #707070;
-    font-weight: 400;
-    font-size: 1.5rem;
+    font-size: 1.75rem;
 }
-@media(min-width: 768px){
+/*@media(min-width: 320) and (min-height: 568px){
     #diciembre_year{
-        font-size: 2.1875rem;
-    }
+        font-size: 1.875rem;
+    } 
+}*/
+@media(min-width: 360px){
+    #diciembre_year{
+        font-size: 1.875rem;
+    } 
 }
 @media(min-width: 1024px){
     #diciembre_year{
-        font-size: 2.1875rem;
-    }
+        font-size: 2.8125rem;
+    } 
+}
+#mes_color{
+    color: #656565;
+    font-family: 'Open Sans', sans-serif;
+}
+#year_number{
+    color: #505050;
+    font-weight: 100;
+    font-family: 'Rubik', sans-serif;
 }
 .cuadrado_azul_calender{
     background-color: #3E729A;
@@ -474,4 +497,15 @@ button:focus{
     .largo_eventos{
         height: 99%;
     }
+}
+.event_color{
+    color: #656565;
+    font-weight: 100;
+}
+#subir_mesyear{
+    margin-top: -2.4375rem;
+}
+#subir_filter{
+    margin-top: -3.125rem;
+    color: #818181;
 }
