@@ -1,0 +1,36 @@
+.color_titulos{
+    color: #656565;
+    font-weight: 700;
+    font-size: 1.875rem;
+}
+.color_81{
+    color: #818181;
+}
+.texto_espaciados{
+    line-height: 1.6;
+    font-weight: 100;
+}
+.padding_espacio{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+#fondo_select{
+    --background: none;
+    background-image: url('/assets/img/thomas-griggs-HE78Yq11PMA-unsplash.png');
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#fondo_select::before{
+    content:'';
+	position: absolute;
+	left: 0;
+    right: 0;
+    height: 100%;
+	background-color: #ffffffad;
+}
+ion-select{
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding-right: 10px;
+}
