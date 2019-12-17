@@ -16,6 +16,11 @@ export class DatabaseService {
 
   constructor (private afs: AngularFirestore) { }
 
+  // Proveedores
+  get_prestador_by_id (nodo: string, id: string) {
+    return this.afs.collection (nodo).doc (id).valueChanges ();
+  }
+
   // Blogs
   get_blogs () {
     return this.afs.collection ('Blogs', ref => ref.orderBy ('fecha_creado').limit (6)).valueChanges ();

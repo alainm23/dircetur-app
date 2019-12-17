@@ -1,11 +1,15 @@
 import { Component } from '@angular/core';
 
 // Ionic
-import { MenuController, LoadingController } from '@ionic/angular'; 
+import { MenuController, LoadingController, ModalController } from '@ionic/angular'; 
 
 // Services
 import { DatabaseService } from '../services/database.service';
 import { SlugifyPipe } from '../pipes/slugify.pipe';
+
+// Modals
+import { SearchResultsPage } from '../search-results/search-results.page';
+import { ReportProviderPage } from '../report-provider/report-provider.page';
 
 // Utils
 import * as moment from 'moment';
@@ -20,10 +24,12 @@ export class HomePage {
   blogs: any = [];
   eventos: any = [];
 
+  search_text: string = "";
   current_date: string = moment ().format ();
   constructor(private menu:MenuController,
               private loadingController: LoadingController,
               private slugifyPipe: SlugifyPipe,
+              private modalController: ModalController,
               private database: DatabaseService
   ) {
     this.get_blogs ();
@@ -38,16 +44,8 @@ export class HomePage {
   }
 
   async get_events () {
-    const loading = await this.loadingController.create({
-      message: 'Procesando Informacion ...',
-      duration: 2000
-    });
-
-    await loading.present();
-
     this.database.get_events_by_month (moment (this.current_date).format ('MM')).subscribe ((res: any) => {
       console.log (res);
-      loading.dismiss ();
       this.eventos = this.order_items (res);
     });
   }
@@ -69,6 +67,50 @@ export class HomePage {
       let date = new Date (e.datageneral.fecha);
       return date.getTime () > today.getTime ();
     });
+  }
+
+  check_backbutton () {
+    let today = new Date ();
+    let date = new Date (this.current_date);
+
+    return date.getTime () > today.getTime ();
+  }
+
+  open_menu () {
+    this.menu.enable (true, 'first');
+    this.menu.open ('first');
+  }
+
+  async onEnter () {
+    if (this.search_text != "") {
+      const modal = await this.modalController.create({
+        component: SearchResultsPage,
+        componentProps: {
+          search_text: this.search_text
+        },
+        cssClass: 'puntopro-modal',
+        //enterAnimation: myEnterAnimation,
+        //leaveAnimation: myLeaveAnimation
+      });
+
+      await modal.present();
+    }
+  }
+
+  async open_report () {
+    const modal = await this.modalController.create({
+      component: ReportProviderPage,
+      /*
+      componentProps: {
+        search_text: this.search_text
+      },
+      */
+      cssClass: 'puntopro-modal',
+      //enterAnimation: myEnterAnimation,
+      //leaveAnimation: myLeaveAnimation
+    });
+
+    await modal.present();
   }
 
   // Datetime fuctions

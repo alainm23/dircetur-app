@@ -1,0 +1,50 @@
+<ion-content>
+  <ion-row>
+    <ion-col size="12">
+      <ion-item class="ion-text-center margin-top" lines="none">
+        <ion-label>
+          <h1 id="titulo">Dircetur Cusco</h1>
+          <p id="subtitulo">Authorized providers directory</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-card class="border-radius-8 margin-top">
+        <ion-item>
+          <ion-icon id="icon-padding" name="search"></ion-icon>
+          <ion-input type="search" id="search_input" placeholder="Check on your touristic provider"  (keyup.enter)="onEnter ()" [(ngModel)]="search_text"></ion-input>
+          <ion-icon name="help-circle"></ion-icon>
+        </ion-item>
+      </ion-card>
+    </ion-col>
+
+    <ion-col size="12">
+      <ion-item class="ion-text-center margin-top" lines="none">
+        <ion-label>
+          <h1 id="titulo">Search results</h1>
+        </ion-label>
+      </ion-item>
+
+      <ion-spinner style="width: 100%; margin-top: 1rem;" class="ion-text-center" *ngIf="is_loading" name="circles"></ion-spinner>
+
+      <ion-list *ngIf="is_loading === false">
+        <div *ngFor="let item of items"> 
+          <ion-item (click)="view_item (item)" [className]="item.reveal_child === true ? 'selected item-header' : 'no-selected item-header'">
+            <ion-icon id="icon-padding" name="search"></ion-icon>
+            {{ item.nombre_comercial }}
+            <ion-icon slot="end" name="ios-arrow-forward" [ngStyle]="{'transform': item.reveal_child ? 'rotate(90deg)' : 'none' }" class="transition"></ion-icon>
+          </ion-item>
+
+          <ion-card *ngIf="item.reveal_child" class="card-content" [@animation-top]>
+            <ion-spinner style="width: 100%; margin-top: 1rem;" class="ion-text-center" *ngIf="item.is_loading" name="circles"></ion-spinner>
+
+            <ul id="list-none" *ngIf="item.is_loading === false">
+              <li><span class="header-label">Teléfono:</span> <span class="content-label">{{ item.data.telefono }}</span></li>
+              <li><span class="header-label">E-Mail:</span> <span class="content-label">{{ item.data.correo }}</span></li>
+              <li><span class="header-label">Página Web:</span> <span class="content-label">{{ item.data.pagina_web }}</span></li>
+            </ul>
+          </ion-card>
+        </div>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-content>

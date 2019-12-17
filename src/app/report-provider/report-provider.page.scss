@@ -1,0 +1,40 @@
+ion-header,
+ion-toolbar,
+ion-content {
+    --background: #000000 !important;
+}
+
+#close-button {
+    color: #fff;
+}
+
+#item-header {
+    --background: #000;
+    color: #fff;
+}
+
+#item-header h1 {
+    font-weight: bold;
+}
+
+#item-header p {
+    margin-top: 1rem;
+    font-weight: normal;
+    font-size: 11pt;
+    line-height: 1.4;
+    color: #ffffffbf;
+}
+
+.select-item {
+    padding-left: 0px;
+    max-width: 100%;
+    width: 100%;
+}
+
+.no-padding {
+    padding: 0px 12px 3px 12px !important;
+}
+
+.no-padding ion-item {
+    --background: #E8E8E8;
+}
