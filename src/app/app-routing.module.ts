@@ -11,6 +11,14 @@ const routes: Routes = [
     path: 'boleto-turistico',
     loadChildren: () => import('./boleto-turistico/boleto-turistico.module').then( m => m.BoletoTuristicoPageModule)
   },
+  {
+    path: 'search-results',
+    loadChildren: () => import('./search-results/search-results.module').then( m => m.SearchResultsPageModule)
+  },
+  {
+    path: 'report-provider',
+    loadChildren: () => import('./report-provider/report-provider.module').then( m => m.ReportProviderPageModule)
+  },
 
 ];
 

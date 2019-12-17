@@ -17,6 +17,15 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { SlugifyPipe } from './pipes/slugify.pipe';
 
+// Animations
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// Modal Pages
+import { SearchResultsPageModule } from './search-results/search-results.module';
+import { ReportProviderPageModule } from './report-provider/report-provider.module';
+
+declare var require: any;
+
 @NgModule({
   declarations: [AppComponent, SlugifyPipe],
   entryComponents: [],
@@ -27,7 +36,12 @@ import { SlugifyPipe } from './pipes/slugify.pipe';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule,
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    BrowserAnimationsModule,
+
+    // Modals
+    SearchResultsPageModule,
+    ReportProviderPageModule
   ],
   providers: [
     StatusBar,

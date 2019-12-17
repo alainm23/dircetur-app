@@ -1,17 +1,8 @@
-<!--<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-    
-  </ion-toolbar>
-</ion-header>-->
-
 <ion-content>
   <ion-grid class="padding_cero">
     <ion-row id="fondo_imagen">
       <ion-col size="2" offset="10">
-        <button class="btn_menu">
+        <button class="btn_menu" (click)="open_menu ()">
           <div class="div_linea_color div_line_menu"></div>
           <div class="div_linea_color div_line_menu"></div>
           <div class="div_linea_color" id="div_line_menu_peque"></div>
@@ -27,14 +18,14 @@
     <ion-row class="ion-padding-start ion-padding-end">
       <ion-col size="12" class="fondo_blanco">
           <ion-icon name="search" class="icon_bajar_buscardor ion-margin-end"></ion-icon>
-          <ion-input placeholder="Enter Input" id="input_border_left"></ion-input>
+          <ion-input type="search" placeholder="Check on your touristic provider" id="input_border_left" (keyup.enter)="onEnter ()" [(ngModel)]="search_text"></ion-input>
           <ion-icon name="help-circle" class="icon_bajar_buscardor ion-margin-start"></ion-icon>
       </ion-col>
       <ion-col size="12" text-center>
           <p class="color_81" id="espaciado_line">Been subject of fraud? Have any claims or want to congratulate?</p>
       </ion-col>
       <ion-col size="10" size-sm="6" offset="1" offset-sm="3" text-center>
-          <button class="btn_rojo ion-padding-top ion-padding-bottom">Let us know</button>
+          <button class="btn_rojo ion-padding-top ion-padding-bottom" (click)="open_report ()">Let us know</button>
       </ion-col>
       <ion-col size="12" text-center>
           <h1 class="color_65_titulos">What is DIRCETUR</h1>
@@ -80,7 +71,7 @@
             <h2 class="color_65_titulos">Upcoming events</h2>
         </ion-col>
         <ion-col size="2" text-right class="ion-margin-bottom">
-          <button class="flechas_tamaño_calender padding_cero" (click)="change_month (-1)">
+          <button *ngIf="check_backbutton ()" class="flechas_tamaño_calender padding_cero" (click)="change_month (-1)">
             <img src="assets/img/icono-derecha.png" width="100%" height="100%">
           </button>
         </ion-col>
@@ -96,17 +87,14 @@
           <ion-row>
             <ion-col size="3" class="cuadrado_azul_calender padding_cero largo_eventos" text-center>
               <p class="color_blanco fecha_number">{{ get_date_format (item.datageneral.fecha, 'DD') }}</p>
-              <p class="color_blanco nombre_mes">{{ get_date_format (item.datageneral.fecha, 'MMM') }}</p>
+              <p class="color_blanco nombre_mes">{{ get_date_format (item.datageneral.fecha, 'ddd') }}</p>
             </ion-col>
             <ion-col size="9" class="sombra_img_descripcion padding_cero">
               <ion-row style="height: 100%;">
-                <ion-col size="4" class="padding_cero sombra_img largo_eventos">
-                  <img src="assets/img/mes-img1.png" width="100%" height="100%">
-                </ion-col>
-                <ion-col size="8" class="padding_derecha_izquierda largo_eventos">
-                  <p class="titulo_calnedar">Titulo</p>
-                  <p class="subtitulo_calendar">Fiesta patronal</p>
-                  <p class="lugar_img">Paucartambo</p>
+                <ion-col size="12" class="padding_derecha_izquierda largo_eventos">
+                  <p class="titulo_calnedar">{{ item.datageneral.titulo }}</p>
+                  <p class="subtitulo_calendar">{{ item.datageneral.categoria.name }}</p>
+                  <!--p class="lugar_img">{{ item.datageneral.provincia.nombre }}</!p-->
                 </ion-col>
               </ion-row>
             </ion-col>

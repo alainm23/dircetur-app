@@ -93,6 +93,7 @@
         padding-left: 1rem;
     } 
 }
+
 .fondo_blanco{
     background-color: #ffffff;
     -webkit-box-shadow: 3px 11px 17px -1px rgba(171,171,171,1);
@@ -126,12 +127,12 @@
     color: #818181;
 }
 #espaciado_line{
-    line-height: 1.5;
+    line-height: 1.2;
     margin-top: 2rem;
 }
 .btn_rojo{
     background-color: #DB1D1D;
-    border: 1px solid #707070;
+    border: 1px solid shade (#DB1D1D);
     width: 100%;
     color: #ffffff;
     font-size: 1.25rem;
@@ -269,9 +270,9 @@ button:focus{
 }
 .flechas_tamaño_calender{
     width: 30%;
-    height: 50%;
+    height: 25%;
     background-color: #ffffff;
-    margin-top: 1.3125rem;
+    margin-top: 30px;
 }
 @media(min-width: 640px){
     .flechas_tamaño_calender{
@@ -380,7 +381,7 @@ button:focus{
 .titulo_calnedar{
     color: #505050;
     font-size: 0.9375rem;
-    font-weight: bolder;
+    font-weight: 500;
     margin: 0;
     display: -webkit-box;
     -webkit-line-clamp: 1;
