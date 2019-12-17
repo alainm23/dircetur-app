@@ -3,16 +3,16 @@
     <ion-col size="12">
       <ion-item class="ion-text-center margin-top" lines="none">
         <ion-label>
-          <h1 id="titulo">Dircetur Cusco</h1>
+          <h1 class="titulo">Dircetur Cusco</h1>
           <p id="subtitulo">Authorized providers directory</p>
         </ion-label>
       </ion-item>
 
       <ion-card class="border-radius-8 margin-top">
         <ion-item>
-          <ion-icon id="icon-padding" name="search"></ion-icon>
+          <ion-icon name="search" class="color_icoon_search icon-padding"></ion-icon>
           <ion-input type="search" id="search_input" placeholder="Check on your touristic provider"  (keyup.enter)="onEnter ()" [(ngModel)]="search_text"></ion-input>
-          <ion-icon name="help-circle"></ion-icon>
+          <ion-icon name="help-circle" class="color_icoon_search"></ion-icon>
         </ion-item>
       </ion-card>
     </ion-col>
@@ -20,13 +20,13 @@
     <ion-col size="12">
       <ion-item class="ion-text-center margin-top" lines="none">
         <ion-label>
-          <h1 id="titulo">Search results</h1>
+          <h1 class="titulo">Search results</h1>
         </ion-label>
       </ion-item>
 
       <ion-spinner style="width: 100%; margin-top: 1rem;" class="ion-text-center" *ngIf="is_loading" name="circles"></ion-spinner>
 
-      <ion-list *ngIf="is_loading === false">
+     <!--<ion-list *ngIf="is_loading === false">
         <div *ngFor="let item of items"> 
           <ion-item (click)="view_item (item)" [className]="item.reveal_child === true ? 'selected item-header' : 'no-selected item-header'">
             <ion-icon id="icon-padding" name="search"></ion-icon>
@@ -43,6 +43,342 @@
               <li><span class="header-label">Página Web:</span> <span class="content-label">{{ item.data.pagina_web }}</span></li>
             </ul>
           </ion-card>
+        </div>
+      </ion-list>--> 
+
+
+      <ion-list *ngIf="is_loading === false">
+        <div *ngFor="let item of items"> 
+          <ion-item (click)="view_item (item)" [className]="item.reveal_child === true ? 'selected item-header' : 'no-selected item-header'">
+            <ion-icon class="icon-padding"  src="assets/img/Grupo 409.svg"></ion-icon>
+            <p>Agencia</p>
+            <ion-icon slot="end" name="ios-arrow-forward" [ngStyle]="{'transform': item.reveal_child ? 'rotate(90deg)' : 'none' }" class="transition"></ion-icon>
+          </ion-item>
+
+          <ion-card *ngIf="item.reveal_child" class="card-content" [@animation-top]>
+            <ion-spinner style="width: 100%; margin-top: 1rem;" class="ion-text-center" *ngIf="item.is_loading" name="circles"></ion-spinner>
+            <ion-row>
+              <ion-col size="12" class="ion-no-padding border_col">
+                <ion-row>
+                <ion-col size="12" size-sm="6" class="ion-no-padding">
+                  <ul class="list-none" *ngIf="item.is_loading === false">
+                    <li><span class="header-label">Teléfono:</span> <span class="content-label">{{ item.data.telefono }}</span></li>
+                    <li><span class="header-label">E-Mail:</span> <span class="content-label">{{ item.data.correo }}</span></li>
+                    <li><span class="header-label">Página Web:</span> <span class="content-label">{{ item.data.pagina_web }}</span></li>
+                  </ul>
+                </ion-col>
+                <ion-col size="12" size-sm="6" class="ion-no-padding">
+                  <ul class="list-none" *ngIf="item.is_loading === false">
+                    <li><span class="header-label">Repre. Legal: </span> <span class="content-label">Eric Cantona</span></li>
+                    <li><span class="header-label">Correo:</span> <span class="content-label">e.cantona@hotelazo.com</span></li>
+                    <li><span class="header-label">Teléfono:</span> <span class="content-label">084 878659</span></li>
+                  </ul>
+                </ion-col>
+              </ion-row>
+              </ion-col>
+              <ion-col size="12" class="ion-no-padding">
+                <ul class="list-none" *ngIf="item.is_loading === false">
+                  <li><span class="header-label">Clasificación:</span> <span class="content-label">Turismo y aventura</span></li>
+                  <li><span class="header-label">Nro. Certificado:</span> <span class="content-label">1234556 - ABX</span></li>
+                  <li><span class="header-label">Fecha de Expedición:</span> <span class="content-label">01.06.2007</span></li>
+                  <li><span class="header-label">Última fiscalización:</span> <span class="content-label">06.09.2018</span></li>
+                  <li class="bajar_list">
+                    <ion-row>
+                      <ion-col size="4" size-sm="3" size-lg="2" class="ion-no-padding">
+                        <span class="header-label">Servicios comp:</span>
+                      </ion-col>
+                      <ion-col size="8" size-md="9" size-lg="10" class="padding_left_col" id="descripcion"><span class="content-label">Soy un servicio Este es un servicio mas Aqui va el tercero</span></ion-col>
+                    </ion-row>
+                  </li>
+                  <li><span class="header-label">Razón social:</span> <span class="content-label">Este es un nombre juridico de un hotel S.A.C</span></li>
+                  <li><span class="header-label">RUC:</span> <span class="content-label">20808776576</span></li>
+                  <li><span class="header-label">Dirección:</span> <span class="content-label">Avenida hotelazo grande j-8, Urb. Santa con nombre largo, San Jeronimo, Cusco</span></li>
+                </ul>
+              </ion-col>
+              <ion-col size="8" offset="2" class="ion-text-center ion-no-padding">
+                <p id="color_negrita">How was your experience with this provider?</p>
+                <ion-row>
+                  <ion-col size="6">
+                    <button class="btn_manos" id="like_bajo">
+                      <ion-img :src="assets/img/Imagen_38.png"></ion-img>
+                    </button>
+                  </ion-col>
+                  <ion-col size="6">
+                    <button class="btn_manos">
+                      <ion-img :src="assets/img/Imagen_39.png"></ion-img>
+                    </button>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+          </ion-card>
+        </div>
+        <div *ngFor="let item of items"> 
+          <ion-item (click)="view_item (item)" [className]="item.reveal_child === true ? 'selected item-header' : 'no-selected item-header'">
+            <ion-icon class="icon-padding"  src="assets/img/Grupo 404.svg"></ion-icon>
+            <p>Restuarante</p>
+            <ion-icon slot="end" name="ios-arrow-forward" [ngStyle]="{'transform': item.reveal_child ? 'rotate(90deg)' : 'none' }" class="transition"></ion-icon>
+          </ion-item>
+
+          <ion-card *ngIf="item.reveal_child" class="card-content" [@animation-top]>
+            <ion-spinner style="width: 100%; margin-top: 1rem;" class="ion-text-center" *ngIf="item.is_loading" name="circles"></ion-spinner>
+            <ion-row>
+              <ion-col size="12" class="ion-no-padding border_col">
+                <ion-row>
+                  <ion-col size="6" class="ion-text-center">
+                    <p><span class="number_color">42</span><span class="descripcon_number">Tables</span></p>
+                  </ion-col>
+                  <ion-col size="6">
+                    <p><span class="number_color">164</span><span class="descripcon_number">Chairs</span></p>
+                  </ion-col>
+                  <ion-col size="12" size-sm="6" class="ion-no-padding">
+                  <ul class="list-none" *ngIf="item.is_loading === false">
+                    <li><span class="header-label">Teléfono:</span> <span class="content-label">{{ item.data.telefono }}</span></li>
+                    <li><span class="header-label">E-Mail:</span> <span class="content-label">{{ item.data.correo }}</span></li>
+                    <li><span class="header-label">Página Web:</span> <span class="content-label">{{ item.data.pagina_web }}</span></li>
+                  </ul>
+                </ion-col>
+                <ion-col size="12" size-sm="6" class="ion-no-padding">
+                  <ul class="list-none" *ngIf="item.is_loading === false">
+                    <li><span class="header-label">Repre. Legal: </span> <span class="content-label">Eric Cantona</span></li>
+                    <li><span class="header-label">Correo:</span> <span class="content-label">e.cantona@hotelazo.com</span></li>
+                    <li><span class="header-label">Teléfono:</span> <span class="content-label">084 878659</span></li>
+                  </ul>
+                </ion-col>
+              </ion-row>
+              </ion-col>
+              <ion-col size="12" class="ion-no-padding">
+                <ul class="list-none" *ngIf="item.is_loading === false">
+                  <li><span class="header-label">Clasificación:</span> <span class="content-label">Turismo y aventura</span></li>
+                  <li><span class="header-label">Nro. Certificado:</span> <span class="content-label">1234556 - ABX</span></li>
+                  <li><span class="header-label">Fecha de Expedición:</span> <span class="content-label">01.06.2007</span></li>
+                  <li><span class="header-label">Última fiscalización:</span> <span class="content-label">06.09.2018</span></li>
+                  <li class="bajar_list"><span class="header-label">Razón social:</span> <span class="content-label">Este es un nombre juridico de un hotel S.A.C</span></li>
+                  <li><span class="header-label">RUC:</span> <span class="content-label">20808776576</span></li>
+                  <li><span class="header-label">Dirección:</span> <span class="content-label">Avenida hotelazo grande j-8, Urb. Santa con nombre largo, San Jeronimo, Cusco</span></li>
+                </ul>
+              </ion-col>
+              <ion-col size="8" offset="2" class="ion-text-center ion-no-padding">
+                <p id="color_negrita">How was your experience with this provider?</p>
+                <ion-row>
+                  <ion-col size="6">
+                    <button class="btn_manos" id="like_bajo">
+                      <ion-img :src="assets/img/Imagen_38.png"></ion-img>
+                    </button>
+                  </ion-col>
+                  <ion-col size="6">
+                    <button class="btn_manos">
+                      <ion-img :src="assets/img/Imagen_39.png"></ion-img>
+                    </button>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+          </ion-card>
+        </div>
+        <div *ngFor="let item of items"> 
+          <ion-item (click)="view_item (item)" [className]="item.reveal_child === true ? 'selected item-header' : 'no-selected item-header'">
+            <ion-icon class="icon-padding"  src="assets/img/Grupo 408.svg"></ion-icon>
+            <p>tour guide</p>
+            <ion-icon slot="end" name="ios-arrow-forward" [ngStyle]="{'transform': item.reveal_child ? 'rotate(90deg)' : 'none' }" class="transition"></ion-icon>
+          </ion-item>
+
+          <ion-card *ngIf="item.reveal_child" class="card-content" [@animation-top]>
+            <ion-spinner style="width: 100%; margin-top: 1rem;" class="ion-text-center" *ngIf="item.is_loading" name="circles"></ion-spinner>
+            <ion-row>
+              <ion-col size="12" class="ion-no-padding border_col">
+                <ion-row>
+                  <ion-col size="12" size-sm="6" class="ion-no-padding">
+                  <ul class="list-none" *ngIf="item.is_loading === false">
+                    <li><span class="header-label">Teléfono:</span> <span class="content-label">{{ item.data.telefono }}</span></li>
+                    <li><span class="header-label">E-Mail:</span> <span class="content-label">{{ item.data.correo }}</span></li>
+                    <li><span class="header-label">Página Web:</span> <span class="content-label">{{ item.data.pagina_web }}</span></li>
+                  </ul>
+                </ion-col>
+                <ion-col size="12" size-sm="6" class="ion-no-padding">
+                  <ul class="list-none" *ngIf="item.is_loading === false">
+                    <li><span class="header-label">Nro. Carnet:</span> <span class="content-label">12312354</span></li>
+                    <li><span class="header-label">Fecha de Expedición:</span> <span class="content-label">01.06.2007</span></li>
+                    <li><span class="header-label">Centro de formación:</span> <span class="content-label">Cenfotour</span></li>
+                    <li><span class="header-label">Asociación y/o Colegio:</span> <span class="content-label">Nombre del colegio</span></li>
+                    <li><span class="header-label"> Última fiscalización:</span> <span class="content-label">06.09.2018</span></li>
+                  </ul>
+                </ion-col>
+              </ion-row>
+              </ion-col>
+              <ion-col size="12" class="ion-no-padding">
+                <ul class="list-none" *ngIf="item.is_loading === false">
+                  <li><span class="header-label">Tipo de guia:</span> <span class="content-label">Montaña</span></li>
+                  <li><span class="header-label">Idiomas:</span> <span class="content-label">Español, ingles</span></li>
+                  <li class="bajar_list"><span class="header-label">RUC:</span> <span class="content-label">20808776576</span></li>
+                  <li><span class="header-label">DNI:</span> <span class="content-label">46329802</span></li>
+                  <li><span class="header-label">Dirección:</span> <span class="content-label">Avenida hotelazo grande j-8, Urb. Santa con nombre largo, San Jeronimo, Cusco</span></li>
+                </ul>
+              </ion-col>
+              <ion-col size="8" offset="2" class="ion-text-center ion-no-padding">
+                <p id="color_negrita">How was your experience with this provider?</p>
+                <ion-row>
+                  <ion-col size="6">
+                    <button class="btn_manos" id="like_bajo">
+                      <ion-img :src="assets/img/Imagen_38.png"></ion-img>
+                    </button>
+                  </ion-col>
+                  <ion-col size="6">
+                    <button class="btn_manos">
+                      <ion-img :src="assets/img/Imagen_39.png"></ion-img>
+                    </button>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+          </ion-card>
+        </div>
+        <div *ngFor="let item of items"> 
+          <ion-item (click)="view_item (item)" [className]="item.reveal_child === true ? 'selected item-header' : 'no-selected item-header'">
+            <ion-icon class="icon-padding"  src="assets/img/Grupo 407.svg"></ion-icon>
+            <p>accommodation-Hotel</p>
+            <ion-icon slot="end" name="ios-arrow-forward" [ngStyle]="{'transform': item.reveal_child ? 'rotate(90deg)' : 'none' }" class="transition"></ion-icon>
+          </ion-item>
+
+          <ion-card *ngIf="item.reveal_child" class="card-content" [@animation-top]>
+            <ion-spinner style="width: 100%; margin-top: 1rem;" class="ion-text-center" *ngIf="item.is_loading" name="circles"></ion-spinner>
+            <ion-row>
+              <ion-col size="12" class="ion-no-padding border_col">
+                <ion-row>
+                  <ion-col size="6" class="ion-text-center">
+                    <p><span class="number_color">42</span><span class="descripcon_number">Rooms</span></p>
+                  </ion-col>
+                  <ion-col size="6">
+                    <p><span class="number_color">164</span><span class="descripcon_number">Beds</span></p>
+                  </ion-col>
+                  <ion-col size="12" size-sm="6" class="ion-no-padding">
+                  <ul class="list-none" *ngIf="item.is_loading === false">
+                    <li><span class="header-label">Teléfono:</span> <span class="content-label">{{ item.data.telefono }}</span></li>
+                    <li><span class="header-label">E-Mail:</span> <span class="content-label">{{ item.data.correo }}</span></li>
+                    <li><span class="header-label">Página Web:</span> <span class="content-label">{{ item.data.pagina_web }}</span></li>
+                  </ul>
+                </ion-col>
+                <ion-col size="12" size-sm="6" class="ion-no-padding">
+                  <ul class="list-none" *ngIf="item.is_loading === false">
+                    <li><span class="header-label">Repre. Legal: </span> <span class="content-label">Eric Cantona</span></li>
+                    <li><span class="header-label">Correo:</span> <span class="content-label">e.cantona@hotelazo.com</span></li>
+                    <li><span class="header-label">Teléfono:</span> <span class="content-label">084 878659</span></li>
+                  </ul>
+                </ion-col>
+              </ion-row>
+              </ion-col>
+              <ion-col size="12" class="ion-no-padding">
+                <ul class="list-none" *ngIf="item.is_loading === false">
+                  <li><span class="header-label">Clasificación:</span> <span class="content-label">Turismo y aventura</span></li>
+                  <li><span class="header-label">Nro. Certificado:</span> <span class="content-label">1234556 - ABX</span></li>
+                  <li><span class="header-label">Fecha de Expedición:</span> <span class="content-label">01.06.2007</span></li>
+                  <li><span class="header-label">Última fiscalización:</span> <span class="content-label">06.09.2018</span></li>
+                  <li class="bajar_list"><span class="header-label">Razón social:</span> <span class="content-label">Este es un nombre juridico de un hotel S.A.C</span></li>
+                  <li><span class="header-label">RUC:</span> <span class="content-label">20808776576</span></li>
+                  <li><span class="header-label">Dirección:</span> <span class="content-label">Avenida hotelazo grande j-8, Urb. Santa con nombre largo, San Jeronimo, Cusco</span></li>
+                </ul>
+              </ion-col>
+              <ion-col size="8" offset="2" class="ion-text-center ion-no-padding">
+                <p id="color_negrita">How was your experience with this provider?</p>
+                <ion-row>
+                  <ion-col size="6">
+                    <button class="btn_manos" id="like_bajo">
+                      <ion-img :src="assets/img/Imagen_38.png"></ion-img>
+                    </button>
+                  </ion-col>
+                  <ion-col size="6">
+                    <button class="btn_manos">
+                      <ion-img :src="assets/img/Imagen_39.png"></ion-img>
+                    </button>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+          </ion-card>
+        </div>
+      </ion-list>
+    </ion-col>
+    <ion-col size="12">
+      <ion-item class="ion-text-center margin-top" lines="none">
+        <ion-label>
+          <h1 class="titulo">How do I know if it’s legit</h1>
+        </ion-label>
+      </ion-item>
+
+      <ion-spinner style="width: 100%; margin-top: 1rem;" class="ion-text-center" *ngIf="is_loading" name="circles"></ion-spinner>
+
+     <!--<ion-list *ngIf="is_loading === false">
+        <div *ngFor="let item of items"> 
+          <ion-item (click)="view_item (item)" [className]="item.reveal_child === true ? 'selected item-header' : 'no-selected item-header'">
+            <ion-icon id="icon-padding" name="search"></ion-icon>
+            {{ item.nombre_comercial }}
+            <ion-icon slot="end" name="ios-arrow-forward" [ngStyle]="{'transform': item.reveal_child ? 'rotate(90deg)' : 'none' }" class="transition"></ion-icon>
+          </ion-item>
+
+          <ion-card *ngIf="item.reveal_child" class="card-content" [@animation-top]>
+            <ion-spinner style="width: 100%; margin-top: 1rem;" class="ion-text-center" *ngIf="item.is_loading" name="circles"></ion-spinner>
+
+            <ul id="list-none" *ngIf="item.is_loading === false">
+              <li><span class="header-label">Teléfono:</span> <span class="content-label">{{ item.data.telefono }}</span></li>
+              <li><span class="header-label">E-Mail:</span> <span class="content-label">{{ item.data.correo }}</span></li>
+              <li><span class="header-label">Página Web:</span> <span class="content-label">{{ item.data.pagina_web }}</span></li>
+            </ul>
+          </ion-card>
+        </div>
+      </ion-list>--> 
+
+
+      <ion-list *ngIf="is_loading === false">
+        <div *ngFor="let item of items"> 
+          <ion-item (click)="view_item (item)" [className]="item.reveal_child === true ? 'selected item-header' : 'no-selected item-header'">
+            <ion-icon class="icon-padding"  src="assets/img/Grupo 409.svg"></ion-icon>
+            <p>Agencia</p>
+            <ion-icon slot="end" name="ios-arrow-forward" [ngStyle]="{'transform': item.reveal_child ? 'rotate(90deg)' : 'none' }" class="transition"></ion-icon>
+          </ion-item>
+            <ion-row *ngIf="item.reveal_child" [@animation-top]>
+              <ion-col size="12" class="padding_tops_col">
+                <p class="color_descrion">La persona natural acreditada con el título de Guía Oficial de Turismo otorgado a nombre de la Nación, por institutos superiores y centros de formación superior oficialmente reconocidos, después de haber cursado y aprobado estudios por un lapso mínimo de seis semestres académicos. Licenciado en Turismo: La persona natural que ostenta el título de Licenciado en Turismo expedido por las universidades del país, o revalidado conforme a ley, si el título hubiera sido otorgado por una universidad extranjera, inscrito en el Colegio de Licenciados en Turismo.</p>
+              </ion-col>
+            </ion-row>
+        </div>
+        <div *ngFor="let item of items"> 
+          <ion-item (click)="view_item (item)" [className]="item.reveal_child === true ? 'selected item-header' : 'no-selected item-header'">
+            <ion-icon class="icon-padding"  src="assets/img/Grupo 404.svg"></ion-icon>
+            <p>Restuarante</p>
+            <ion-icon slot="end" name="ios-arrow-forward" [ngStyle]="{'transform': item.reveal_child ? 'rotate(90deg)' : 'none' }" class="transition"></ion-icon>
+          </ion-item>
+
+          <ion-row *ngIf="item.reveal_child" [@animation-top]>
+            <ion-col size="12" class="padding_tops_col">
+              <p class="color_descrion">La persona natural acreditada con el título de Guía Oficial de Turismo otorgado a nombre de la Nación, por institutos superiores y centros de formación superior oficialmente reconocidos, después de haber cursado y aprobado estudios por un lapso mínimo de seis semestres académicos. Licenciado en Turismo: La persona natural que ostenta el título de Licenciado en Turismo expedido por las universidades del país, o revalidado conforme a ley, si el título hubiera sido otorgado por una universidad extranjera, inscrito en el Colegio de Licenciados en Turismo.</p>
+            </ion-col>
+          </ion-row>
+        </div>
+        <div *ngFor="let item of items"> 
+          <ion-item (click)="view_item (item)" [className]="item.reveal_child === true ? 'selected item-header' : 'no-selected item-header'">
+            <ion-icon class="icon-padding"  src="assets/img/Grupo 408.svg"></ion-icon>
+            <p>tour guide</p>
+            <ion-icon slot="end" name="ios-arrow-forward" [ngStyle]="{'transform': item.reveal_child ? 'rotate(90deg)' : 'none' }" class="transition"></ion-icon>
+          </ion-item>
+
+          <ion-row *ngIf="item.reveal_child" [@animation-top]>
+            <ion-col size="12" class="padding_tops_col">
+              <p class="color_descrion">La persona natural acreditada con el título de Guía Oficial de Turismo otorgado a nombre de la Nación, por institutos superiores y centros de formación superior oficialmente reconocidos, después de haber cursado y aprobado estudios por un lapso mínimo de seis semestres académicos. Licenciado en Turismo: La persona natural que ostenta el título de Licenciado en Turismo expedido por las universidades del país, o revalidado conforme a ley, si el título hubiera sido otorgado por una universidad extranjera, inscrito en el Colegio de Licenciados en Turismo.</p>
+            </ion-col>
+          </ion-row>
+        </div>
+        <div *ngFor="let item of items"> 
+          <ion-item (click)="view_item (item)" [className]="item.reveal_child === true ? 'selected item-header' : 'no-selected item-header'">
+            <ion-icon class="icon-padding"  src="assets/img/Grupo 404.svg"></ion-icon>
+            <p>accommodation-Hotel</p>
+            <ion-icon slot="end" name="ios-arrow-forward" [ngStyle]="{'transform': item.reveal_child ? 'rotate(90deg)' : 'none' }" class="transition"></ion-icon>
+          </ion-item>
+
+          <ion-row *ngIf="item.reveal_child" [@animation-top]>
+            <ion-col size="12" class="padding_tops_col">
+              <p class="color_descrion">La persona natural acreditada con el título de Guía Oficial de Turismo otorgado a nombre de la Nación, por institutos superiores y centros de formación superior oficialmente reconocidos, después de haber cursado y aprobado estudios por un lapso mínimo de seis semestres académicos. Licenciado en Turismo: La persona natural que ostenta el título de Licenciado en Turismo expedido por las universidades del país, o revalidado conforme a ley, si el título hubiera sido otorgado por una universidad extranjera, inscrito en el Colegio de Licenciados en Turismo.</p>
+            </ion-col>
+          </ion-row>
         </div>
       </ion-list>
     </ion-col>
