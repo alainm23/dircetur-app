@@ -38,3 +38,23 @@ ion-content {
 .no-padding ion-item {
     --background: #E8E8E8;
 }
+
+#send-button {
+    --border-radius: 8px;
+    width: 90%;
+    text-transform: none;
+    margin: 0 auto;
+    --ion-color-base: #ffffff !important;
+}
+
+#search-card {
+    margin: 0px;
+}
+
+#search-card ion-list {
+    background: #E8E8E8;   
+}
+
+#icon-padding {
+    padding-right: 1rem;
+}

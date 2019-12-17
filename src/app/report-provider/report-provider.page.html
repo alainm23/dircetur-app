@@ -21,46 +21,69 @@
       </ion-col>
 
       <ion-col size="12">
+        <form [formGroup]="form">
         <ion-row>
-          <ion-col size="12" class="no-padding">
+          <!--ion-col size="12" class="no-padding">
             <ion-item>
-              <ion-select class="select-item" interface="popover" placeholder="Type of incident">
-                <ion-select-option value="DNI">DNI</ion-select-option>
-                <ion-select-option value="CE">CE</ion-select-option>
+              <ion-select class="select-item" interface="popover" placeholder="Type of incident" formControlName="type" (ionChange)="onChange ()">
+                <ion-select-option value="agencia">Agencia</ion-select-option>
+                <ion-select-option value="alojamiento">Alojamiento</ion-select-option>
+                <ion-select-option value="restaurante">Restaurante</ion-select-option>
+                <ion-select-option value="guia">Guia</ion-select-option>
+                <ion-select-option value="buscar">No estoy seguro</ion-select-option>
               </ion-select>
             </ion-item>
+          </ion-col-->
+
+          <ion-col size="12" class="no-padding">
+            <ion-item>
+              <ion-input type="text" placeholder="Provider’s company name" formControlName="provider" (ionChange)="on_input_change ($event.detail.value)"></ion-input>
+            </ion-item>
+
+            <ion-card id="search-card" *ngIf="show_searchbox">
+              <ion-list>
+                <ion-item *ngFor="let item of items" (click)="selct_item (item)">
+                  <ion-icon id="icon-padding" name="search"></ion-icon>
+                  {{ item.nombre_comercial }}
+                  <span slot="end">{{ item.tipo }}</span>
+                </ion-item>
+              </ion-list>
+            </ion-card>
           </ion-col>
 
           <ion-col size="12" class="no-padding">
             <ion-item>
-              <ion-input type="text" placeholder="Provider’s company name"></ion-input>
+              <ion-input type="text" placeholder="Your full name" formControlName="fullname"></ion-input>
             </ion-item>
           </ion-col>
 
           <ion-col size="12" class="no-padding">
             <ion-item>
-              <ion-input type="text" placeholder="Your full name"></ion-input>
+              <ion-input type="email" placeholder="E-mail" formControlName="email"></ion-input>
             </ion-item>
           </ion-col>
 
           <ion-col size="12" class="no-padding">
             <ion-item>
-              <ion-input type="email" placeholder="E-mail"></ion-input>
+              <ion-input type="number" placeholder="Contact number" formControlName="phone_number"></ion-input>
             </ion-item>
           </ion-col>
 
           <ion-col size="12" class="no-padding">
             <ion-item>
-              <ion-input type="number" placeholder="Contact number"></ion-input>
+              <ion-textarea type="text" rows="3" placeholder="Tell us what happened" formControlName="description"></ion-textarea>
             </ion-item>
           </ion-col>
 
-          <ion-col size="12" class="no-padding">
-            <ion-item>
-              <ion-textarea type="text" rows="3" placeholder="Tell us what happened"></ion-textarea>
-            </ion-item>
+          <ion-col size="12" class="ion-margin-top">
+            <div class="ion-text-center">
+              <ion-button id="send-button" (click)="onClick()" expand="block" size="large" color="light" [disabled]="!form.valid">
+                Send
+              </ion-button>
+            </div>
           </ion-col>
         </ion-row>
+        </form>
       </ion-col>
     </ion-row>
   </ion-grid>
