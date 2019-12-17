@@ -2,9 +2,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 declare var require: any
 
-// Services
+// AlgoliaSearch
 import * as algoliasearch from 'algoliasearch/dist/algoliasearch.js';
 import { environment } from '../../environments/environment';
+
+// Services
 import { DatabaseService } from '../services/database.service'
 
 @Component({
@@ -36,7 +38,9 @@ export class SearchResultsPage implements OnInit {
   ngOnInit() {
     this.initalgolia ();
 
-    this.search ();
+    if (this.search_text != "") {
+      this.search ();
+    }
   }
 
   initalgolia () {

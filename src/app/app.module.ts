@@ -17,6 +17,9 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { SlugifyPipe } from './pipes/slugify.pipe';
 
+// Form
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 // Animations
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -38,6 +41,8 @@ declare var require: any;
     AngularFirestoreModule,
     AngularFireAuthModule,
     BrowserAnimationsModule,
+    FormsModule, 
+    ReactiveFormsModule,
 
     // Modals
     SearchResultsPageModule,

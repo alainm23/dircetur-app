@@ -83,18 +83,22 @@ export class HomePage {
 
   async onEnter () {
     if (this.search_text != "") {
-      const modal = await this.modalController.create({
-        component: SearchResultsPage,
-        componentProps: {
-          search_text: this.search_text
-        },
-        cssClass: 'puntopro-modal',
-        //enterAnimation: myEnterAnimation,
-        //leaveAnimation: myLeaveAnimation
-      });
-
-      await modal.present();
+      this.open_search_modal ();
     }
+  }
+
+  async open_search_modal () {
+    const modal = await this.modalController.create({
+      component: SearchResultsPage,
+      componentProps: {
+        search_text: this.search_text
+      },
+      cssClass: 'puntopro-modal',
+      //enterAnimation: myEnterAnimation,
+      //leaveAnimation: myLeaveAnimation
+    });
+
+    await modal.present();
   }
 
   async open_report () {
@@ -105,9 +109,14 @@ export class HomePage {
         search_text: this.search_text
       },
       */
-      cssClass: 'puntopro-modal',
       //enterAnimation: myEnterAnimation,
       //leaveAnimation: myLeaveAnimation
+    });
+
+    modal.onDidDismiss ().then ((response: any) => {
+      if (response.role == 'open_search_modal') {
+        this.open_search_modal ();
+      }
     });
 
     await modal.present();
