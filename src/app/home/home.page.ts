@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 // Ionic
-import { MenuController, LoadingController, ModalController } from '@ionic/angular'; 
+import { MenuController, LoadingController, ModalController, NavController } from '@ionic/angular'; 
 
 // Services
 import { DatabaseService } from '../services/database.service';
@@ -26,10 +26,15 @@ export class HomePage {
 
   search_text: string = "";
   current_date: string = moment ().format ();
+
+  is_calendar_loading: boolean = false;
+  is_blog_loading: boolean = true;
+
   constructor(private menu:MenuController,
               private loadingController: LoadingController,
               private slugifyPipe: SlugifyPipe,
               private modalController: ModalController,
+              private navCtrl: NavController,
               private database: DatabaseService
   ) {
     this.get_blogs ();
@@ -40,13 +45,17 @@ export class HomePage {
     this.database.get_blogs ().subscribe ((res: any) => {
       console.log (res);
       this.blogs = res;
+      this.is_blog_loading = false;
     });
   }
 
   async get_events () {
+    this.is_calendar_loading = true;
+
     this.database.get_events_by_month (moment (this.current_date).format ('MM')).subscribe ((res: any) => {
       console.log (res);
       this.eventos = this.order_items (res);
+      this.is_calendar_loading = false;
     });
   }
 
@@ -57,6 +66,8 @@ export class HomePage {
 
   // Tools
   order_items (items: any []) {
+    let color: number = 0; // azul, 1 = rojo
+
     return items.sort ((i1: any, i2: any) => {
       let d1 = new Date (i1.datageneral.fecha);
       let d2 = new Date(i2.datageneral.fecha);
@@ -66,6 +77,16 @@ export class HomePage {
       let today = new Date ();
       let date = new Date (e.datageneral.fecha);
       return date.getTime () > today.getTime ();
+    }).filter ((i: any) => {
+      i.color = color;
+
+      if (color === 0) {
+        color = 1;
+      } else {
+        color = 0;
+      }
+
+      return true;
     });
   }
 
@@ -98,17 +119,23 @@ export class HomePage {
       //leaveAnimation: myLeaveAnimation
     });
 
+    modal.onDidDismiss ().then ((response: any) => {
+      if (response.role == 'report') {
+        console.log (response.data);
+        this.open_report (response.data.item, response.data.type);
+      }
+    });
+
     await modal.present();
   }
 
-  async open_report () {
+  async open_report (item: any = null, type: number = 0) {
     const modal = await this.modalController.create({
       component: ReportProviderPage,
-      /*
       componentProps: {
-        search_text: this.search_text
+        item: item,
+        type: type
       },
-      */
       //enterAnimation: myEnterAnimation,
       //leaveAnimation: myLeaveAnimation
     });
@@ -122,6 +149,10 @@ export class HomePage {
     await modal.present();
   }
 
+  go_calendar () {
+    this.navCtrl.navigateForward ('calendario');
+  }
+  
   // Datetime fuctions
   get_format_date (date: string) {
     return moment (date).format ('L');

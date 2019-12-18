@@ -2,6 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 declare var require: any
 
+// Ionic
+import { ModalController } from '@ionic/angular';
+
 // AlgoliaSearch
 import * as algoliasearch from 'algoliasearch/dist/algoliasearch.js';
 import { environment } from '../../environments/environment';
@@ -33,7 +36,12 @@ export class SearchResultsPage implements OnInit {
   items: any [] = [];
   is_loading:boolean = false;
 
-  constructor(private database: DatabaseService) { }
+  help_0: boolean = false;
+  help_1: boolean = false;
+  help_2: boolean = false;
+  help_3: boolean = false;
+
+  constructor(private database: DatabaseService, private modalCtrl: ModalController,) { }
 
   ngOnInit() {
     this.initalgolia ();
@@ -46,6 +54,17 @@ export class SearchResultsPage implements OnInit {
   initalgolia () {
     this.client = algoliasearch (environment.algolia.appId, environment.algolia.apiKey, { protocol: 'https:' });
     this.algolia_index = this.client.initIndex(environment.algolia.indexName);
+  }
+
+  close () {
+    this.modalCtrl.dismiss (null, 'close');
+  }
+
+  on_click (item: any, type: number) {
+    this.modalCtrl.dismiss ({
+      item: item,
+      type: type
+    }, 'report');
   }
 
   onEnter () {
@@ -104,6 +123,30 @@ export class SearchResultsPage implements OnInit {
           item.data = res;
         });
       }
+    }
+  }
+
+  get_icon (item: any) {
+    let style: string;
+    if (item.reveal_child === true) {
+      style = 'light';
+    } else {
+      style = 'blue';
+    }
+
+    //console.log ('icon', '/assets/img/' + item.tipo + '.svg');
+    return 'assets/icon/' + item.tipo + '-' + style + '.svg';
+  }
+
+  view_help (i: number) {
+    if (i === 0) {
+      this.help_0 = !this.help_0;
+    } else if (i === 1) {
+      this.help_1 = !this.help_1;
+    } else if (i === 2) {
+      this.help_2 = !this.help_2;
+    } else if (i === 3) {
+      this.help_3 = !this.help_3;
     }
   }
 }

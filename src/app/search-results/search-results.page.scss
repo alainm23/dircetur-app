@@ -21,7 +21,7 @@
     padding-left: 1rem !important;
 }
 
-.icon-padding {
+#icon-padding {
     padding-right: 1rem !important;
 }
 .color_icoon_search{
@@ -34,6 +34,10 @@
 .item-header {
     padding: 0px 9px 0px 9px;
     visibility: visible;
+}
+
+.color-blue {
+    color: #3E729A;
 }
 
 .card-content {
@@ -50,6 +54,7 @@
 }
 
 .transition {
+    color: #3E729A;
     transition: all 240ms ease-in-out;
 }
 

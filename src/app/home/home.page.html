@@ -19,7 +19,7 @@
       <ion-col size="12" class="fondo_blanco">
           <ion-icon name="search" class="icon_bajar_buscardor ion-margin-end"></ion-icon>
           <ion-input type="search" placeholder="Check on your touristic provider" id="input_border_left" (keyup.enter)="onEnter ()" [(ngModel)]="search_text"></ion-input>
-          <ion-icon name="help-circle" class="icon_bajar_buscardor ion-margin-start"></ion-icon>
+          <ion-icon name="send" class="icon_bajar_buscardor ion-margin-start" (click)="onEnter ()"></ion-icon>
       </ion-col>
       <ion-col size="12" text-center>
           <p class="color_81" id="espaciado_line">Been subject of fraud? Have any claims or want to congratulate?</p>
@@ -36,21 +36,28 @@
       <ion-col size="12" text-center>
           <h2 class="color_65_titulos">Dircetur news</h2>
       </ion-col>
-      <ion-col *ngFor="let item of blogs" size="12" size-md="6" class="margin_bottom_escpacio">
-        <ion-row (click)="view_blog (item)">
-          <ion-col size="4" class="paddign_top_bottom">
-            <img [src]="item.imagen" style="width: 100%;height: 100%;">
-          </ion-col>
-          <ion-col size="8" class="paddign_top_bottom">
-            <h6 class="ion-no-margin subtitulos_noticia">{{ item.titulo_es }}</h6>
-            <div style="display:flex;">
-              <p class="even_fecha_color">{{ item.categoria.nombre }}</p>
-              <p class="ion-margin-start even_fecha_color">{{ get_format_date (item.fecha_creado) }}</p>
-            </div>
-            <p class="lineas_texto_noticia">{{ item.resumen_es }}</p>
-          </ion-col>
-        </ion-row>
+
+      <ion-col *ngIf="is_blog_loading" size="12" class="ion-text-center">
+        <ion-spinner style="width: 100%; margin-top: 1rem;" class="ion-text-center" name="circles"></ion-spinner>
       </ion-col>
+
+      <div *ngIf="is_blog_loading === false">
+        <ion-col *ngFor="let item of blogs" size="12" size-md="6" class="margin_bottom_escpacio">
+          <ion-row (click)="view_blog (item)">
+            <ion-col size="4" class="paddign_top_bottom">
+              <img [src]="item.imagen" style="width: 100%;height: 100%;">
+            </ion-col>
+            <ion-col size="8" class="paddign_top_bottom">
+              <h6 class="ion-no-margin subtitulos_noticia">{{ item.titulo_es }}</h6>
+              <div style="display:flex;">
+                <p class="even_fecha_color">{{ item.categoria.nombre }}</p>
+                <p class="ion-margin-start even_fecha_color">{{ get_format_date (item.fecha_creado) }}</p>
+              </div>
+              <p class="lineas_texto_noticia">{{ item.resumen_es }}</p>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </div>
     </ion-row>
     <ion-row id="fondo_boleto_img" class="ion-padding-end">
       <ion-col size="12">
@@ -70,38 +77,57 @@
         <ion-col size="12" text-center>
             <h2 class="color_65_titulos">Upcoming events</h2>
         </ion-col>
-        <ion-col size="2" text-right class="ion-margin-bottom">
+        <ion-col size="2" text-right>
           <button *ngIf="check_backbutton ()" class="flechas_tamaño_calender padding_cero" (click)="change_month (-1)">
             <img src="assets/img/icono-derecha.png" width="100%" height="100%">
           </button>
         </ion-col>
-        <ion-col size="8" text-center class="ion-margin-bottom">
+        <ion-col size="8" text-center>
           <p id="diciembre_year">{{ get_calendar_header () }}</p>
         </ion-col>
-        <ion-col size="2" class="ion-margin-bottom">
+        <ion-col size="2">
           <button class="flechas_tamaño_calender padding_cero" (click)="change_month (+1)">
             <img src="assets/img/icono-izquierda.png" width="100%" height="100%">
           </button>
         </ion-col>
-        <ion-col *ngFor="let item of eventos" size="12" size-md="6" size-lg="6" class="padding_eventos ion-margin-bottom">
-          <ion-row>
-            <ion-col size="3" class="cuadrado_azul_calender padding_cero largo_eventos" text-center>
-              <p class="color_blanco fecha_number">{{ get_date_format (item.datageneral.fecha, 'DD') }}</p>
-              <p class="color_blanco nombre_mes">{{ get_date_format (item.datageneral.fecha, 'ddd') }}</p>
-            </ion-col>
-            <ion-col size="9" class="sombra_img_descripcion padding_cero">
-              <ion-row style="height: 100%;">
-                <ion-col size="12" class="padding_derecha_izquierda largo_eventos">
-                  <p class="titulo_calnedar">{{ item.datageneral.titulo }}</p>
-                  <p class="subtitulo_calendar">{{ item.datageneral.categoria?.name }}</p>
-                  <!--p class="lugar_img">{{ item.datageneral.provincia.nombre }}</!p-->
+
+        <ion-col *ngIf="is_calendar_loading" size="12" class="ion-text-center">
+          <ion-spinner style="width: 100%; margin-top: 1rem;" class="ion-text-center" name="circles"></ion-spinner>
+        </ion-col>
+
+        <div *ngIf="is_calendar_loading === false && eventos.length > 0" style="width: 100%;">
+          <ion-col *ngFor="let item of eventos" size="12" size-md="6" size-lg="6" class="padding_eventos ion-margin-bottom">
+            <ion-card>
+              <ion-row>
+                <ion-col size="3" [className]="item.color === 0 ? 'fondo-azul cuadrado_calender padding_cero largo_eventos' : 'fondo-rojo cuadrado_calender padding_cero largo_eventos'" text-center>
+                  <p class="color_blanco fecha_number">{{ get_date_format (item.datageneral.fecha, 'DD') }}</p>
+                  <p class="color_blanco nombre_mes">{{ get_date_format (item.datageneral.fecha, 'ddd') }}</p>
+                </ion-col>
+                <ion-col size="9" class="sombra_img_descripcion padding_cero">
+                  <ion-row style="height: 100%;">
+                    <ion-col size="12" class="padding_derecha_izquierda largo_eventos">
+                      <p class="titulo_calnedar">{{ item.datageneral.titulo }}</p>
+                      <p class="subtitulo_calendar">{{ item.datageneral.categoria?.name }}</p>
+                      <!--p class="lugar_img">{{ item.datageneral.provincia.nombre }}</!p-->
+                    </ion-col>
+                  </ion-row>
                 </ion-col>
               </ion-row>
-            </ion-col>
-          </ion-row>
+            </ion-card>
+          </ion-col>  
+        </div>
+
+        <ion-col *ngIf="is_calendar_loading === false && eventos.length <= 0" size="12" class="ion-text-center">
+          <ion-item class="ion-text-center" lines="none">
+            <ion-label>
+              <h1 id="nada-h1-margin">Ningun evento</h1>
+              <p text-wrap>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor necessitatibus molestias eligendi nobis accusamus nostrum voluptatum quibusdam quisquam deleniti voluptatem, incidunt dicta, est optio. Quia quod incidunt iste ullam. Perspiciatis!</p>
+            </ion-label>
+          </ion-item> 
         </ion-col>
+
         <ion-col size="8" size-md="4" offset="2" offset-md="4">
-          <button class="btn_blanco_calendario">Show full calendar</button>
+          <button class="btn_blanco_calendario" (click)="go_calendar ()">Show full calendar</button>
         </ion-col>
     </ion-row>
   </ion-grid>
