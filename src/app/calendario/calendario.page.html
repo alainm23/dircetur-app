@@ -1,27 +1,14 @@
-<!--<ion-header>
-  <ion-toolbar>
-    <ion-title>calendario</ion-title>
+<ion-header no-border>
+  <ion-toolbar mode="ios">
+    <ion-buttons mode="md" slot="start">
+      <ion-back-button mode="md" text="" icon="ios-arrow-back" color="dark"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
-</ion-header>-->
+</ion-header>
 
 <ion-content>
   <ion-grid class="padding_cero">
-   <!--<ion-row id="fondo_imagen">
-      <ion-col size="2" offset="10">
-        <button class="btn_menu">
-          <div class="div_linea_color div_line_menu"></div>
-          <div class="div_linea_color div_line_menu"></div>
-          <div class="div_linea_color" id="div_line_menu_peque"></div>
-        </button>
-      </ion-col>
-      <ion-col size="6" offset="3">
-          <ion-img :src="assets/img/Imagen-25.png" class="bajar_imagen_logo" style="width: 100%;"></ion-img>
-      </ion-col>
-      <ion-col size="10" size-sm="8" size-lg="12" offset="1" offset-sm="2" offset-lg="0" text-center>
-        <p class="color_descripcion_blanco">Regional Directorate of Foreign Trade and tourism - Cusco</p>
-      </ion-col>
-    </ion-row>-->
-    <ion-row id="bajar_titutlo" class="ion-padding-start ion-padding-end">
+    <ion-row class="ion-padding-start ion-padding-end">
         <ion-col size="12" text-center>
             <h1 class="color_65_titulos">Dircetur Cusco</h1>
             <p class="event_color">Event clendar</p>
@@ -29,146 +16,57 @@
         <ion-col size="12" id="subir_mesyear">
           <ion-row>
             <ion-col size="2" text-center class="ion-margin-bottom">
-              <button class="flechas_tamaño_calender padding_cero">
+              <button class="flechas_tamaño_calender padding_cero" (click)="change_month (-1)">
                 <img src="assets/img/icono-derecha.png" width="100%" height="100%">
               </button>
             </ion-col>
             <ion-col size="8" text-center class="ion-margin-bottom">
-              <p id="diciembre_year"><span id="mes_color">Octubre</span><span id="year_number">2019</span></p>
+              <p id="diciembre_year"><span id="mes_color">{{ get_current_date_format ("MMMM") }}, </span><span id="year_number">{{ get_current_date_format ("YYYY") }}</span></p>
             </ion-col>
             <ion-col size="2" text-center class="ion-margin-bottom">
-              <button class="flechas_tamaño_calender padding_cero">
+              <button class="flechas_tamaño_calender padding_cero" (click)="change_month (+1)">
                 <img src="assets/img/icono-izquierda.png" width="100%" height="100%">
               </button>
             </ion-col>
           </ion-row>
         </ion-col>
+
         <ion-col size="12" text-center id="subir_filter">
           <p>Filter by ></p>
         </ion-col>
-        <ion-col size="12" size-md="6" size-lg="6" class="padding_eventos ion-margin-bottom">
-          <ion-row>
-            <ion-col size="3" class="cuadrado_azul_calender padding_cero largo_eventos" text-center>
-              <p class="color_blanco fecha_number">04</p>
-              <p class="color_blanco nombre_mes">OCT</p>
-            </ion-col>
-            <ion-col size="9" class="sombra_img_descripcion padding_cero  largo_eventos">
-              <ion-row style="height: 100%;">
-                <ion-col size="4" class="padding_cero sombra_img ">
-                  <img src="assets/img/mes-img1.png" width="100%" height="100%">
+
+        <ion-spinner style="width: 100%; margin-top: 1rem;" class="ion-text-center" *ngIf="is_loading" name="circles"></ion-spinner>
+        
+        <div *ngIf="is_loading === false && eventos.length > 0">
+          <ion-col *ngFor="let item of eventos" size="12" size-md="6" size-lg="6" class="padding_eventos ion-margin-bottom">
+            <ion-card>
+              <ion-row>
+                <ion-col size="3" [className]="item.color === 0 ? 'fondo-azul cuadrado_calender padding_cero largo_eventos' : 'fondo-rojo cuadrado_calender padding_cero largo_eventos'" text-center>
+                  <p class="color_blanco fecha_number">{{ get_date_format (item.datageneral.fecha, 'DD') }}</p>
+                  <p class="color_blanco nombre_mes">{{ get_date_format (item.datageneral.fecha, 'ddd') }}</p>
                 </ion-col>
-                <ion-col size="8" class="padding_derecha_izquierda">
-                  <p class="titulo_calnedar">Virgen de algo</p>
-                  <p class="subtitulo_calendar">Fiesta patronal</p>
-                  <p class="lugar_img">Paucartambo</p>
-                </ion-col>
-              </ion-row>
-            </ion-col>
-          </ion-row>
-        </ion-col>
-        <ion-col size="12" size-md="6" size-lg="6" class="padding_eventos ion-margin-bottom">
-          <ion-row>
-            <ion-col size="3" class="cuadrado_azul_calender padding_cero largo_eventos" text-center>
-              <p class="color_blanco fecha_number">04</p>
-              <p class="color_blanco nombre_mes">OCT</p>
-            </ion-col>
-            <ion-col size="9" class="sombra_img_descripcion padding_cero">
-              <ion-row style="height: 100%;">
-                <ion-col size="4" class="padding_cero sombra_img largo_eventos">
-                  <img src="assets/img/mes-img1.png" width="100%" height="100%">
-                </ion-col>
-                <ion-col size="8" class="padding_derecha_izquierda largo_eventos">
-                  <p class="titulo_calnedar">Virgen de algo</p>
-                  <p class="subtitulo_calendar">Fiesta patronal</p>
-                  <p class="lugar_img">Paucartambo</p>
+                <ion-col size="9" class="sombra_img_descripcion padding_cero">
+                  <ion-row style="height: 100%;">
+                    <ion-col size="12" class="padding_derecha_izquierda largo_eventos">
+                      <p class="titulo_calnedar">{{ item.datageneral.titulo }}</p>
+                      <p class="subtitulo_calendar">{{ item.datageneral.categoria?.name }}</p>
+                      <!--p class="lugar_img">{{ item.datageneral.provincia.nombre }}</!p-->
+                    </ion-col>
+                  </ion-row>
                 </ion-col>
               </ion-row>
-            </ion-col>
-          </ion-row>
-        </ion-col>
-        <ion-col size="12" size-md="6" size-lg="6" class="padding_eventos ion-margin-bottom">
-          <ion-row>
-            <ion-col size="3" class="cuadrado_azul_calender padding_cero largo_eventos" text-center>
-              <p class="color_blanco fecha_number">04</p>
-              <p class="color_blanco nombre_mes">OCT</p>
-            </ion-col>
-            <ion-col size="9" class="sombra_img_descripcion padding_cero">
-              <ion-row style="height: 100%;">
-                <ion-col size="4" class="padding_cero sombra_img largo_eventos">
-                  <img src="assets/img/mes-img1.png" width="100%" height="100%">
-                </ion-col>
-                <ion-col size="8" class="padding_derecha_izquierda largo_eventos">
-                  <p class="titulo_calnedar">Virgen de algo</p>
-                  <p class="subtitulo_calendar">Fiesta patronal</p>
-                  <p class="lugar_img">Paucartambo</p>
-                </ion-col>
-              </ion-row>
-            </ion-col>
-          </ion-row>
-        </ion-col>
-        <ion-col size="12" size-md="6" size-lg="6" class="padding_eventos ion-margin-bottom">
-          <ion-row>
-            <ion-col size="3" class="cuadrado_azul_calender padding_cero largo_eventos" text-center>
-              <p class="color_blanco fecha_number">04</p>
-              <p class="color_blanco nombre_mes">OCT</p>
-            </ion-col>
-            <ion-col size="9" class="sombra_img_descripcion padding_cero">
-              <ion-row style="height: 100%;">
-                <ion-col size="4" class="padding_cero sombra_img largo_eventos">
-                  <img src="assets/img/mes-img1.png" width="100%" height="100%">
-                </ion-col>
-                <ion-col size="8" class="padding_derecha_izquierda largo_eventos">
-                  <p class="titulo_calnedar">Virgen de algo</p>
-                  <p class="subtitulo_calendar">Fiesta patronal</p>
-                  <p class="lugar_img">Paucartambo</p>
-                </ion-col>
-              </ion-row>
-            </ion-col>
-          </ion-row>
-        </ion-col>
-        <ion-col size="12" size-md="6" size-lg="6" class="padding_eventos ion-margin-bottom">
-          <ion-row>
-            <ion-col size="3" class="cuadrado_azul_calender padding_cero largo_eventos" text-center>
-              <p class="color_blanco fecha_number">04</p>
-              <p class="color_blanco nombre_mes">OCT</p>
-            </ion-col>
-            <ion-col size="9" class="sombra_img_descripcion padding_cero">
-              <ion-row style="height: 100%;">
-                <ion-col size="4" class="padding_cero sombra_img largo_eventos">
-                  <img src="assets/img/mes-img1.png" width="100%" height="100%">
-                </ion-col>
-                <ion-col size="8" class="padding_derecha_izquierda largo_eventos">
-                  <p class="titulo_calnedar">Virgen de algo</p>
-                  <p class="subtitulo_calendar">Fiesta patronal</p>
-                  <p class="lugar_img">Paucartambo</p>
-                </ion-col>
-              </ion-row>
-            </ion-col>
-          </ion-row>
-        </ion-col>
-        <ion-col size="12" size-md="6" size-lg="6" class="padding_eventos ion-margin-bottom">
-          <ion-row>
-            <ion-col size="3" class="cuadrado_azul_calender padding_cero largo_eventos" text-center>
-              <p class="color_blanco fecha_number">04</p>
-              <p class="color_blanco nombre_mes">OCT</p>
-            </ion-col>
-            <ion-col size="9" class="sombra_img_descripcion padding_cero">
-              <ion-row style="height: 100%;">
-                <ion-col size="4" class="padding_cero sombra_img largo_eventos">
-                  <img src="assets/img/mes-img1.png" width="100%" height="100%">
-                </ion-col>
-                <ion-col size="8" class="padding_derecha_izquierda largo_eventos">
-                  <p class="titulo_calnedar">Virgen de algo</p>
-                  <p class="subtitulo_calendar">Fiesta patronal</p>
-                  <p class="lugar_img">Paucartambo</p>
-                </ion-col>
-              </ion-row>
-            </ion-col>
-          </ion-row>
-        </ion-col>
-        <!--<ion-col size="8" size-md="4" offset="2" offset-md="4">
-          <button class="btn_blanco_calendario">Show full calendar</button>
-        </ion-col>-->
+            </ion-card>
+          </ion-col>
+        </div>
+
+        <div style="width: 100%;" *ngIf="is_loading === false && eventos.length <= 0">
+          <ion-item class="ion-text-center" lines="none">
+            <ion-label>
+              <h1 id="nada-h1-margin">Ningun evento</h1>
+              <p text-wrap>Lorem ipsum dolor, sit amet consectetur </p>
+            </ion-label>
+          </ion-item>        
+        </div>
     </ion-row>
   </ion-grid>
 </ion-content>

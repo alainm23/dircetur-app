@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 // Ionic
 import { ModalController } from '@ionic/angular';
@@ -16,6 +16,9 @@ import { environment } from '../../environments/environment';
   styleUrls: ['./report-provider.page.scss'],
 })
 export class ReportProviderPage implements OnInit {
+  @Input () type: number = 0;
+  @Input () item: any = null;
+
   form: FormGroup;
 
   client: any;
@@ -30,10 +33,13 @@ export class ReportProviderPage implements OnInit {
     this.client = algoliasearch (environment.algolia.appId, environment.algolia.apiKey, { protocol: 'https:' });
     this.algolia_index = this.client.initIndex(environment.algolia.indexName);
 
+    // Test
+    console.log (this.type);
+    console.log (this.item);
+
     this.form = new FormGroup ({
       //type: new FormControl ('', Validators.required),
-      provider: new FormControl ('', Validators.required),
-      provider_data: new FormControl ('', Validators.required),
+      provider: new FormControl (''),
       fullname: new FormControl ('', Validators.required),
       email: new FormControl ('', Validators.required),
       phone_number: new FormControl ('', Validators.required),
@@ -85,10 +91,15 @@ export class ReportProviderPage implements OnInit {
 
   selct_item (item: any) {
     if (item != null) {
-      this.form.controls ['provider_data'].setValue (item);
+      this.item = item;
       this.form.controls ['provider'].setValue (item.nombre_comercial);
 
       this.show_searchbox = false;
     }
+  }
+
+  submit () {
+    console.log (this.item);
+    console.log (this.form.value);
   }
 }

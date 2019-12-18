@@ -143,7 +143,8 @@ button:focus{
     outline:none;
     box-shadow:none;
 }
-.color_65_titulos{
+.color_65_titulos {
+    margin-top: 0px !important;
     color: #656565;
     font-weight: 700;
     font-size: 1.875rem;
@@ -269,9 +270,7 @@ button:focus{
 #subtitulo_bold{
     font-weight: bolder;
 }
-#bajar_titutlo{
-    margin-top: 1.25rem;
-}
+
 .flechas_tamaño_calender{
     width: 30%;
     height: 1.75rem;
@@ -330,22 +329,29 @@ button:focus{
     font-weight: 100;
     font-family: 'Rubik', sans-serif;
 }
-.cuadrado_azul_calender{
-    background-color: #3E729A;
+.cuadrado_calender{
     padding-bottom: 10px;
     padding-top: 3px;
     box-shadow:3px 1px 6px 1px #c0c0c0;
     -moz-box-shadow:3px 1px 6px 1px #c0c0c0;
     -webkit-box-shadow:3px 1px 6px 1px #c0c0c0;
 }
+.fondo-azul {
+    background-color: #3E729A;
+}
+
+.fondo-rojo {
+    background-color: #EC494B;
+}
+
 @media(min-width: 1024px){
-    .cuadrado_azul_calender{
+    .cuadrado_calender{
         padding-bottom: 1.875rem;
     }
 }
 .fecha_number{
     font-size: 2.5rem;
-    font-weight: 200;
+    font-weight: 500;
     margin: 0;
     font-family: 'Lato', sans-serif;
 }
@@ -403,7 +409,7 @@ button:focus{
 .titulo_calnedar{
     color: #505050;
     font-size: 0.9375rem;
-    font-weight: bolder;
+    font-weight: 600;
     margin: 0;
     display: -webkit-box;
     -webkit-line-clamp: 1;
@@ -508,4 +514,8 @@ button:focus{
 #subir_filter{
     margin-top: -3.125rem;
     color: #818181;
+}
+
+#nada-h1-margin {
+    margin-bottom: 0.5rem;
 }

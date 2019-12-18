@@ -1,23 +1,34 @@
-ion-header,
-ion-toolbar,
-ion-content {
+.ion-header-black,
+.ion-toolbar-black,
+.ion-content-black {
     --background: #000000 !important;
+}
+
+.ion-header-green,
+.ion-toolbar-green,
+.ion-content-green {
+    --background: #2FBC55 !important;
 }
 
 #close-button {
     color: #fff;
 }
 
-#item-header {
+.item-header-black {
     --background: #000;
     color: #fff;
 }
 
-#item-header h1 {
+.item-header-green {
+    --background: #2FBC55;
+    color: #fff;
+}
+
+.item-header h1 {
     font-weight: bold;
 }
 
-#item-header p {
+.item-header p {
     margin-top: 1rem;
     font-weight: normal;
     font-size: 11pt;
@@ -35,8 +46,12 @@ ion-content {
     padding: 0px 12px 3px 12px !important;
 }
 
-.no-padding ion-item {
+.ion-item-0 {
     --background: #E8E8E8;
+}
+
+.ion-item-1 {
+    --background: #ffffff;
 }
 
 #send-button {

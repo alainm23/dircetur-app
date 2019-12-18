@@ -1,5 +1,5 @@
-<ion-header no-border>
-  <ion-toolbar mode="ios">
+<ion-header [className]="type === 0 ? 'ion-header-black' : 'ion-header-green'" no-border>
+  <ion-toolbar [className]="type === 0 ? 'ion-toolbar-black' : 'ion-toolbar-green'" mode="ios">
     <ion-buttons slot="end">
       <ion-button (click)="close ()" id="close-button">
         <ion-icon slot="icon-only" name="close-circle"></ion-icon>
@@ -8,14 +8,25 @@
   </ion-toolbar>
 </ion-header> 
 
-<ion-content>
+<ion-content [className]="type === 0 ? 'ion-content-black' : 'ion-content-green'">
   <ion-grid class="padding_cero">
     <ion-row>
       <ion-col size="12">
-        <ion-item lines="none" class="ion-text-center" id="item-header">
+        <ion-item lines="none" [className]="type === 0 ? 'item-header ion-text-center item-header-black' : 'item-header ion-text-center item-header-green'">
           <ion-label>
-            <h1>Report Provider</h1>
-            <p text-wrap>You are about to report fraude, abuse or misconduct caused by a touristic provider. Please be specific and help us eradicate unwelcoming, informal and hazardous businesses from Cusco.</p>
+            <h1 *ngIf="type === 0">Report Provider</h1>
+            <h1 *ngIf="type === 1">Congratulate Provider</h1>
+            <p text-wrap *ngIf="item === null">
+              You are about to report fraude, abuse or misconduct caused by a touristic provider. Please be specific and help us eradicate unwelcoming, informal and hazardous businesses from Cusco.
+            </p>
+
+            <p text-wrap *ngIf="item !== null && type === 1">
+              You are here because you hav something extraordinary to say about <b id="close-button">{{ item.nombre_comercial }}</b>. Please tell us all about it so we may give them the recognition they deserve.
+            </p>
+            
+            <p text-wrap *ngIf="item !== null && type === 0">
+              You are about to report fraude, abuse or misconduct caused by <b id="close-button">{{ item.nombre_comercial }}</b>. Please be specific and help us eradicate unwelcoming, informal and hazardous businesses from Cusco.
+            </p>
           </ion-label>
         </ion-item>
       </ion-col>
@@ -35,14 +46,14 @@
             </ion-item>
           </ion-col-->
 
-          <ion-col size="12" class="no-padding">
-            <ion-item>
+          <ion-col size="12" class="no-padding" *ngIf="item === null">
+            <ion-item [className]="type === 0 ? 'ion-item-0' : 'ion-item-1'">
               <ion-input type="text" placeholder="Provider’s company name" formControlName="provider" (ionChange)="on_input_change ($event.detail.value)"></ion-input>
             </ion-item>
 
             <ion-card id="search-card" *ngIf="show_searchbox">
-              <ion-list>
-                <ion-item *ngFor="let item of items" (click)="selct_item (item)">
+              <ion-list [className]="type === 0 ? 'ion-item-0' : 'ion-item-1'">
+                <ion-item [className]="type === 0 ? 'ion-item-0' : 'ion-item-1'" *ngFor="let item of items" (click)="selct_item (item)">
                   <ion-icon id="icon-padding" name="search"></ion-icon>
                   {{ item.nombre_comercial }}
                   <span slot="end">{{ item.tipo }}</span>
@@ -52,32 +63,32 @@
           </ion-col>
 
           <ion-col size="12" class="no-padding">
-            <ion-item>
+            <ion-item [className]="type === 0 ? 'ion-item-0' : 'ion-item-1'">
               <ion-input type="text" placeholder="Your full name" formControlName="fullname"></ion-input>
             </ion-item>
           </ion-col>
 
           <ion-col size="12" class="no-padding">
-            <ion-item>
+            <ion-item [className]="type === 0 ? 'ion-item-0' : 'ion-item-1'">
               <ion-input type="email" placeholder="E-mail" formControlName="email"></ion-input>
             </ion-item>
           </ion-col>
 
           <ion-col size="12" class="no-padding">
-            <ion-item>
+            <ion-item [className]="type === 0 ? 'ion-item-0' : 'ion-item-1'">
               <ion-input type="number" placeholder="Contact number" formControlName="phone_number"></ion-input>
             </ion-item>
           </ion-col>
 
           <ion-col size="12" class="no-padding">
-            <ion-item>
+            <ion-item [className]="type === 0 ? 'ion-item-0' : 'ion-item-1'">
               <ion-textarea type="text" rows="3" placeholder="Tell us what happened" formControlName="description"></ion-textarea>
             </ion-item>
           </ion-col>
 
           <ion-col size="12" class="ion-margin-top">
             <div class="ion-text-center">
-              <ion-button id="send-button" (click)="onClick()" expand="block" size="large" color="light" [disabled]="!form.valid">
+              <ion-button id="send-button" (click)="submit ()" expand="block" size="large" color="light" [disabled]="!form.valid">
                 Send
               </ion-button>
             </div>
