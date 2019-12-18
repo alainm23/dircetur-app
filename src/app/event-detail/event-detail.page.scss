@@ -1,0 +1,344 @@
+ion-header,
+ion-toolbar,
+ion-content {
+    --background: #ffffff !important;
+}
+.btn_menu{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #B4B4B4;
+    padding-top: 2px;
+    margin-top: 1rem;
+}
+.div_linea_color{
+    height: 1px;
+    background-color: #ffffff;
+    margin-bottom: 3px;
+}
+.div_line_menu{
+    width: 100%;
+}
+#div_line_menu_peque{
+    width: 50%;
+}
+#titulo_calender{
+    color: #656565;
+    font-weight: 300;
+    font-size: 19px;
+    margin-top: 35px;
+    margin-bottom: 20px;
+}
+@media(min-width: 360px){
+    #titulo_calender{
+       font-size: 24px;
+       margin-top: 50px;
+       margin-bottom: 30px;
+    }
+}
+.btn_pre_next{
+    background-color: #ffffff;
+    color: #656565;
+    width: 100%;
+    font-size: 17px;
+    font-weight: 100;
+}
+.color_65{
+    color: #656565;
+}
+button:focus{
+    outline:none;
+    box-shadow:none;
+}
+.font_bolder{
+    font-weight: 900;
+    font-size: 21px;
+}
+.color_81_pau{
+    color: #818181;
+    font-size: 14px;
+    font-weight: 100;
+    padding-left: 10px;
+}
+@media(min-width: 360px){
+    .font_bolder{
+        font-size: 24px;
+    }
+    .color_81_pau{
+        font-size: 16px;
+    }
+}
+.quitar_margin{
+    margin-top: 0;
+}
+.margin_bottom{
+    margin-bottom: 10px;
+}
+@media(min-width: 480px){
+    .margin_bottom{
+        margin-bottom: 21px;
+    }
+}
+@media(min-width: 568px){
+    .margin_bottom{
+        margin-bottom: 29px;
+    }
+}
+@media(min-width: 640px){
+    .margin_bottom{
+        margin-bottom: 35px;
+    }
+}
+@media(min-width: 731px){
+    .margin_bottom{
+        margin-bottom: 39px;
+    }
+}
+@media(min-width: 768px){
+    .margin_bottom{
+        margin-bottom: 15px;
+    }
+}
+@media(min-width: 1024px){
+    .margin_bottom{
+        margin-bottom: 30px;
+    }
+}
+#quitar_bottom{
+    margin-bottom: 0;
+}
+.padding_left{
+    padding-top: 0;
+    padding-left: 25px;
+    padding-bottom: 0;
+}
+#margin_left_img{
+    margin-left: 0px;
+}
+.cantidad_texto{
+    display: -webkit-box;
+    -webkit-line-clamp: 21;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    color: #818181;
+    font-weight: 100;
+    line-height: 1.4;
+}
+.padding_left_right_todos{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.padding_img_calender{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+@media(min-width: 768px){
+    .padding_left_right_todos{
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+    .padding_img_calender{
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+@media(min-width: 768px){
+    .largo_eventos{
+        height: 99%;
+    }
+}
+
+.padding_eventos{
+    padding: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+@media(min-width: 768px){
+    .padding_eventos{
+        padding-left: 0.3125rem;
+        padding-right: 0.3125rem;
+    }
+}
+.cuadrado_azul_calender{
+    background-color: #3E729A;
+    padding-bottom: 4px;
+    padding-top: 3px;
+    box-shadow:3px 1px 6px 1px #c0c0c0;
+    -moz-box-shadow:3px 1px 6px 1px #c0c0c0;
+    -webkit-box-shadow:3px 1px 6px 1px #c0c0c0;
+}
+@media(min-width: 812px){
+    .cuadrado_azul_calender{
+        padding-bottom: 11px;
+        padding-top: 0px;
+    }
+}
+@media(min-width: 823px){
+    .cuadrado_azul_calender{
+        padding-bottom: 12px;
+    }
+}
+@media(min-width: 854px){
+    .cuadrado_azul_calender{
+        padding-bottom: 14px;
+    }
+}
+@media(min-width: 1024px){
+    .cuadrado_azul_calender{
+        padding-bottom: 27px;
+        padding-top: 9px;
+    }
+}
+@media(min-width: 1366px){
+    .cuadrado_azul_calender{
+        padding-bottom: 44px;
+        padding-top: 30px;
+    }
+}
+.padding_cero{
+    padding: 0;
+}
+.color_blanco{
+    color: #ffffff;
+}
+.fecha_number{
+    font-size: 2.5rem;
+    font-weight: 200;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+}
+.nombre_mes{
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: bolder;
+    margin-top: -5px;
+}
+@media(min-width: 480px){
+    .fecha_number{
+        margin-top: 0.875rem;
+    }
+}
+@media(min-width: 568px){
+    .fecha_number{
+        font-size: 3.375rem;
+        margin-top: 0.875rem;
+    }
+    .nombre_mes{
+        font-size: 1.5rem;
+        margin-top: -0.5625rem;
+    }
+}
+@media(min-width: 640px){
+    .fecha_number{
+        margin-top: 0.8125rem;
+        font-size: 4.0625rem;
+    }
+    .nombre_mes{
+        font-size: 1.5rem;
+        margin-top: -0.5625rem;
+    }
+}
+@media(min-width: 731px){
+    .fecha_number{
+        margin-top: 0.75rem;
+        font-size: 4.5625rem;
+    }
+    .nombre_mes{
+        font-size: 1.9375rem;
+        margin-top: -1rem;
+    }
+}
+@media(min-width: 768px){
+    .fecha_number{
+        margin-top:0.6875rem;
+        font-size: 2.8125rem;
+    }
+    .nombre_mes{
+        font-size: 1.125rem;
+        margin-top: -0.3125rem;
+    }
+}
+.sombra_img{
+    box-shadow:3px 1px 6px 1px #c0c0c0;
+    -moz-box-shadow:3px 1px 6px 1px #c0c0c0;
+    -webkit-box-shadow:3px 1px 6px 1px #c0c0c0;
+}
+.padding_derecha_izquierda{
+    padding-left: 18px;
+    padding-right: 0;
+    padding-top: 11px;
+    box-shadow:3px 1px 6px 1px #c0c0c0;
+    -moz-box-shadow:3px 1px 6px 1px #c0c0c0;
+    -webkit-box-shadow:3px 1px 6px 1px #c0c0c0;
+}
+.titulo_calnedar{
+    color: #505050;
+    font-size: 0.9375rem;
+    font-weight: bolder;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.subtitulo_calendar{
+    color: #505050;
+    font-size: 11px;
+    font-weight: 100;
+    margin: 0;
+}.lugar_img{
+    color: #A0A0A0;
+    font-size: 11px;
+    font-weight: 100;
+    margin: 0;
+    margin-top: 10px;
+}
+@media(min-width: 568px){
+    .lugar_img{
+        font-size: 0.875rem;
+        margin-top: 2.625rem;
+    }
+}
+@media(min-width: 640px){
+    .titulo_calnedar{
+        font-size: 1.1875rem;
+    }
+    .subtitulo_calendar{
+        font-size: 0.875rem;
+    }
+    .lugar_img{
+        font-size: 0.875rem;
+        margin-top: 2.625rem;
+    }
+}
+@media(min-width: 731px){
+    .lugar_img{
+        margin-top: 4.9375rem;
+    }
+}
+@media(min-width: 768px){
+    .titulo_calnedar{
+        font-size: 1rem;
+    }
+    .lugar_img{
+        position: absolute;
+        bottom: 10px;
+    }
+}
+.lugar_img::before{
+  content: url('/assets/img/icono-img1.png');
+}
+.btn_blanco_calendario{
+    background-color: #ffffff;
+    box-shadow:3px 1px 6px 1px #c0c0c0;
+    -moz-box-shadow:3px 1px 6px 1px #c0c0c0;
+    -webkit-box-shadow:3px 1px 6px 1px #c0c0c0;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 13px;
+    color: #818181;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
