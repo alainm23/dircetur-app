@@ -1,0 +1,165 @@
+.padding_espacio{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.btn_menu{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #B4B4B4;
+    padding-top: 2px;
+    margin-top: 1rem;
+}
+.div_linea_color{
+    height: 1px;
+    background-color: #ffffff;
+    margin-bottom: 3px;
+}
+.div_line_menu{
+    width: 100%;
+}
+#div_line_menu_peque{
+    width: 50%;
+}
+button:focus{
+    outline:none;
+    box-shadow:none;
+}
+.color_titulos{
+    color: #656565;
+    font-weight: bolder;
+    font-size: 21px;
+}
+@media(min-width: 360px){
+    .color_titulos{
+        font-size: 1.5rem;
+    }  
+}
+@media(min-width: 411px){
+    .color_titulos{
+        font-size: 29px;
+    }  
+}
+@media(min-width: 411px){
+    .color_titulos{
+        font-size: 29px;
+    }  
+}
+@media(min-width: 480px){
+    .color_titulos{
+        font-size: 32px;
+    }  
+}
+@media(min-width: 1024px){
+    .color_titulos{
+        font-size: 50px;
+    }  
+}
+.div_select{
+    width: 100%;
+    border: 1px solid #DBDBDB;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+@media(min-width: 768px){
+    .div_select{
+        width: 90%;
+        margin-left: 30px;
+    } 
+}
+@media(min-width: 1024px){
+    .div_select{
+        width: 73%;
+        margin-left: 131px;
+    } 
+}
+.select-item {
+    padding-left: 0px;
+    max-width: 100%;
+    width: 100%;
+}
+#show_border_rigth{
+    border-right: 1px solid #656565;
+    padding-right: 20px;
+    color: #656565;
+}
+#select{
+    width: 100%;
+    color: #656565;
+}
+#select::placeholder{
+    color: #656565;
+}
+ion-card{
+    margin: 0;
+}
+.border_radius_imgcard{
+    border-radius: 0px 2px 2px 0px;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(150,150,150,0.75);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(150,150,150,0.75);
+    box-shadow: 0px 0px 10px 0px rgba(150,150,150,0.75);
+}
+#bajar_card{
+    margin-top: 27px;
+}
+.titulo_car{
+    color: #656565;
+    font-weight: 900;
+    font-size: 20px;
+}
+.fecha_nombre_color{
+    color: #818181;
+    font-weight: 100;
+    font-size: 17px;
+}
+@media(min-width: 360px){
+    .fecha_nombre_color{
+        font-size: 12px;
+    }
+    .titulo_car{
+        font-size: 23px;
+    }
+}
+@media(min-width: 411px){
+    .fecha_nombre_color{
+        font-size: 13px;
+    }
+}
+@media(min-width: 768px){
+    .fecha_nombre_color{
+        font-size: 11px;
+    }
+}
+@media(min-width: 1024px){
+    .fecha_nombre_color{
+        font-size: 12px;
+    }
+}
+.btn_leer_color{
+    background-color: #ffffff;
+    color: #818181;
+    font-weight: 100;
+    font-size: 14px;
+    width: 100%;
+    margin-top: 23px;
+}
+ion-card{
+    -webkit-box-shadow: 0px 5px 6px 0px rgba(150,150,150,0.75);
+    -moz-box-shadow: 0px 5px 6px 0px rgba(150,150,150,0.75);
+    box-shadow: 0px 5px 6px 0px rgba(150,150,150,0.75);
+}
+.bajar_conten{
+    margin-top: 10px;
+}
+@media(min-width: 768px){
+    .espacio_derecha_izquierda{
+        padding-left: 7px;
+        padding-right: 7px;
+    }
+}
