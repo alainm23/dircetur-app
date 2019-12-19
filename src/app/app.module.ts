@@ -17,6 +17,12 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { SlugifyPipe } from './pipes/slugify.pipe';
 
+// Translate
+import { TranslateModule } from '@ngx-translate/core';
+
+// Storage
+import { IonicStorageModule } from '@ionic/storage';
+
 // Form
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -34,15 +40,17 @@ declare var require: any;
   entryComponents: [],
   imports: [
     BrowserModule, 
-    IonicModule.forRoot(), 
+    IonicModule.forRoot (), 
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp (environment.firebase),
     AngularFireStorageModule,
     AngularFirestoreModule,
     AngularFireAuthModule,
     BrowserAnimationsModule,
     FormsModule, 
     ReactiveFormsModule,
+    TranslateModule.forRoot (),
+    IonicStorageModule.forRoot (),
 
     // Modals
     SearchResultsPageModule,

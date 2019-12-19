@@ -1,3 +1,4 @@
+export class AppRoutingModule { }
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
@@ -25,13 +26,14 @@ const routes: Routes = [
     loadChildren: () => import('./event-detail/event-detail.module').then( m => m.EventDetailPageModule)
   },
   {
-    path: 'blog-articulo',
+    path: 'blog-articulo/:id',
     loadChildren: () => import('./blog-articulo/blog-articulo.module').then( m => m.BlogArticuloPageModule)
   },
   {
     path: 'blog',
     loadChildren: () => import('./blog/blog.module').then( m => m.BlogPageModule)
-  },  {
+  },
+  {
     path: 'turismo-circuito',
     loadChildren: () => import('./turismo-circuito/turismo-circuito.module').then( m => m.TurismoCircuitoPageModule)
   },
@@ -39,7 +41,6 @@ const routes: Routes = [
     path: 'trc',
     loadChildren: () => import('./trc/trc.module').then( m => m.TrcPageModule)
   },
-
 ];
 
 @NgModule({

@@ -22,8 +22,25 @@ export class DatabaseService {
   }
 
   // Blogs
+  get_last_blogs (limit: number) {
+    return this.afs.collection ('Blogs', ref => ref.orderBy ('fecha_creado').limit (limit)).valueChanges ();
+  }
+
   get_blogs () {
-    return this.afs.collection ('Blogs', ref => ref.orderBy ('fecha_creado').limit (6)).valueChanges ();
+    return this.afs.collection ('Blogs', ref => ref.orderBy ('fecha_creado')).valueChanges ();
+  }
+
+  get_blog_categories () {
+    return this.afs.collection ('Blog_Categorias').valueChanges ();
+  }
+
+  get_blog_by_id (id: string) {
+    return this.afs.collection ('Blogs').doc (id).valueChanges ();
+  }
+
+  // Boleto turistico
+  get_boletos_turisticos () {
+    return this.afs.collection ("Boleto_Turistico").valueChanges ();
   }
 
   // Calendar

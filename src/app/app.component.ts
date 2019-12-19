@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
+import { Platform, NavController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
-// moment.js
+// Services
+import { Storage } from '@ionic/storage';
+import { TranslateService } from '@ngx-translate/core';
 import * as moment from 'moment';  
 
 @Component({
@@ -13,10 +15,15 @@ import * as moment from 'moment';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+  i18n: string;
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private translate: TranslateService,
+    private navCtrl: NavController,
+    private storage: Storage
   ) {
     this.initializeApp();
   }
@@ -26,7 +33,31 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
 
-      moment.locale ('es');
+      if (this.platform.is('android')) {
+        this.statusBar.overlaysWebView(false);
+        this.statusBar.backgroundColorByHexString('#000000');
+      }
+
+      this.translate.addLangs(['es', 'en']);
+
+      this.storage.get ('i18n').then ((response: string) => {
+        let lang: string = response;
+
+        if (lang === null || lang === undefined) {
+          lang = 'es';
+        }
+
+        console.log ('Idioma', lang);
+
+        this.translate.use (lang);
+        this.storage.set ('i18n', lang);
+        moment.locale (lang);
+        this.i18n = lang;
+      });
     });
+  }
+
+  goBLogs () {
+    this.navCtrl.navigateForward ('blog');
   }
 }

@@ -42,7 +42,7 @@ export class HomePage {
   }
 
   get_blogs () {
-    this.database.get_blogs ().subscribe ((res: any) => {
+    this.database.get_last_blogs (6).subscribe ((res: any) => {
       console.log (res);
       this.blogs = res;
       this.is_blog_loading = false;
@@ -60,7 +60,9 @@ export class HomePage {
   }
 
   view_blog (item: any) {
+    console.log (item);
     let slug: string = item ['titulo_es'];
+    this.navCtrl.navigateForward ('blog-articulo/' + item.id);
     //window.open('https://dirceturcuscoapp.firebaseapp.com/blog-detalle/' + this.slugifyPipe.transform (slug) + '/' + item.id, '_system');
   }
 
@@ -157,7 +159,11 @@ export class HomePage {
   go_calendar () {
     this.navCtrl.navigateForward ('calendario');
   }
-  
+
+  go_boleto_turistico () {
+    this.navCtrl.navigateForward ('boleto-turistico');
+  }
+
   // Datetime fuctions
   get_format_date (date: string) {
     return moment (date).format ('L');
