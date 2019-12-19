@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'event-detail',
     loadChildren: () => import('./event-detail/event-detail.module').then( m => m.EventDetailPageModule)
   },
+  {
+    path: 'blog',
+    loadChildren: () => import('./blog/blog.module').then( m => m.BlogPageModule)
+  },
 
 ];
 
