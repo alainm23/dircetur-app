@@ -1,0 +1,68 @@
+.padding_espacio{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.btn_menu{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #B4B4B4;
+    padding-top: 2px;
+    margin-top: 1rem;
+}
+.div_linea_color{
+    height: 1px;
+    background-color: #ffffff;
+    margin-bottom: 3px;
+}
+.div_line_menu{
+    width: 100%;
+}
+#div_line_menu_peque{
+    width: 50%;
+}
+#padding_derecha{
+    padding-left: 0px;
+    padding-right: 1px;
+}
+#padding_izquierda{
+    padding-right: 0px;
+    padding-left: 1px;
+}
+.titulo_art{
+    color: #656565;
+    font-weight: 900;
+    font-size: 22px;
+}
+@media(min-width: 360px){
+    .titulo_art{
+        font-size: 25px;
+    }
+}
+.pequeño_blog{
+    color: #818181;
+    font-weight: 100;
+    font-size: 13px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+.descrip_color{
+    color: #818181;
+    font-weight: 100;
+}
+.padding_espacio_descrip{
+    padding-left: 16px;
+    padding-right: 16px;
+}
+@media(min-width: 480px){
+    .padding_espacio_descrip{
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+}
+@media(min-width: 768px){
+    .padding_espacio_descrip{
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+}
