@@ -97,7 +97,7 @@
 
         <div *ngIf="is_calendar_loading === false && eventos.length > 0" style="width: 100%;">
           <ion-col *ngFor="let item of eventos" size="12" size-md="6" size-lg="6" class="padding_eventos ion-margin-bottom">
-            <ion-card>
+            <ion-card (click)="view_calendar_detail (item)">
               <ion-row>
                 <ion-col size="3" [className]="item.color === 0 ? 'fondo-azul cuadrado_calender padding_cero largo_eventos' : 'fondo-rojo cuadrado_calender padding_cero largo_eventos'" text-center>
                   <p class="color_blanco fecha_number">{{ get_date_format (item.datageneral.fecha, 'DD') }}</p>

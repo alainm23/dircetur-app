@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+// Ionic
+import { MenuController, LoadingController, ModalController, NavController } from '@ionic/angular'; 
+
 // Services
 import { DatabaseService } from '../services/database.service';
 
@@ -17,7 +20,8 @@ export class CalendarioPage implements OnInit {
   current_date: string = moment ().format ();
   is_loading: boolean = false;
 
-  constructor(private database: DatabaseService) { }
+  constructor(private database: DatabaseService,
+              private navCtrl: NavController) { }
 
   ngOnInit() {
     this.get_events ();
@@ -55,6 +59,11 @@ export class CalendarioPage implements OnInit {
 
       return true;
     });
+  }
+
+  view_calendar_detail (item: any) {
+    console.log (item);
+    this.navCtrl.navigateForward ('event-detail/' + item.data.id);
   }
 
   // Datetime fuctions

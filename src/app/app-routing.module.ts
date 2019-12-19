@@ -3,7 +3,8 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},  {
+  { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
+  {
     path: 'calendario',
     loadChildren: () => import('./calendario/calendario.module').then( m => m.CalendarioPageModule)
   },
@@ -20,14 +21,17 @@ const routes: Routes = [
     loadChildren: () => import('./report-provider/report-provider.module').then( m => m.ReportProviderPageModule)
   },
   {
-    path: 'event-detail',
+    path: 'event-detail/:id',
     loadChildren: () => import('./event-detail/event-detail.module').then( m => m.EventDetailPageModule)
   },
   {
     path: 'blog-articulo',
     loadChildren: () => import('./blog-articulo/blog-articulo.module').then( m => m.BlogArticuloPageModule)
   },
-
+  {
+    path: 'blog',
+    loadChildren: () => import('./blog/blog.module').then( m => m.BlogPageModule)
+  },
 ];
 
 @NgModule({

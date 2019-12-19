@@ -64,6 +64,11 @@ export class HomePage {
     //window.open('https://dirceturcuscoapp.firebaseapp.com/blog-detalle/' + this.slugifyPipe.transform (slug) + '/' + item.id, '_system');
   }
 
+  view_calendar_detail (item: any) {
+    console.log (item);
+    this.navCtrl.navigateForward ('event-detail/' + item.data.id);
+  }
+
   // Tools
   order_items (items: any []) {
     let color: number = 0; // azul, 1 = rojo

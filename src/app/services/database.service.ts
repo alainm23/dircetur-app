@@ -27,7 +27,7 @@ export class DatabaseService {
   }
 
   // Calendar
-  get_eventos_by_key (id: string) {
+  get_evento_by_key (id: string) {
     return this.afs.collection ("Eventos").doc (id).valueChanges ();
   }
 
@@ -39,7 +39,7 @@ export class DatabaseService {
         return refReferencias.map (refReferencia => {
           const data: any = refReferencia.payload.doc.data();
 
-          return this.get_eventos_by_key (data.id).pipe (map (datageneral => Object.assign ({}, {data, datageneral})));
+          return this.get_evento_by_key (data.id).pipe (map (datageneral => Object.assign ({}, {data, datageneral})));
         });
       }
     })).mergeMap (observables => {
