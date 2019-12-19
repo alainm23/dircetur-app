@@ -38,16 +38,20 @@
       </ion-text>
     </ion-col>
     <ion-col size="12">
-        <ion-select placeholder="Select One" class="select_boleto">
-          <ion-select-option value="f">Female</ion-select-option>
-          <ion-select-option value="m">Male</ion-select-option>
+        <ion-spinner *ngIf="is_loading === true" style="width: 100%; margin-top: 1rem;" class="ion-text-center" name="circles"></ion-spinner>
+
+        <ion-select *ngIf="is_loading === false" interface="popover" placeholder="Select One" class="select_boleto" [(ngModel)]="boleto_selected" (ionChange)="check_price ()">
+          <ion-select-option *ngFor="let item of items" [value]="item">
+            {{ item.titulo }}
+          </ion-select-option>
         </ion-select>
-        <ion-select placeholder="Boleto turistico general" class="select_boleto">
-          <ion-select-option value="f">Female</ion-select-option>
-          <ion-select-option value="m">Male</ion-select-option>
+
+        <ion-select interface="popover" placeholder="Boleto turistico general" class="select_boleto" [(ngModel)]="nacionalidad_selected" (ionChange)="check_price ()">
+          <ion-select-option value="n">Nacional</ion-select-option>
+          <ion-select-option value="e">Extranjero</ion-select-option>
         </ion-select>
         <p text-center id="costo_font_size">
-          Cost per person:<ion-text color="#656565" style="font-weight: 800;">S/.130.00</ion-text> 
+          Cost per person:<ion-text color="#656565" style="font-weight: 800;">S/. {{ price }}</ion-text> 
         </p>
     </ion-col>
     <ion-col size="12"></ion-col>
@@ -94,90 +98,29 @@
         El boleto turístico completo tiene una valides de 10 días, sin embargo también existe la posibilidad de comprarlo de forma parcial como se detalla a continuación:
       </p>
      </ion-col>
-     <ion-col size="12" size-md="6" class="margin_bottom_card">
-      <ion-card class="ion-no-margin alturar_igualar">
-        <img src="assets/img/98388e36e175d1659d272d0494772f0e.png" class="sombra_car_img">
-        <ion-card-content class="padding_top_car_conten cantidad_datos">
-          <ion-text>
-            <h3 class="titulo_card">Circuit 1</h3>
-          </ion-text>
-          <ion-list lines="none">
-            <ion-item class="altura_list">
-              <ion-label class="espacio_list">- Parque Arqueológico de Saqsayhuaman  </ion-label>
-            </ion-item>
-            <ion-item class="altura_list">
-              <ion-label class="espacio_list">- Sitio Arqueológico de Qenqo</ion-label>
-            </ion-item>
-            <ion-item class="altura_list">
-              <ion-label class="espacio_list">- Grupo Arqueológico de Puka Pukara</ion-label>
-            </ion-item>
-          </ion-list>
-          <p class="color_viegencia">Vigencia<ion-text class="dia_bolder">1 dia</ion-text></p>
-        </ion-card-content>
-      </ion-card>
+
+     <ion-col size="12" text-center *ngIf="is_loading === true">
+      <ion-spinner style="width: 100%; margin-top: 1rem;" class="ion-text-center" name="circles"></ion-spinner>
      </ion-col>
-     <ion-col size="12" size-md="6" class="margin_bottom_card">
-      <ion-card class="ion-no-margin alturar_igualar">
-        <img src="assets/img/7c07407dbaadac20d72d3043fe17fdec.png" class="sombra_car_img">
-        <ion-card-content class="padding_top_car_conten">
-          <ion-text>
-            <h3 class="titulo_card">Circuit 1</h3>
-          </ion-text>
-          <ion-list lines="none">
-            <ion-item class="altura_list">
-              <ion-label class="espacio_list">- Museo Histórico Regional</ion-label>
-            </ion-item>
-            <ion-item class="altura_list">
-              <ion-label class="espacio_list">- Museo de Arte contemporáneo</ion-label>
-            </ion-item>
-            <ion-item class="altura_list">
-              <ion-label class="espacio_list">- Museo de Arte Popular</ion-label>
-            </ion-item>
-            <ion-item class="altura_list">
-              <ion-label class="espacio_list">- Museo de Sitio de Qorikancha</ion-label>
-            </ion-item>
-            <ion-item class="altura_list">
-              <ion-label class="espacio_list">- Centro Qosqo de Arte Nativo</ion-label>
-            </ion-item>
-            <ion-item class="altura_list">
-              <ion-label class="espacio_list">- Monumento al Inca Pachacutec</ion-label>
-            </ion-item>
-            <ion-item class="altura_list">
-              <ion-label class="espacio_list">- Parque Arqueológico de Tipón</ion-label>
-            </ion-item>
-            <ion-item class="altura_list">
-              <ion-label class="espacio_list">- Parque Arqueológico de Pikillacta</ion-label>
-            </ion-item>
-          </ion-list>
-          <p class="color_viegencia">Vigencia<ion-text class="dia_bolder">1 dia</ion-text></p>
-        </ion-card-content>
-      </ion-card>
-     </ion-col>
-     <ion-col size="12" size-md="6" class="margin_bottom_card">
-      <ion-card class="ion-no-margin alturar_igualar">
-        <img src="assets/img/ed3ef9205e87a0734a9b922608591f49.png" class="sombra_car_img">
-        <ion-card-content class="padding_top_car_conten">
-          <ion-text>
-            <h3 class="titulo_card">Circuit 1</h3>
-          </ion-text>
-          <ion-list lines="none">
-            <ion-item class="altura_list">
-              <ion-label class="espacio_list">- Parque Arqueológico de Pisac</ion-label>
-            </ion-item>
-            <ion-item class="altura_list">
-              <ion-label class="espacio_list">- Parque Arqueológico de Ollantaytambo</ion-label>
-            </ion-item>
-            <ion-item class="altura_list">
-              <ion-label class="espacio_list">- Parque Arqueológico de Chinchero</ion-label>
-            </ion-item>
-            <ion-item class="altura_list">
-              <ion-label class="espacio_list">- Parque Arqueológico de Moray</ion-label>
-            </ion-item>
-          </ion-list>
-          <p class="color_viegencia">Vigencia<ion-text class="dia_bolder">1 dia</ion-text></p>
-        </ion-card-content>
-      </ion-card>
-     </ion-col>
+
+     <div *ngIf="is_loading === false" style="width: 100%;">
+      <ion-col *ngFor="let item of items" size="12" size-md="6" class="margin_bottom_card">
+        <ion-card class="ion-no-margin alturar_igualar">
+          <img [src]="item.imagen" class="sombra_car_img">
+          <ion-card-content class="padding_top_car_conten cantidad_datos">
+            <ion-text>
+              <h3 class="titulo_card">{{ item.titulo }}</h3>
+            </ion-text>
+
+            <p class="detalle">
+              {{ item.detalle }}
+            </p>
+            <p class="color_viegencia">Vigencia<ion-text class="dia_bolder">{{ item.vigencia }}</ion-text></p>
+          </ion-card-content>
+        </ion-card>
+       </ion-col>
+     </div>
+
   </ion-row>
   <ion-row id="fondoazul" class="padding_espacio">
      <p id="decripcion_ultimo">To view full site list visit our website</p>
