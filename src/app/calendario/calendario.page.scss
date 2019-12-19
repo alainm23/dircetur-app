@@ -61,21 +61,24 @@
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background-color: #ffffff;
+    background-color: #B4B4B4;
     padding-top: 2px;
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
+    margin: 6px 8px 0px 0px;
     position: absolute;
     right: 0;
     top: 0;
 }
+
 .div_linea_color{
     height: 1px;
-    background-color: #676767;
+    background-color: #ffffff;
     margin-bottom: 3px;
 }
 .div_line_menu{
     width: 100%;
 }
+
 #div_line_menu_peque{
     width: 50%;
 }

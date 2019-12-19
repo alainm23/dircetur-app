@@ -3,13 +3,22 @@ ion-toolbar,
 ion-content {
     --background: #ffffff !important;
 }
+
+ion-card {
+    margin: 6px 0px 0px 0px !important;
+}
+
 .btn_menu{
     width: 25px;
     height: 25px;
     border-radius: 50%;
     background-color: #B4B4B4;
     padding-top: 2px;
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
+    margin: 6px 8px 0px 0px;
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 .div_linea_color{
     height: 1px;
@@ -19,6 +28,11 @@ ion-content {
 .div_line_menu{
     width: 100%;
 }
+
+.no-margin {
+    margin: 0px;
+}
+
 #div_line_menu_peque{
     width: 50%;
 }
@@ -160,13 +174,20 @@ button:focus{
         padding-right: 0.3125rem;
     }
 }
-.cuadrado_azul_calender{
-    background-color: #3E729A;
-    padding-bottom: 4px;
+.cuadrado_calender{
+    padding-bottom: 10px;
     padding-top: 3px;
     box-shadow:3px 1px 6px 1px #c0c0c0;
     -moz-box-shadow:3px 1px 6px 1px #c0c0c0;
     -webkit-box-shadow:3px 1px 6px 1px #c0c0c0;
+}
+
+.fondo-azul {
+    background-color: #3E729A;
+}
+
+.fondo-rojo {
+    background-color: #EC494B;
 }
 @media(min-width: 812px){
     .cuadrado_azul_calender{
