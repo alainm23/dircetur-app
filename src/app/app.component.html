@@ -7,12 +7,41 @@
     </ion-header>
     <ion-content>
       <ion-list>
-        <ion-menu-toggle auto-hide="false" >
-          <ion-item (click)="goBLogs ()">Blogs</ion-item>
+        <ion-menu-toggle auto-hide="false">
+          <ion-item (click)="go_page ('turismo-circuito')">Tourístic circuits</ion-item>
         </ion-menu-toggle>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
+        
+        <ion-menu-toggle auto-hide="false">
+          <ion-item (click)="go_page ('trc')">Touristic ticket</ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle auto-hide="false">
+          <ion-item (click)="go_page ('blog')">News and articles</ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle auto-hide="false">
+          <ion-item (click)="go_page ('trc')">Rural turism</ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle auto-hide="false">
+          <ion-item (click)="go_page ('calendario')">Cusco calendar</ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle auto-hide="false">
+          <ion-item>Cusco emergency directory</ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle auto-hide="false">
+          <ion-item>Contacto</ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle auto-hide="false">
+          <ion-item>Change language</ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle auto-hide="false">
+          <ion-item>Credits</ion-item>
+        </ion-menu-toggle>
       </ion-list>
     </ion-content>
   </ion-menu>

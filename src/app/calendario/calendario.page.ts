@@ -27,6 +27,10 @@ export class CalendarioPage implements OnInit {
     this.get_events ();
   }
 
+  onClick () {
+    this.navCtrl.back ();
+  }
+
   async get_events () {
     this.is_loading = true;
 

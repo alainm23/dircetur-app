@@ -57,7 +57,7 @@ export class AppComponent {
     });
   }
 
-  goBLogs () {
-    this.navCtrl.navigateForward ('blog');
+  go_page (page: string) {
+    this.navCtrl.navigateForward (page);
   }
 }

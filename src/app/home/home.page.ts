@@ -23,12 +23,14 @@ import * as moment from 'moment';
 export class HomePage {
   blogs: any = [];
   eventos: any = [];
+  circuitos: any = [];
 
   search_text: string = "";
   current_date: string = moment ().format ();
 
   is_calendar_loading: boolean = false;
   is_blog_loading: boolean = true;
+  is_circuitos_loading: boolean = true;
 
   constructor(private menu:MenuController,
               private loadingController: LoadingController,
@@ -39,13 +41,20 @@ export class HomePage {
   ) {
     this.get_blogs ();
     this.get_events ();
+    this.get_circuitos ();
   }
 
   get_blogs () {
     this.database.get_last_blogs (6).subscribe ((res: any) => {
-      console.log (res);
       this.blogs = res;
       this.is_blog_loading = false;
+    });
+  }
+
+  get_circuitos () {
+    this.database.get_circuitos_turisticos_limit (3).subscribe ((res: any []) => {
+      this.circuitos = res;
+      this.is_circuitos_loading = false;
     });
   }
 
@@ -53,21 +62,18 @@ export class HomePage {
     this.is_calendar_loading = true;
 
     this.database.get_events_by_month (moment (this.current_date).format ('MM')).subscribe ((res: any) => {
-      console.log (res);
       this.eventos = this.order_items (res);
       this.is_calendar_loading = false;
     });
   }
 
   view_blog (item: any) {
-    console.log (item);
     let slug: string = item ['titulo_es'];
     this.navCtrl.navigateForward ('blog-articulo/' + item.id);
     //window.open('https://dirceturcuscoapp.firebaseapp.com/blog-detalle/' + this.slugifyPipe.transform (slug) + '/' + item.id, '_system');
   }
 
   view_calendar_detail (item: any) {
-    console.log (item);
     this.navCtrl.navigateForward ('event-detail/' + item.data.id);
   }
 
@@ -162,6 +168,10 @@ export class HomePage {
 
   go_boleto_turistico () {
     this.navCtrl.navigateForward ('boleto-turistico');
+  }
+
+  go_circuitos () {
+    this.navCtrl.navigateForward ('turismo-circuito');
   }
 
   // Datetime fuctions

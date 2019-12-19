@@ -4,6 +4,14 @@ ion-content {
     --background: #ffffff !important;
 }
 
+ion-title {
+    color: #656565;
+}
+
+ion-button {
+    text-transform: none;
+}
+
 ion-card {
     margin: 6px 0px 0px 0px !important;
 }
@@ -82,6 +90,25 @@ button:focus{
         font-size: 16px;
     }
 }
+
+.margin-top {
+    display: flex;
+    margin-top: 1rem;
+}
+
+.margin_bottom{
+    margin-bottom: 10px;
+}
+
+.icono-fix {
+    margin-top: 3px;
+}
+
+#margin_left_img {
+    height: 16px;
+    width: 16px;
+}
+
 .quitar_margin{
     margin-top: 0;
 }
