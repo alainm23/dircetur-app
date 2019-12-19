@@ -3,6 +3,14 @@
     <ion-buttons mode="md" slot="start">
       <ion-back-button mode="md" text="" icon="ios-arrow-back" color="dark"></ion-back-button>
     </ion-buttons>
+        
+    <ion-buttons mode="md" slot="end">
+      <button class="btn_menu">
+        <div class="div_linea_color div_line_menu"></div>
+        <div class="div_linea_color div_line_menu"></div>
+        <div class="div_linea_color" id="div_line_menu_peque"></div>
+      </button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -39,7 +47,7 @@
         
         <div *ngIf="is_loading === false && eventos.length > 0">
           <ion-col *ngFor="let item of eventos" size="12" size-md="6" size-lg="6" class="padding_eventos ion-margin-bottom">
-            <ion-card>
+            <ion-card (click)="view_calendar_detail (item)">
               <ion-row>
                 <ion-col size="3" [className]="item.color === 0 ? 'fondo-azul cuadrado_calender padding_cero largo_eventos' : 'fondo-rojo cuadrado_calender padding_cero largo_eventos'" text-center>
                   <p class="color_blanco fecha_number">{{ get_date_format (item.datageneral.fecha, 'DD') }}</p>
