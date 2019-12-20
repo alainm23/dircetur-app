@@ -23,6 +23,9 @@ import { TranslateModule } from '@ngx-translate/core';
 // Storage
 import { IonicStorageModule } from '@ionic/storage';
 
+// API REST
+import { HttpClientModule } from '@angular/common/http';
+
 // Form
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -51,6 +54,7 @@ declare var require: any;
     ReactiveFormsModule,
     TranslateModule.forRoot (),
     IonicStorageModule.forRoot (),
+    HttpClientModule,
 
     // Modals
     SearchResultsPageModule,

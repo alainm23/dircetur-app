@@ -41,11 +41,11 @@ const routes: Routes = [
     loadChildren: () => import('./trc/trc.module').then( m => m.TrcPageModule)
   },
   {
-    path: 'circuito-detalle',
+    path: 'circuito-detalle/:id',
     loadChildren: () => import('./circuito-detalle/circuito-detalle.module').then( m => m.CircuitoDetallePageModule)
   },
   {
-    path: 'trc-detalle',
+    path: 'trc-detalle/:id',
     loadChildren: () => import('./trc-detalle/trc-detalle.module').then( m => m.TrcDetallePageModule)
   },
   {

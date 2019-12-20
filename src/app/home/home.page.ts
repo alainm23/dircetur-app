@@ -77,6 +77,10 @@ export class HomePage {
     this.navCtrl.navigateForward ('event-detail/' + item.data.id);
   }
 
+  view_circuito_detalle (item: any) {
+    this.navCtrl.navigateForward ('circuito-detalle/' + item.id);
+  }
+
   // Tools
   order_items (items: any []) {
     let color: number = 0; // azul, 1 = rojo

@@ -23,14 +23,14 @@
         </ion-text>
       </ion-col>
       <ion-col size="12">
-        <form>
-          <ion-input placeholder="Enter Input" class="color_input_text input_grande" type="text"></ion-input>
-          <ion-input placeholder="Enter Input" class="color_input_text input_grande" type="email"></ion-input>
-          <ion-textarea placeholder="Enter more information here..." class="color_input_text" type="text"></ion-textarea>
+        <form [formGroup]="form">
+          <ion-input placeholder="What is you name?" class="color_input_text input_grande" type="text" formControlName="fullname"></ion-input>
+          <ion-input placeholder="Enter your e-mail here" class="color_input_text input_grande" type="email" formControlName="email"></ion-input>
+          <ion-textarea rows="6" placeholder="What’s your message?" class="color_input_text" type="text" formControlName="message"></ion-textarea>
         </form>
       </ion-col>
       <ion-col size="10" size-sm="6" offset="1" offset-sm="3" class="ion-no-padding">
-        <button id="btn_contac">Send</button>
+        <ion-button class="no-text-transform" size="large" expand="block" color="light" shape="round" [disabled]="!form.valid" (click)="send ()">Send</ion-button>
       </ion-col>
     </ion-row>
     <ion-row>
