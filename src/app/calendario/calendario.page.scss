@@ -1,3 +1,12 @@
+ion-title {
+    color: #656565;
+}
+
+ion-button {
+    text-transform: none;
+}
+
+
 #fondo_imagen{
     --background: none;
     background-image: url('/assets/img/jeremiah-berman-9dmycbFE7mQ-unsplash.png');
@@ -35,6 +44,20 @@
 .padding_cero{
     padding: 0;
 }
+
+.quitar_margin{
+    display: flex;
+    margin-top: 1rem;
+}
+.margin_bottom{
+    margin-bottom: 10px;
+}
+
+#margin_left_img {
+    height: 16px;
+    width: 16px;
+}
+
 .color_descripcion_blanco{
     color: #ffffff;
     font-weight: 500;

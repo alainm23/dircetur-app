@@ -41,6 +41,10 @@ export class EventDetailPage implements OnInit {
     this.get_events ();
   }
 
+  onClick () {
+    this.navCtrl.back ();
+  }
+  
   async get_events () {
     this.is_upcomming_loading = true;
 

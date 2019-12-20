@@ -1,9 +1,13 @@
 <ion-header no-border>
   <ion-toolbar mode="ios">
     <ion-buttons mode="md" slot="start">
-      <ion-back-button mode="md" text="" icon="ios-arrow-back" color="dark"></ion-back-button>
+      <ion-button (click)="onClick()" fill="clear">
+        Atras
+      </ion-button>
     </ion-buttons>
-        
+
+    <ion-title>Event clendar</ion-title>
+
     <ion-buttons mode="md" slot="end">
       <button class="btn_menu">
         <div class="div_linea_color div_line_menu"></div>
@@ -17,10 +21,6 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col size="12" class="ion-text-center padding_left_right_todos">
-        <h1 class="color_65 font_bolder no-margin">Dircetur Cusco</h1>
-        <p class="color_65">Event clendar</p>
-      </ion-col>
       <ion-col size="4" offset="2">
         <button class="btn_pre_next"> < Previous</button>
       </ion-col>
@@ -83,7 +83,7 @@
                     <ion-col size="12" class="padding_derecha_izquierda largo_eventos">
                       <p class="titulo_calnedar">{{ item.datageneral.titulo }}</p>
                       <p class="subtitulo_calendar">{{ item.datageneral.categoria?.name }}</p>
-                      <!--p class="lugar_img">{{ item.datageneral.provincia.nombre }}</!p-->
+                      <p class="margin-top margin_bottom"><span><img src="/assets/img/icono-img1.png" class="icono-fix" id="margin_left_img"></span><span class="color_81_pau">{{ item.datageneral.provincia.nombre }}</span></p>
                     </ion-col>
                   </ion-row>
                 </ion-col>

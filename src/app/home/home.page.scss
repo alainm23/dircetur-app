@@ -409,6 +409,27 @@ button:focus{
     font-weight: 100;
     margin: 0;
     margin-top: 10px;
+    display: inline-flex;
+}
+
+.quitar_margin{
+    display: flex;
+    margin-top: 1rem;
+}
+.margin_bottom{
+    margin-bottom: 10px;
+}
+
+#margin_left_img {
+    height: 16px;
+    width: 16px;
+}
+
+.color_81_pau{
+    color: #818181;
+    font-size: 14px;
+    font-weight: 100;
+    padding-left: 10px;
 }
 @media(min-width: 568px){
     .lugar_img{
@@ -442,14 +463,18 @@ button:focus{
         bottom: 10px;
     }
 }
-.lugar_img::before{
-  content: url('/assets/img/icono-img1.png');
+
+.symbolic-image {
+    width: 16px;
+    height: 16px;
 }
+
 .padding_derecha_izquierda{
     padding-left: 18px;
     padding-right: 0;
     padding-top: 11px;
 }
+
 .padding_derecha_izquierda{
     box-shadow:3px 1px 6px 1px #c0c0c0;
     -moz-box-shadow:3px 1px 6px 1px #c0c0c0;

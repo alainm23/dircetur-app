@@ -43,6 +43,20 @@ export class DatabaseService {
     return this.afs.collection ("Boleto_Turistico").valueChanges ();
   }
 
+  // CIrcuito turistico
+  get_circuitos_turisticos () {
+    return this.afs.collection ('Circuitos_Turisticos').valueChanges ();
+  }
+
+  get_circuitos_turisticos_limit (n: number) {
+    return this.afs.collection ('Circuitos_Turisticos', ref => ref.limit (n)).valueChanges ();
+  }
+
+  // Turismo rural comunitario
+  get_trc () {
+    return this.afs.collection ("Turismo_Rural").valueChanges ();
+  }
+
   // Calendar
   get_evento_by_key (id: string) {
     return this.afs.collection ("Eventos").doc (id).valueChanges ();
