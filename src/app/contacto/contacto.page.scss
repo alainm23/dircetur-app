@@ -34,11 +34,25 @@
         height: 73vh;
     }
 }
-@media(min-width: 411px){
+
+@media(min-width: 375px) and (min-height: 812px) {
     #fondo_contac{
         height: 59vh;
     }
 }
+
+@media(min-width: 411px) and (min-height: 731px) {
+    #fondo_contac{
+        height: 66.5vh;
+    }
+}
+
+@media(min-width: 411px) and (min-height: 823px) {
+    #fondo_contac{
+        height: 59vh;
+    }
+}
+
 @media(min-width: 414px){
     #fondo_contac{
         height: 66vh;
@@ -123,9 +137,12 @@
     --padding-start: 8px;
     
 }
-ion-textarea{
-    height: 140px;
+
+.no-text-transform {
+    margin-top: 12px;
+    text-transform: none;
 }
+
 #btn_contac{
     background-color: #ffffff;
     color: #676767;

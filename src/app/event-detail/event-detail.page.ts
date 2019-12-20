@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 // Ionic
-import { MenuController, LoadingController, ModalController, NavController } from '@ionic/angular'; 
+import { NavController } from '@ionic/angular'; 
 
 // Services
 import { DatabaseService } from '../services/database.service';
