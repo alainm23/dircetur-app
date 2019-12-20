@@ -1,0 +1,215 @@
+.padding_espacio{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.btn_menu{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    padding-top: 2px;
+    margin-top: 1rem;
+}
+.div_linea_color{
+    height: 1px;
+    background-color: #676767;
+    margin-bottom: 3px;
+}
+.div_line_menu{
+    width: 100%;
+}
+#div_line_menu_peque{
+    width: 50%;
+}
+#fondo_contac{
+    --background: none;
+    background-image: url('/assets/img/Imagen_33.png');
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 80vh;
+}
+@media(min-width: 360px){
+    #fondo_contac{
+        height: 73vh;
+    }
+}
+@media(min-width: 411px){
+    #fondo_contac{
+        height: 59vh;
+    }
+}
+@media(min-width: 414px){
+    #fondo_contac{
+        height: 66vh;
+    }
+}
+@media(min-width: 480px) and (min-height: 320px){
+    #fondo_contac{
+        height: 156vh;
+    }
+}
+@media(min-width: 480px) and (min-height: 854px){
+    #fondo_contac{
+        height: 58vh;
+    }
+}
+@media(min-width: 568px){
+    #fondo_contac{
+        height: 163vh;
+    }
+}
+@media(min-width: 640px){
+    #fondo_contac{
+        height: 132vh;
+    }
+}
+@media(min-width: 731px){
+    #fondo_contac{
+        height: 120vh;
+    }
+}
+@media(min-width: 736px){
+    #fondo_contac{
+        height: 119vh;
+    }
+}
+@media(min-width: 768px){
+    #fondo_contac{
+        height: 48vh;
+    }
+}
+@media(min-width: 812px){
+    #fondo_contac{
+        height: 134vh;
+    }
+}
+@media(min-width: 823px){
+    #fondo_contac{
+        height: 123vh;
+    }
+}
+@media(min-width: 854px){
+    #fondo_contac{
+        height: 106vh;
+    }
+}
+@media(min-width: 1024px){
+    #fondo_contac{
+        height: 39vh;
+    }
+}
+@media(min-width: 1366px){
+    #fondo_contac{
+        height: 57vh;
+    }
+}
+#escribe_blanco{
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 900;
+}
+.color_input_text{
+    --background: #E8E8E8;
+    --color: #5C5C5C;
+    --placeholder-color: #5C5C5C;
+    margin-bottom: 7px;
+    margin-top: 0;
+}
+.input_grande{
+    --padding-top: 18px;
+    --padding-bottom: 18px;
+    --padding-end: 8px;
+    --padding-start: 8px;
+    
+}
+ion-textarea{
+    height: 140px;
+}
+#btn_contac{
+    background-color: #ffffff;
+    color: #676767;
+    -webkit-box-shadow: -1px 7px 10px -2px rgba(150,150,150,1);
+    -moz-box-shadow: -1px 7px 10px -2px rgba(150,150,150,1);
+    box-shadow: -1px 7px 10px -2px rgba(150,150,150,1);
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-top: 10px;
+}
+.titulo_art{
+    color: #656565;
+    font-weight: 900;
+    font-size: 22px;
+}
+@media(min-width: 360px){
+    .titulo_art{
+        font-size: 25px;
+    }
+}
+@media(min-width: 568px){
+    .titulo_art{
+        font-size: 30px;
+    }
+}
+@media(min-width: 768px){
+    .titulo_art{
+        font-size: 35px;
+    }
+}
+@media(min-width: 1024px){
+    .titulo_art{
+        font-size: 50px;
+    }
+}
+.padding_espacio_descrip{
+    padding-left: 29px;
+    padding-right: 29px;
+}
+@media(min-width: 480px){
+    .padding_espacio_descrip{
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+}
+@media(min-width: 768px){
+    .padding_espacio_descrip{
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+}
+#bajar_border{
+    margin-top: 67px;
+}
+#img_map{
+    border: 5px solid #ffffff;
+    -webkit-box-shadow: -1px 7px 10px -2px rgba(150,150,150,1);
+    -moz-box-shadow: -1px 7px 10px -2px rgba(150,150,150,1);
+    box-shadow: -1px 7px 10px -2px rgba(150,150,150,1);
+}
+.color_number_direc{
+    color: #818181;
+    font-weight: 100;
+    line-height: 1.3;
+}
+#linea_larga{
+    background-color: #818181;
+    height: 1px;
+     width: 100%;
+}
+.font_bolder{
+    font-weight: 900;
+}
+#btn_rojo{
+    background-color: #DB1D1D;
+    border: 1px solid #707070;
+    width: 100%;
+    color: #ffffff;
+    font-size: 20px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}

@@ -40,6 +40,18 @@ const routes: Routes = [
     path: 'trc',
     loadChildren: () => import('./trc/trc.module').then( m => m.TrcPageModule)
   },
+  {
+    path: 'circuito-detalle',
+    loadChildren: () => import('./circuito-detalle/circuito-detalle.module').then( m => m.CircuitoDetallePageModule)
+  },
+  {
+    path: 'trc-detalle',
+    loadChildren: () => import('./trc-detalle/trc-detalle.module').then( m => m.TrcDetallePageModule)
+  },
+  {
+    path: 'contacto',
+    loadChildren: () => import('./contacto/contacto.module').then( m => m.ContactoPageModule)
+  },
 ];
 
 @NgModule({
