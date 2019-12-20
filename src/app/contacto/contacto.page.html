@@ -1,9 +1,60 @@
-<ion-header>
+<!--<ion-header>
   <ion-toolbar>
     <ion-title>contacto</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header>-->
 
 <ion-content>
-
+  <ion-grid class="ion-no-padding">
+    <ion-row class="padding_espacio" id="fondo_contac">
+      <ion-col size="5" size-sm="3">
+        <ion-img :src="assets/img/Imagen-25.png"></ion-img>
+      </ion-col>
+      <ion-col size="2" size-sm="1" offset="5" offset-sm="8">
+        <button class="btn_menu">
+          <div class="div_linea_color div_line_menu"></div>
+          <div class="div_linea_color div_line_menu"></div>
+          <div class="div_linea_color" id="div_line_menu_peque"></div>
+        </button>
+      </ion-col>
+      <ion-col size="12" class="ion-text-center">
+        <ion-text>
+          <h1 id="escribe_blanco">Escribenos</h1>
+        </ion-text>
+      </ion-col>
+      <ion-col size="12">
+        <form>
+          <ion-input placeholder="Enter Input" class="color_input_text input_grande" type="text"></ion-input>
+          <ion-input placeholder="Enter Input" class="color_input_text input_grande" type="email"></ion-input>
+          <ion-textarea placeholder="Enter more information here..." class="color_input_text" type="text"></ion-textarea>
+        </form>
+      </ion-col>
+      <ion-col size="10" size-sm="6" offset="1" offset-sm="3" class="ion-no-padding">
+        <button id="btn_contac">Send</button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" class="ion-text-center padding_espacio" id="bajar_border">
+        <ion-text>
+          <h2 class="titulo_art ">Find us</h2>
+        </ion-text>
+        <p class="color_number_direc">Plaza Túpac Amaru Mz. Lote 2 , Wanchaq, Cusco, 3rd floor.</p>
+        <ion-img :src="assets/img/2462836393e5ddb12e855df06c422bf8.png" id="img_map"></ion-img>
+        <ion-text>
+          <h2 class="titulo_art ">Or Call</h2>
+        </ion-text>
+        <p class="color_number_direc">+51 (84) 223761</p>
+        <div id="linea_larga"></div>
+      </ion-col>
+      <ion-col size="12" class="padding_espacio ion-text-center">
+        <ion-text>
+          <h2 class="titulo_art ">Find us</h2>
+        </ion-text>
+        <p class="color_number_direc">Been subject of<ion-text color="#818181"><i class="font_bolder">fraud</i></ion-text>? Have any <ion-text color="#818181"><i class="font_bolder">claims</i></ion-text> or want to <ion-text color="#818181"><i class="font_bolder">congratulate</i></ion-text> for an excellent service?</p>
+      </ion-col>
+      <ion-col size="8" size-sm="4" offset="2" offset-sm="4">
+        <button id="btn_rojo">Let us know</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
