@@ -51,7 +51,15 @@ const routes: Routes = [
   {
     path: 'contacto',
     loadChildren: () => import('./contacto/contacto.module').then( m => m.ContactoPageModule)
+  },  {
+    path: 'creditos',
+    loadChildren: () => import('./creditos/creditos.module').then( m => m.CreditosPageModule)
   },
+  {
+    path: 'energency-direct',
+    loadChildren: () => import('./energency-direct/energency-direct.module').then( m => m.EnergencyDirectPageModule)
+  },
+
 ];
 
 @NgModule({
