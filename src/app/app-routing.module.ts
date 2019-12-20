@@ -1,3 +1,11 @@
+@NgModule({
+  imports: [
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+  ],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
@@ -52,6 +60,10 @@ const routes: Routes = [
     path: 'contacto',
     loadChildren: () => import('./contacto/contacto.module').then( m => m.ContactoPageModule)
   },
+  {
+    path: 'energency-direct',
+    loadChildren: () => import('./energency-direct/energency-direct.module').then( m => m.EnergencyDirectPageModule)
+  },
 ];
 
 @NgModule({
@@ -61,3 +73,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
