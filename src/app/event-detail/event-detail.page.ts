@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 // Ionic
-import { NavController } from '@ionic/angular'; 
+import { NavController, MenuController } from '@ionic/angular'; 
 
 // Services
 import { DatabaseService } from '../services/database.service';
@@ -28,7 +28,8 @@ export class EventDetailPage implements OnInit {
   upcomming_eventos: any [] = [];
   constructor(private route: ActivatedRoute,
               private database: DatabaseService,
-              private navCtrl: NavController) { }
+              private navCtrl: NavController,
+              private menu:MenuController) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get ('id');
@@ -89,5 +90,9 @@ export class EventDetailPage implements OnInit {
 
   get_date_format (date: string, format: string) {
     return moment (date).format (format);
+  }
+  open_menu () {
+    this.menu.enable (true, 'first');
+    this.menu.open ('first');
   }
 }

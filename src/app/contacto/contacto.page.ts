@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ComponentFactoryResolver } from '@angular/core';
 
 // Ionic
-import { ModalController, LoadingController, AlertController } from '@ionic/angular'; 
+import { ModalController, LoadingController, AlertController, MenuController } from '@ionic/angular'; 
 
 // Modals
 import { ReportProviderPage } from '../report-provider/report-provider.page';
@@ -18,11 +18,13 @@ import { FormGroup , FormControl, Validators } from '@angular/forms';
 })
 export class ContactoPage implements OnInit {
   form: FormGroup;
+  
   constructor(private http: HttpClient, 
               private modalController: ModalController,
               private alertController: AlertController,
+              private menu:MenuController
               private loadingController: LoadingController) { }
-
+  
   ngOnInit() {
     this.form = new FormGroup ({
       fullname: new FormControl ('', Validators.required),
@@ -74,5 +76,9 @@ export class ContactoPage implements OnInit {
     });
     
     await modal.present();
+  }
+  open_menu () {
+    this.menu.enable (true, 'first');
+    this.menu.open ('first');
   }
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
-import { Platform, NavController, AlertController } from '@ionic/angular';
+import { Platform, NavController, AlertController, MenuController } from '@ionic/angular';
+
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
@@ -24,7 +25,8 @@ export class AppComponent {
     private translate: TranslateService,
     private navCtrl: NavController,
     private storage: Storage,
-    public alertController: AlertController
+    public alertController: AlertController,
+    private menu:MenuControl
   ) {
     this.initializeApp();
   }
@@ -59,7 +61,7 @@ export class AppComponent {
   go_page (page: string) {
     this.navCtrl.navigateForward (page);
   }
-
+  
   async presentAlertRadio () {
     const alert = await this.alertController.create({
       header: 'Radio',
@@ -101,5 +103,10 @@ export class AppComponent {
     });
 
     await alert.present();
+  }
+  
+  open_menu () {
+    this.menu.enable (true, 'first');
+    this.menu.open ('close');
   }
 }

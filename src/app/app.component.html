@@ -1,46 +1,56 @@
 <ion-app>
-  <ion-menu side="end" menuId="first">
+  <ion-menu side="end" menuId="first" type="overlay">
     <ion-header>
-      <ion-toolbar color="primary">
-        <ion-title>Start Menu</ion-title>
+      <ion-toolbar>
+        <ion-grid class="ion-no-padding">
+          <ion-row class="padding_espacio" id="bajar_header">
+            <ion-col size="6" size-sm="6">
+              <ion-img :src="assets/img/Imagen-25.png"></ion-img>
+            </ion-col>
+            <ion-col size="1" size-sm="1" offset="4" offset-sm="4">
+              <button class="btn_menu" (click)="open_menu ()">
+                <ion-icon name="close"></ion-icon>
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-grid> 
       </ion-toolbar>
     </ion-header>
     <ion-content>
-      <ion-list>
-        <ion-menu-toggle auto-hide="false">
-          <ion-item (click)="go_page ('turismo-circuito')">Tourístic circuits</ion-item>
+      <ion-list lines="none" class="border_bottom">
+        <ion-menu-toggle auto-hide="false" >
+          <ion-item (click)="go_page ('turismo-circuito')" class="ion-text-center ">
+            <ion-label class="color_menu">Tourístic circuits</ion-label>
+          </ion-item>
         </ion-menu-toggle>
-        
+        <div></div>
         <ion-menu-toggle auto-hide="false">
-          <ion-item (click)="go_page ('boleto-turistico')">Touristic ticket</ion-item>
         </ion-menu-toggle>
-
+        <div></div>
         <ion-menu-toggle auto-hide="false">
-          <ion-item (click)="go_page ('blog')">News and articles</ion-item>
+          <ion-item (click)="go_page ('blog')" class="ion-text-center"><ion-label class="color_menu">News and articles</ion-label></ion-item>
         </ion-menu-toggle>
-
+        <div></div>
         <ion-menu-toggle auto-hide="false">
-          <ion-item (click)="go_page ('trc')">Rural turism</ion-item>
+          <ion-item (click)="go_page ('trc')" class="ion-text-center"><ion-label class="color_menu">Rural turism</ion-label></ion-item>
         </ion-menu-toggle>
-
+        <div></div>
         <ion-menu-toggle auto-hide="false">
-          <ion-item (click)="go_page ('calendario')">Cusco calendar</ion-item>
+          <ion-item (click)="go_page ('calendario')" class="ion-text-center"><ion-label class="color_menu">Cusco calendar</ion-label></ion-item>
         </ion-menu-toggle>
-
+        <div></div>
         <ion-menu-toggle auto-hide="false">
-          <ion-item (click)="go_page ('energency-direct')">Cusco emergency directory</ion-item>
         </ion-menu-toggle>
-
+        <div></div>
         <ion-menu-toggle auto-hide="false">
-          <ion-item (click)="go_page ('contacto')">Contacto</ion-item>
+          
         </ion-menu-toggle>
-
+        <div></div>
         <ion-menu-toggle auto-hide="false">
-          <ion-item (click)="presentAlertRadio ()">Change language</ion-item>
+          
         </ion-menu-toggle>
-
+        <div></div>
         <ion-menu-toggle auto-hide="false">
-          <ion-item (click)="go_page ('creditos')">Credits</ion-item>
         </ion-menu-toggle>
       </ion-list>
     </ion-content>

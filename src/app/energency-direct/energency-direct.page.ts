@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 // Ionic
-import { ModalController } from '@ionic/angular'; 
+import { ModalController, MenuController } from '@ionic/angular'; 
 
 // Modals
 import { ReportProviderPage } from '../report-provider/report-provider.page';
@@ -13,8 +13,9 @@ import { ReportProviderPage } from '../report-provider/report-provider.page';
 })
 export class EnergencyDirectPage implements OnInit {
 
-  constructor(private modalController: ModalController) { }
 
+  constructor(private modalController: ModalController, private menu:MenuController) { }
+  
   ngOnInit() {
   }
 
@@ -30,5 +31,10 @@ export class EnergencyDirectPage implements OnInit {
     });
 
     await modal.present();
+  }
+  
+  open_menu () {
+    this.menu.enable (true, 'first');
+    this.menu.open ('first');
   }
 }

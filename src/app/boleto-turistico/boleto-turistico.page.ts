@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuController, LoadingController, ModalController, NavController } from '@ionic/angular';
 
 // Services
 import { DatabaseService } from '../services/database.service';
@@ -16,7 +17,7 @@ export class BoletoTuristicoPage implements OnInit {
   price: number = 0;
 
   is_loading: boolean = true;
-  constructor(private database: DatabaseService) { }
+  constructor(private database: DatabaseService,  private menu:MenuController) { }
 
   ngOnInit() {
     this.database.get_boletos_turisticos ().subscribe ((res: any []) => {
@@ -36,5 +37,9 @@ export class BoletoTuristicoPage implements OnInit {
     } else {
       this.price = this.boleto_selected.precio_extrajero;
     }
+  }
+  open_menu () {
+    this.menu.enable (true, 'first');
+    this.menu.open ('first');
   }
 }

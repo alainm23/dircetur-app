@@ -57,13 +57,21 @@
         margin-top: -6rem;
     }
 }
+@media(min-width: 568px){
+    .bajar_imagen_logo{
+        margin-top: -1rem;
+    }
+}
 .btn_menu{
     width: 25px;
     height: 25px;
     border-radius: 50%;
     background-color: #ffffff;
     padding-top: 2px;
-    margin-top: 1rem;
+    position: absolute;
+    z-index: 9999;
+    top: 26px;
+    right: 39px;
 }
 .div_linea_color{
     height: 1px;
@@ -75,6 +83,28 @@
 }
 #div_line_menu_peque{
     width: 50%;
+}
+@media(min-width: 411px){
+    .btn_menu{
+        top: 26px;
+        right: 40px;
+        width: 29px;
+        height: 29px;
+    }
+    .div_linea_color{
+        height: 2px;
+    }
+}
+@media(min-width: 1024px){
+    .btn_menu{
+        top: 46px;
+        right: 69px;
+        width: 40px;
+        height: 40px;
+    }
+    .div_linea_color{
+        height: 4px;
+    }
 }
 #input_border_left{
     border-left: 1px solid #C4C4C4;
