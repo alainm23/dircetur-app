@@ -53,6 +53,10 @@ const routes: Routes = [
     loadChildren: () => import('./contacto/contacto.module').then( m => m.ContactoPageModule)
   },
   {
+    path: 'creditos',
+    loadChildren: () => import('./creditos/creditos.module').then( m => m.CreditosPageModule)
+  },
+  {
     path: 'energency-direct',
     loadChildren: () => import('./energency-direct/energency-direct.module').then( m => m.EnergencyDirectPageModule)
   },
@@ -65,4 +69,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-

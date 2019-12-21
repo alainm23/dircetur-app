@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController} from '@ionic/angular'; 
+
+// Ionic
+import { ModalController, MenuController } from '@ionic/angular'; 
+
+// Modals
+import { ReportProviderPage } from '../report-provider/report-provider.page';
 
 @Component({
   selector: 'app-energency-direct',
@@ -8,11 +13,26 @@ import { MenuController} from '@ionic/angular';
 })
 export class EnergencyDirectPage implements OnInit {
 
-  constructor(private menu:MenuController) { }
 
+  constructor(private modalController: ModalController, private menu:MenuController) { }
+  
   ngOnInit() {
   }
 
+  async open_report (item: any = null, type: number = 0) {
+    const modal = await this.modalController.create({
+      component: ReportProviderPage,
+      componentProps: {
+        item: item,
+        type: type
+      },
+      //enterAnimation: myEnterAnimation,
+      //leaveAnimation: myLeaveAnimation
+    });
+
+    await modal.present();
+  }
+  
   open_menu () {
     this.menu.enable (true, 'first');
     this.menu.open ('first');

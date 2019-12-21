@@ -3,7 +3,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 declare var require: any
 
 // Ionic
-import { ModalController } from '@ionic/angular';
+import { ModalController, } from '@ionic/angular';
 
 // AlgoliaSearch
 import * as algoliasearch from 'algoliasearch/dist/algoliasearch.js';
@@ -12,6 +12,8 @@ import { environment } from '../../environments/environment';
 // Services
 import { DatabaseService } from '../services/database.service'
 
+// Modals
+import { ReportProviderPage } from '../report-provider/report-provider.page';
 @Component({
   selector: 'app-search-results',
   templateUrl: './search-results.page.html',
@@ -41,7 +43,8 @@ export class SearchResultsPage implements OnInit {
   help_2: boolean = false;
   help_3: boolean = false;
 
-  constructor(private database: DatabaseService, private modalCtrl: ModalController,) { }
+  constructor(private database: DatabaseService, 
+              private modalCtrl: ModalController) { }
 
   ngOnInit() {
     this.initalgolia ();
@@ -124,6 +127,20 @@ export class SearchResultsPage implements OnInit {
         });
       }
     }
+  }
+
+  async open_report (item: any = null, type: number = 0) {
+    const modal = await this.modalCtrl.create({
+      component: ReportProviderPage,
+      componentProps: {
+        item: item,
+        type: type
+      },
+      //enterAnimation: myEnterAnimation,
+      //leaveAnimation: myLeaveAnimation
+    });
+    
+    await modal.present();
   }
 
   get_icon (item: any) {
