@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
-
+import { MenuController} from '@ionic/angular'; 
 // Param
 import { ActivatedRoute } from '@angular/router';
 
@@ -31,7 +31,8 @@ export class CircuitoDetallePage implements OnInit {
   is_loading: boolean = true;
   is_items_loading: boolean = true;
   constructor(private route: ActivatedRoute,
-              private database: DatabaseService) { }
+              private database: DatabaseService,
+              private menu:MenuController) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get ('id');
@@ -57,5 +58,9 @@ export class CircuitoDetallePage implements OnInit {
     } else {
       item.reveal_child = true;
     }
+  }
+  open_menu () {
+    this.menu.enable (true, 'first');
+    this.menu.open ('first');
   }
 }

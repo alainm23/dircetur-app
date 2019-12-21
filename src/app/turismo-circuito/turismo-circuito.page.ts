@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 // Services
 import { DatabaseService } from '../services/database.service';
-
+import { MenuController} from '@ionic/angular';
 @Component({
   selector: 'app-turismo-circuito',
   templateUrl: './turismo-circuito.page.html',
@@ -11,7 +11,8 @@ import { DatabaseService } from '../services/database.service';
 export class TurismoCircuitoPage implements OnInit {
   items: any [] = [];
   is_loading: boolean = true;
-  constructor(private database: DatabaseService) { }
+  constructor(private database: DatabaseService,
+    private menu:MenuController) { }
 
   ngOnInit() {
     this.database.get_circuitos_turisticos ().subscribe ((res: any []) => {
@@ -19,5 +20,9 @@ export class TurismoCircuitoPage implements OnInit {
       console.log (res);
       this.is_loading = false;
     });
+  }
+  open_menu () {
+    this.menu.enable (true, 'first');
+    this.menu.open ('first');
   }
 }

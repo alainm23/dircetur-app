@@ -1,4 +1,5 @@
 import { Component, OnInit, ComponentFactoryResolver } from '@angular/core';
+import { MenuController} from '@ionic/angular'; 
 
 // HTTPS
 import { HttpClient } from '@angular/common/http';
@@ -12,7 +13,8 @@ import { FormGroup , FormControl, Validators } from '@angular/forms';
 })
 export class ContactoPage implements OnInit {
   form: FormGroup;
-  constructor(public http: HttpClient) { }
+  constructor(public http: HttpClient,
+    private menu:MenuController) { }
 
   ngOnInit() {
     this.form = new FormGroup ({
@@ -34,5 +36,9 @@ export class ContactoPage implements OnInit {
     }, (error: any) => {
       console.log (error);
     });
+  }
+  open_menu () {
+    this.menu.enable (true, 'first');
+    this.menu.open ('first');
   }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 // Ionic
-import { NavController } from '@ionic/angular'; 
+import { NavController, MenuController } from '@ionic/angular'; 
 
 // Services
 import { DatabaseService } from '../services/database.service';
@@ -15,7 +15,8 @@ export class TrcPage implements OnInit {
   items: any [] = [];
   is_loading: boolean = true;
   constructor(private database: DatabaseService,
-              private navCtrl: NavController) { }
+              private navCtrl: NavController,
+              private menu:MenuController) { }
 
   ngOnInit() {
     this.database.get_trc ().subscribe ((res: any []) => {
@@ -28,5 +29,9 @@ export class TrcPage implements OnInit {
   view (item: any) {
     this.navCtrl.navigateForward ('trc-detalle/' + item.id);
     console.log (item);
+  }
+  open_menu () {
+    this.menu.enable (true, 'first');
+    this.menu.open ('first');
   }
 }

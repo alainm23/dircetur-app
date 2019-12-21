@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 // Ionic
-import { NavController } from '@ionic/angular'; 
+import { NavController, MenuController } from '@ionic/angular'; 
 
 // Services
 import { DatabaseService } from '../services/database.service';
@@ -25,7 +25,8 @@ export class BlogPage implements OnInit {
   is_category_loading: boolean = true;
   is_loading: boolean = true;
   constructor(private database: DatabaseService,
-              private navCtrl: NavController) { }
+              private navCtrl: NavController,
+              private menu:MenuController) { }
 
   ngOnInit() {
 
@@ -63,5 +64,10 @@ export class BlogPage implements OnInit {
 
   get_date_format (date: string, format: string) {
     return moment (date).format (format);
+  }
+
+  open_menu () {
+    this.menu.enable (true, 'first');
+    this.menu.open ('first');
   }
 }

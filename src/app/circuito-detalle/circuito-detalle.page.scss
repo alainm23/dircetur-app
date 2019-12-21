@@ -14,11 +14,11 @@
     border-radius: 50%;
     background-color: #B4B4B4;
     padding-top: 2px;
-    margin-top: 1rem;
+    margin-right: 10px;
 }
 .div_linea_color{
     height: 1px;
-    background-color: #ffffff;
+    background-color: #FFFFFF;
     margin-bottom: 3px;
 }
 .div_line_menu{
@@ -26,6 +26,24 @@
 }
 #div_line_menu_peque{
     width: 50%;
+}
+@media(min-width: 411px){
+    .btn_menu{
+        width: 29px;
+        height: 29px;
+    }
+    .div_linea_color{
+        height: 2px;
+    }
+}
+@media(min-width: 1024px){
+    .btn_menu{
+        width: 40px;
+        height: 40px;
+    }
+    .div_linea_color{
+        height: 4px;
+    }
 }
 .titulo_art{
     color: #656565;

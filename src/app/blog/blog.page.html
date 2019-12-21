@@ -1,12 +1,27 @@
-<!--<ion-header>
-  <ion-toolbar>
-    <ion-title>blog</ion-title>
+<ion-header no-border>
+  <ion-toolbar mode="ios">
+    <ion-buttons mode="md" slot="start">
+      <!--ion-back-button mode="md" text="Back" color="dark"></!--ion-back-button-->
+      <ion-button (click)="onClick()" fill="clear">
+        Atras
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title></ion-title>
+
+    <ion-buttons mode="md" slot="end">
+      <button class="btn_menu" (click)="open_menu ()">
+        <div class="div_linea_color div_line_menu"></div>
+        <div class="div_linea_color div_line_menu"></div>
+        <div class="div_linea_color" id="div_line_menu_peque"></div>
+      </button>
+    </ion-buttons>
   </ion-toolbar>
-</ion-header>-->
+</ion-header>
 
 <ion-content>
   <ion-grid class="ion-no-padding">
-    <ion-row class="padding_espacio">
+   <!--<ion-row class="padding_espacio">
       <ion-col size="5" size-sm="3">
         <ion-img :src="assets/img/dircetur@3x.png"></ion-img>
       </ion-col>
@@ -17,13 +32,13 @@
           <div class="div_linea_color" id="div_line_menu_peque"></div>
         </button>
       </ion-col>
+    </ion-row>-->
+    <ion-row  class="padding_espacio">
       <ion-col size="12" class="ion-text-center">
         <ion-text>
           <h1 class="color_titulos">News articles and events</h1>
         </ion-text>
       </ion-col>
-    </ion-row>
-    <ion-row  class="padding_espacio">
       <ion-col size="12" *ngIf="is_category_loading === true">
         <ion-spinner style="width: 100%; margin-top: 1rem;" class="ion-text-center" name="circles"></ion-spinner>
       </ion-col>

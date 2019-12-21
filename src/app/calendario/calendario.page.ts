@@ -21,7 +21,8 @@ export class CalendarioPage implements OnInit {
   is_loading: boolean = false;
 
   constructor(private database: DatabaseService,
-              private navCtrl: NavController) { }
+              private navCtrl: NavController,
+              private menu:MenuController) { }
 
   ngOnInit() {
     this.get_events ();
@@ -86,5 +87,10 @@ export class CalendarioPage implements OnInit {
 
   get_date_format (date: string, format: string) {
     return moment (date).format (format);
+  }
+
+  open_menu () {
+    this.menu.enable (true, 'first');
+    this.menu.open ('first');
   }
 }
