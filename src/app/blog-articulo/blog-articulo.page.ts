@@ -22,7 +22,8 @@ export class BlogArticuloPage implements OnInit {
   blog: any;
   is_loading: boolean = true;
   constructor(private route: ActivatedRoute,
-              private database: DatabaseService) { }
+              private database: DatabaseService,
+              private menu:MenuController) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get ('id');
@@ -37,5 +38,9 @@ export class BlogArticuloPage implements OnInit {
 
   get_date_format (date: string, format: string) {
     return moment (date).format (format);
+  }
+  open_menu () {
+    this.menu.enable (true, 'first');
+    this.menu.open ('first');
   }
 }

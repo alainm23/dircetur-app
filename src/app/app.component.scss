@@ -1,0 +1,152 @@
+ion-header, ion-toolbar{
+    --background: #4C486F !important;
+    height: 15vh;
+}
+#bajar_header{
+    margin-top: 7px;
+}
+.btn_menu{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    padding-top: 2px;
+    margin-top: 0px;
+}
+ion-icon{
+    color: #676767;
+    font-size: 18px;
+    margin-left: -2px;
+}
+@media(min-width: 320px) and (min-height: 812px){
+    ion-header, ion-toolbar {
+        height: 12vh;
+    }
+}
+@media(min-width: 375px) and (min-height: 812px){
+    ion-header, ion-toolbar {
+        height: 12vh;
+    }
+}
+@media(min-width: 411px) and (min-height: 731px){
+    ion-header, ion-toolbar {
+        height: 12vh;
+    }
+    .btn_menu{
+        margin-top: 9px;
+    }
+}
+@media(min-width: 411px) and (min-height: 823px){
+    ion-header, ion-toolbar {
+        height: 12vh;
+    }
+    .btn_menu{
+        margin-top: 9px;
+    }
+}
+@media(min-width: 480px) and (min-height: 320px){
+    ion-header, ion-toolbar {
+        height: 29vh;
+    }
+}
+@media(min-width: 480px) and (min-height: 854px){
+    ion-header, ion-toolbar {
+        height: 12vh;
+    }
+}
+@media(min-width: 568px){
+    ion-header, ion-toolbar{
+        height: 29vh;
+    }
+}
+@media(min-width: 640px){
+    ion-header, ion-toolbar {
+        height: 28vh;
+    }
+    .btn_menu{
+        margin-top: 9px;
+    }
+}
+@media(min-width: 731px){
+    ion-header, ion-toolbar {
+        height: 25vh;
+    }
+    .btn_menu{
+        margin-top: 9px;
+    }
+}
+@media(min-width: 736px){
+    ion-header, ion-toolbar {
+        height: 25vh;
+    }
+    .btn_menu{
+        margin-top: 9px;
+    }
+}
+@media(min-width: 768px){
+    ion-header, ion-toolbar {
+        height: 10vh;
+    }
+}
+@media(min-width: 812px){
+    ion-header, ion-toolbar {
+        height: 40vh;
+    }
+}
+@media(min-width: 823px){
+    ion-header, ion-toolbar{
+        height: 35vh;
+    }
+
+}
+@media(min-width: 854px){
+    ion-header, ion-toolbar{
+        height: 30vh;
+    }
+
+}
+@media(min-width: 1024px) and (min-height: 768px){
+    ion-header, ion-toolbar{
+        height: 14vh;
+    }
+    ion-icon{
+        font-size: 25px;
+        margin-left: -6px;
+        margin-top: -2px;
+    }
+}
+@media(min-width: 1024px) and (min-height: 1366px){
+    ion-header, ion-toolbar{
+        height: 8vh;
+    }
+    ion-icon{
+        font-size: 25px;
+        margin-left: -6px;
+        margin-top: -2px;
+    }
+}
+@media(min-width: 1366px){
+    ion-header, ion-toolbar{
+        height: 10vh;
+    }
+}
+.padding_espacio{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.color_menu{
+    --color: #818181;
+}
+.border_bottom{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+div{
+    background-color: #818181;
+    width: 100%;
+    height: 1px;
+}
+button:focus{
+    outline:none;
+    box-shadow:none;
+}
