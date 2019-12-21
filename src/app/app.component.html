@@ -12,7 +12,7 @@
         </ion-menu-toggle>
         
         <ion-menu-toggle auto-hide="false">
-          <ion-item (click)="go_page ('trc')">Touristic ticket</ion-item>
+          <ion-item (click)="go_page ('boleto-turistico')">Touristic ticket</ion-item>
         </ion-menu-toggle>
 
         <ion-menu-toggle auto-hide="false">
@@ -28,19 +28,19 @@
         </ion-menu-toggle>
 
         <ion-menu-toggle auto-hide="false">
-          <ion-item>Cusco emergency directory</ion-item>
+          <ion-item (click)="go_page ('energency-direct')">Cusco emergency directory</ion-item>
         </ion-menu-toggle>
 
         <ion-menu-toggle auto-hide="false">
-          <ion-item>Contacto</ion-item>
+          <ion-item (click)="go_page ('contacto')">Contacto</ion-item>
         </ion-menu-toggle>
 
         <ion-menu-toggle auto-hide="false">
-          <ion-item>Change language</ion-item>
+          <ion-item (click)="presentAlertRadio ()">Change language</ion-item>
         </ion-menu-toggle>
 
         <ion-menu-toggle auto-hide="false">
-          <ion-item>Credits</ion-item>
+          <ion-item (click)="go_page ('creditos')">Credits</ion-item>
         </ion-menu-toggle>
       </ion-list>
     </ion-content>

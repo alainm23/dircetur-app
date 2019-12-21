@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+// Ionic
+import { NavController } from '@ionic/angular'; 
+
 // Services
 import { DatabaseService } from '../services/database.service';
 
@@ -11,7 +14,8 @@ import { DatabaseService } from '../services/database.service';
 export class TurismoCircuitoPage implements OnInit {
   items: any [] = [];
   is_loading: boolean = true;
-  constructor(private database: DatabaseService) { }
+  constructor(private database: DatabaseService,
+              private navCtrl: NavController,) { }
 
   ngOnInit() {
     this.database.get_circuitos_turisticos ().subscribe ((res: any []) => {
@@ -19,5 +23,9 @@ export class TurismoCircuitoPage implements OnInit {
       console.log (res);
       this.is_loading = false;
     });
+  }
+
+  view_circuito_detalle (item: any) {
+    this.navCtrl.navigateForward ('circuito-detalle/' + item.id);
   }
 }

@@ -137,10 +137,13 @@ export class HomePage {
     });
 
     modal.onDidDismiss ().then ((response: any) => {
+      this.search_text = '';
+      /*
       if (response.role == 'report') {
         console.log (response.data);
         this.open_report (response.data.item, response.data.type);
       }
+      */
     });
 
     await modal.present();
@@ -155,12 +158,6 @@ export class HomePage {
       },
       //enterAnimation: myEnterAnimation,
       //leaveAnimation: myLeaveAnimation
-    });
-
-    modal.onDidDismiss ().then ((response: any) => {
-      if (response.role == 'open_search_modal') {
-        this.open_search_modal ();
-      }
     });
 
     await modal.present();

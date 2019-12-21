@@ -31,7 +31,7 @@
       <ion-col *ngIf="is_loading === false" size="12">
         <ion-row>
           <ion-col *ngFor="let item of items" size="12" size-md="6" size-xl="4">
-            <ion-card>
+            <ion-card (click)="view_circuito_detalle (item)">
               <ion-card-content>
                 <ion-row>
                   <ion-col size="12" class="dercha_izquierda_cero">

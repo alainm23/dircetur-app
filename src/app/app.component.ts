@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Platform, NavController } from '@ionic/angular';
+import { Platform, NavController, AlertController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
@@ -23,7 +23,8 @@ export class AppComponent {
     private statusBar: StatusBar,
     private translate: TranslateService,
     private navCtrl: NavController,
-    private storage: Storage
+    private storage: Storage,
+    public alertController: AlertController
   ) {
     this.initializeApp();
   }
@@ -47,8 +48,6 @@ export class AppComponent {
           lang = 'es';
         }
 
-        console.log ('Idioma', lang);
-
         this.translate.use (lang);
         this.storage.set ('i18n', lang);
         moment.locale (lang);
@@ -59,5 +58,48 @@ export class AppComponent {
 
   go_page (page: string) {
     this.navCtrl.navigateForward (page);
+  }
+
+  async presentAlertRadio () {
+    const alert = await this.alertController.create({
+      header: 'Radio',
+      inputs: [
+        {
+          name: 'es',
+          type: 'radio',
+          label: 'Español',
+          value: 'es',
+          checked: true
+        },
+        {
+          name: 'en',
+          type: 'radio',
+          label: 'English',
+          value: 'en'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Confirm Cancel');
+          }
+        }, {
+          text: 'Ok',
+          handler: (data: any) => {
+            console.log('Confirm Ok', data);
+
+            this.translate.use (data);
+            this.storage.set ('i18n', data);
+            moment.locale (data);
+            this.i18n = data;
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 }
