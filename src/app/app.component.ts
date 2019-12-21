@@ -26,7 +26,7 @@ export class AppComponent {
     private navCtrl: NavController,
     private storage: Storage,
     public alertController: AlertController,
-    private menu:MenuControl
+    private menu: MenuController
   ) {
     this.initializeApp();
   }
@@ -107,6 +107,6 @@ export class AppComponent {
   
   open_menu () {
     this.menu.enable (true, 'first');
-    this.menu.open ('close');
+    this.menu.close ('first');
   }
 }

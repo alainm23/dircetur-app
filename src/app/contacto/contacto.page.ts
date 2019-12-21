@@ -22,7 +22,7 @@ export class ContactoPage implements OnInit {
   constructor(private http: HttpClient, 
               private modalController: ModalController,
               private alertController: AlertController,
-              private menu:MenuController
+              private menu:MenuController,
               private loadingController: LoadingController) { }
   
   ngOnInit() {
