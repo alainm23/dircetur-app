@@ -28,20 +28,21 @@
           <button class="btn_rojo ion-padding-top ion-padding-bottom" (click)="open_report ()">Let us know</button>
       </ion-col>
       <ion-col size="12" text-center>
-          <h1 class="color_65_titulos">What is DIRCETUR</h1>
+          <h1 class="color_titulos">What is DIRCETUR</h1>
           <p class="color_81 espaciados_texto">Es la Dirección Regional de Comercio Exterior y Turismo Cusco (DIRCETUR), es un órgano de línea de segundo nivel organizacional, responsable de proponer y ejecutar la política organizacional, responsable de proponer y ejecutar la política regional de la actividad turística, en el marco de la política nacional de turismo; así como calificar y supervisar a los prestadores de servicios turísticos, de conformidad con las normas y reglamentos expedidos por el ministerio de comercio exterior y turismo, así como ejecutar la política regional de turismo sostenible en materia ambiental, dependiente de la dirección regional.</p>
       </ion-col>
     </ion-row>
     <ion-row class="ion-padding-start ion-padding-end margin_bottom_new">
       <ion-col size="12" text-center>
-          <h2 class="color_65_titulos">Dircetur news</h2>
+          <h2 class="color_titulos">Dircetur news</h2>
       </ion-col>
 
       <ion-col *ngIf="is_blog_loading" size="12" class="ion-text-center">
         <ion-spinner style="width: 100%; margin-top: 1rem;" class="ion-text-center" name="circles"></ion-spinner>
       </ion-col>
 
-      <div *ngIf="is_blog_loading === false">
+      <div *ngIf="is_blog_loading === false" class="habrir_espacios">
+        <ion-row>
         <ion-col *ngFor="let item of blogs" size="12" size-md="6" class="margin_bottom_escpacio">
           <ion-row (click)="view_blog (item)">
             <ion-col size="4" class="paddign_top_bottom">
@@ -57,11 +58,12 @@
             </ion-col>
           </ion-row>
         </ion-col>
+      </ion-row>
       </div>
     </ion-row>
     <ion-row id="fondo_boleto_img" class="ion-padding-end">
       <ion-col size="12">
-          <img id="subir_img_bloeto" src="assets/img/boleto-2@3x.png">
+          <img id="subir_img_bloeto" src="assets/img/Grupo_406.png">
       </ion-col>
       <ion-col size="10" size-sm="6" size-md="5" offset="2" offset-sm="6" offset-md="7" id="cuadrado_rojo_boleto">
         <h2 class="color_blanco" id="subtitulo_bold">Turistic ticket</h2>
@@ -75,7 +77,7 @@
     </ion-row>
     <ion-row id="bajar_titutlo" class="ion-padding-start ion-padding-end">
         <ion-col size="12" text-center>
-            <h2 class="color_65_titulos">Upcoming events</h2>
+            <h2 class="color_titulos">Upcoming events</h2>
         </ion-col>
         <ion-col size="2" text-right>
           <button *ngIf="check_backbutton ()" class="flechas_tamaño_calender padding_cero" (click)="change_month (-1)">
@@ -95,7 +97,8 @@
           <ion-spinner style="width: 100%; margin-top: 1rem;" class="ion-text-center" name="circles"></ion-spinner>
         </ion-col>
 
-        <div *ngIf="is_calendar_loading === false && eventos.length > 0" style="width: 100%;">
+        <div *ngIf="is_calendar_loading === false && eventos.length > 0" style="width: 100%;" class="habrir_espacios">
+          <ion-row>
           <ion-col *ngFor="let item of eventos" size="12" size-md="6" size-lg="6" class="padding_eventos ion-margin-bottom">
             <ion-card (click)="view_calendar_detail (item)">
               <ion-row>
@@ -115,6 +118,7 @@
               </ion-row>
             </ion-card>
           </ion-col>  
+        </ion-row>
         </div>
 
         <ion-col *ngIf="is_calendar_loading === false && eventos.length <= 0" size="12" class="ion-text-center">
@@ -132,14 +136,14 @@
     </ion-row>
     <ion-row class="ion-padding-start ion-padding-end margin_bottom_new">
       <ion-col size="12" text-center>
-        <h2 class="color_65_titulos">Turistical circuites in Cusco</h2>
+        <h2 class="color_titulos">Turistical circuites in Cusco</h2>
       </ion-col>
 
       <ion-col *ngIf="is_circuitos_loading === true" size="12">
         <ion-spinner style="width: 100%; margin-top: 1rem;" class="ion-text-center" name="circles"></ion-spinner>
       </ion-col>
 
-      <ion-col size="12" *ngIf="is_circuitos_loading === false">
+      <ion-col size="12" *ngIf="is_circuitos_loading === false" class="habrir_espacios">
         <ion-row>
           <ion-col *ngFor="let item of circuitos" size="12" size-md="6" size-xl="4">
             <ion-card (click)="view_circuito_detalle (item)">

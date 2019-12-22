@@ -42,8 +42,8 @@
         El boleto turístico es un boleto de ingreso con el cual se tiene acceso a 16 lugares entre sitios arqueológicos, museos y el Centro Qosqo de Arte Nativo. El boleto se puede comprar de forma general y parcial. Los precios se detallas a continuación:
       </p>
     </ion-col>
-    <ion-col id="ocultar_img">
-      <ion-img :src="assets/img/boleto-2.png"></ion-img>
+    <ion-col size="12">
+      <ion-img :src="assets/img/boleto-2.png" class="img_boleto"></ion-img>
     </ion-col>
   </ion-row>
   <ion-row id="fondo_select">
@@ -119,6 +119,7 @@
      </ion-col>
 
      <div *ngIf="is_loading === false" style="width: 100%;">
+      <ion-row>
       <ion-col *ngFor="let item of items" size="12" size-md="6" class="margin_bottom_card">
         <ion-card class="ion-no-margin alturar_igualar">
           <img [src]="item.imagen" class="sombra_car_img">
@@ -134,6 +135,7 @@
           </ion-card-content>
         </ion-card>
        </ion-col>
+      </ion-row>
      </div>
 
   </ion-row>
