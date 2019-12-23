@@ -40,7 +40,7 @@
 
     <ion-row *ngIf="is_loading === false">
       <ion-col size="12" class="padding_espacio_descrip">
-        <h1 class="titulo_art ion-text-lg-center">{{ data?.items }}</h1>
+        <h1 class="color_titulos ion-text-lg-center">{{ data?.items }}</h1>
         <p class="descrip_pequeña margin_bottom">{{ data?.donde }}</p>
         <p class="numero_color">{{ data?.altitud }}</p>
       </ion-col>
@@ -65,7 +65,7 @@
     <ion-row>
       <ion-col size="12" class="ion-text-center padding_espacio_descrip">
         <ion-text>
-          <h2 class="titulo_art">Itinerario</h2>
+          <h2 class="color_titulos">Itinerario</h2>
         </ion-text>
       </ion-col>
 
@@ -115,7 +115,7 @@
 
       <ion-col size="12" class="padding_espacio_descrip">
         <ion-text>
-          <h2 class="titulo_art ion-text-center">Itinerario</h2>
+          <h2 class="color_titulos ion-text-center">Itinerario</h2>
         </ion-text>
 
         <ion-spinner *ngIf="is_loading === true" style="width: 100%; margin-top: 1rem;" class="ion-text-center" name="circles"></ion-spinner>
@@ -125,7 +125,7 @@
 
       <ion-col size="12" class="padding_espacio_descrip">
         <ion-text>
-          <h2 class="titulo_art ion-text-center">No incluye</h2>
+          <h2 class="color_titulos ion-text-center">No incluye</h2>
         </ion-text>
 
         <ion-spinner *ngIf="is_loading === true" style="width: 100%; margin-top: 1rem;" class="ion-text-center" name="circles"></ion-spinner>

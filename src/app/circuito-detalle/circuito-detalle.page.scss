@@ -45,35 +45,35 @@
         height: 4px;
     }
 }
-.titulo_art{
+.color_titulos{
     color: #656565;
-    font-weight: 900;
-    font-size: 22px;
-}
-.titulo_art{
-    color: #656565;
-    font-weight: 900;
-    font-size: 22px;
+    font-weight: bolder;
+    font-size: 21px;
 }
 @media(min-width: 360px){
-    .titulo_art{
-        font-size: 25px;
-    }
+    .color_titulos{
+        font-size: 1.5rem;
+    }  
 }
-@media(min-width: 568px){
-    .titulo_art{
-        font-size: 30px;
-    }
+@media(min-width: 411px){
+    .color_titulos{
+        font-size: 29px;
+    }  
 }
-@media(min-width: 768px){
-    .titulo_art{
-        font-size: 35px;
-    }
+@media(min-width: 411px){
+    .color_titulos{
+        font-size: 29px;
+    }  
+}
+@media(min-width: 480px){
+    .color_titulos{
+        font-size: 32px;
+    }  
 }
 @media(min-width: 1024px){
-    .titulo_art{
+    .color_titulos{
         font-size: 50px;
-    }
+    }  
 }
 .padding_espacio_descrip{
     padding-left: 29px;
@@ -253,8 +253,8 @@ ion-item{
     padding-left: 5px;
     padding-right: 5px;
     line-height: 1.3;
-    margin-top: 2px;
-    margin-bottom: 2px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     font-size: 14px;
 }
 @media(min-width: 480px){
@@ -287,4 +287,7 @@ ion-item{
 }
 .padding_derecha_cero{
     padding-left: 0px;
+}
+ion-item{
+    margin-bottom: 3px;
 }

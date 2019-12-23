@@ -47,6 +47,7 @@
         <ion-spinner style="width: 100%; margin-top: 1rem;" class="ion-text-center" *ngIf="is_loading" name="circles"></ion-spinner>
         
         <div *ngIf="is_loading === false && eventos.length > 0">
+          <ion-row>
           <ion-col *ngFor="let item of eventos" size="12" size-md="6" size-lg="6" class="padding_eventos ion-margin-bottom">
             <ion-card (click)="view_calendar_detail (item)">
               <ion-row>
@@ -66,6 +67,7 @@
               </ion-row>
             </ion-card>
           </ion-col>
+        </ion-row>
         </div>
 
         <div style="width: 100%;" *ngIf="is_loading === false && eventos.length <= 0">

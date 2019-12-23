@@ -40,7 +40,7 @@
 
     <ion-row *ngIf="is_loading === false">
       <ion-col size="12">
-        <h1 class="padding_espacio_descrip titulo_art">{{ blog?.titulo_es }}</h1>
+        <h1 class="padding_espacio_descrip color_titulos">{{ blog?.titulo_es }}</h1>
         <p class="padding_espacio_descrip pequeño_blog">{{ blog?.autor }}</p>
         <p class="padding_espacio_descrip pequeño_blog">Fecha: {{ get_date_format (blog?.fecha_creado, 'L') }}</p>
       </ion-col>
