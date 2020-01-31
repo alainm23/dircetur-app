@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+// Ionic
+import { NavController } from '@ionic/angular'; 
 @Component({
   selector: 'app-creditos',
   templateUrl: './creditos.page.html',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreditosPage implements OnInit {
 
-  constructor() { }
+  constructor(private navCtrl: NavController,) { }
 
   ngOnInit() {
   }
 
+  go_home () {
+    this.navCtrl.navigateRoot ('home');
+  }
 }

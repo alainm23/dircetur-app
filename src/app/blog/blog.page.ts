@@ -5,6 +5,7 @@ import { NavController, MenuController } from '@ionic/angular';
 
 // Services
 import { DatabaseService } from '../services/database.service';
+import { Storage } from '@ionic/storage';
 
 // Utils
 import * as moment from 'moment';
@@ -29,7 +30,6 @@ export class BlogPage implements OnInit {
               private menu:MenuController) { }
 
   ngOnInit() {
-
     this.database.get_blog_categories ().subscribe ((res: any []) => {
       this.categories = res;
       console.log (res);
@@ -45,6 +45,10 @@ export class BlogPage implements OnInit {
     });
   }
 
+  onClick () {
+    this.navCtrl.back ();
+  }
+  
   filter () {
     this.items = this.items_backup;
 
@@ -69,5 +73,22 @@ export class BlogPage implements OnInit {
   open_menu () {
     this.menu.enable (true, 'first');
     this.menu.open ('first');
+  }
+
+  get_value (item: any, val: string) {
+    let returned = item [val + '_' + this.database.idioma];
+    if (returned === null || returned === undefined) {
+      returned = item [val + '_es'];
+    }
+    
+    if (returned === null || returned === undefined) {
+      returned = item [val];
+    }
+
+    if (returned === null || returned === undefined) {
+      returned = "";
+    }
+    
+    return returned;
   }
 }

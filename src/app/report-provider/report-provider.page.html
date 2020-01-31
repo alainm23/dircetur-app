@@ -14,18 +14,26 @@
       <ion-col size="12">
         <ion-item lines="none" [className]="type === 0 ? 'item-header ion-text-center item-header-black' : 'item-header ion-text-center item-header-green'">
           <ion-label>
-            <h1 *ngIf="type === 0">Report Provider</h1>
-            <h1 *ngIf="type === 1">Congratulate Provider</h1>
+            <h1 *ngIf="type === 0">
+              {{ 'ReportProvider.Report Provider' | translate }}
+            </h1>
+            <h1 *ngIf="type === 1">
+              {{ 'ReportProvider.Congratulate Provider' | translate }}
+            </h1>
             <p text-wrap *ngIf="item === null">
-              You are about to report fraude, abuse or misconduct caused by a touristic provider. Please be specific and help us eradicate unwelcoming, informal and hazardous businesses from Cusco.
+              {{ 'ReportProvider.Report Message' | translate }}
             </p>
 
             <p text-wrap *ngIf="item !== null && type === 1">
-              You are here because you hav something extraordinary to say about <b id="close-button">{{ item.nombre_comercial }}</b>. Please tell us all about it so we may give them the recognition they deserve.
+              {{ 'ReportProvider.Congratulate Message 1' | translate }} 
+              <b id="close-button">{{ item.nombre_comercial }}</b>. 
+              {{ 'ReportProvider.Congratulate Message 2' | translate }}
             </p>
             
             <p text-wrap *ngIf="item !== null && type === 0">
-              You are about to report fraude, abuse or misconduct caused by <b id="close-button">{{ item.nombre_comercial }}</b>. Please be specific and help us eradicate unwelcoming, informal and hazardous businesses from Cusco.
+              {{ 'ReportProvider.Report Message 1' | translate }} 
+              <b id="close-button">{{ item.nombre_comercial }}</b>. 
+              {{ 'ReportProvider.Report Message 2' | translate }}
             </p>
           </ion-label>
         </ion-item>
@@ -48,7 +56,7 @@
 
           <ion-col size="12" class="no-padding" *ngIf="item === null">
             <ion-item [className]="type === 0 ? 'ion-item-0' : 'ion-item-1'">
-              <ion-input type="text" placeholder="Provider’s company name" formControlName="provider" (ionChange)="on_input_change ($event.detail.value)"></ion-input>
+              <ion-input type="text" placeholder="{{ 'ReportProvider.Provider’s company name' | translate }}" formControlName="provider" (ionChange)="on_input_change ($event.detail.value)"></ion-input>
             </ion-item>
 
             <ion-card id="search-card" *ngIf="show_searchbox">
@@ -64,32 +72,32 @@
 
           <ion-col size="12" class="no-padding">
             <ion-item [className]="type === 0 ? 'ion-item-0' : 'ion-item-1'">
-              <ion-input type="text" placeholder="Your full name" formControlName="fullname"></ion-input>
+              <ion-input type="text" placeholder="{{ 'ReportProvider.Your full name' | translate }}" formControlName="fullname"></ion-input>
             </ion-item>
           </ion-col>
 
           <ion-col size="12" class="no-padding">
             <ion-item [className]="type === 0 ? 'ion-item-0' : 'ion-item-1'">
-              <ion-input type="email" placeholder="E-mail" formControlName="email"></ion-input>
+              <ion-input type="email" placeholder="{{ 'ReportProvider.E-mail' | translate }}" formControlName="email"></ion-input>
             </ion-item>
           </ion-col>
 
           <ion-col size="12" class="no-padding">
             <ion-item [className]="type === 0 ? 'ion-item-0' : 'ion-item-1'">
-              <ion-input type="number" placeholder="Contact number" formControlName="phone_number"></ion-input>
+              <ion-input type="number" placeholder="{{ 'ReportProvider.Contact number' | translate }}" formControlName="phone_number"></ion-input>
             </ion-item>
           </ion-col>
 
           <ion-col size="12" class="no-padding">
             <ion-item [className]="type === 0 ? 'ion-item-0' : 'ion-item-1'">
-              <ion-textarea type="text" rows="3" placeholder="Tell us what happened" formControlName="description"></ion-textarea>
+              <ion-textarea type="text" rows="3" placeholder="{{ 'ReportProvider.Tell us what happened' | translate }}" formControlName="description"></ion-textarea>
             </ion-item>
           </ion-col>
 
           <ion-col size="12" class="ion-margin-top">
             <div class="ion-text-center">
               <ion-button id="send-button" (click)="submit ()" expand="block" size="large" color="light" [disabled]="!form.valid">
-                Send
+                {{ 'CONTACTO.Send' | translate }}
               </ion-button>
             </div>
           </ion-col>

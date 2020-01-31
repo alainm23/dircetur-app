@@ -34,4 +34,8 @@ export class TrcPage implements OnInit {
     this.menu.enable (true, 'first');
     this.menu.open ('first');
   }
+  
+  onClick () {
+    this.navCtrl.back ();
+  }
 }

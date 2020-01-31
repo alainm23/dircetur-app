@@ -8,12 +8,16 @@ import { TurismoCircuitoPageRoutingModule } from './turismo-circuito-routing.mod
 
 import { TurismoCircuitoPage } from './turismo-circuito.page';
 
+// Translate
+import { TranslateModule } from '@ngx-translate/core';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TurismoCircuitoPageRoutingModule
+    TurismoCircuitoPageRoutingModule,
+    TranslateModule
   ],
   declarations: [TurismoCircuitoPage]
 })

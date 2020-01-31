@@ -3,7 +3,7 @@
     <ion-buttons mode="md" slot="start">
       <!--ion-back-button mode="md" text="Back" color="dark"></!--ion-back-button-->
       <ion-button (click)="onClick()" fill="clear">
-        Atras
+        {{ 'Back' | translate }}
       </ion-button>
     </ion-buttons>
 
@@ -21,22 +21,12 @@
 
 <ion-content>
   <ion-grid class="ion-no-padding">
-   <!--<ion-row class="padding_espacio">
-      <ion-col size="5" size-sm="3">
-        <ion-img :src="assets/img/dircetur@3x.png"></ion-img>
-      </ion-col>
-      <ion-col size="2" size-sm="1" offset="5" offset-sm="8">
-        <button class="btn_menu">
-          <div class="div_linea_color div_line_menu"></div>
-          <div class="div_linea_color div_line_menu"></div>
-          <div class="div_linea_color" id="div_line_menu_peque"></div>
-        </button>
-      </ion-col>
-    </ion-row>-->
     <ion-row  class="padding_espacio">
       <ion-col size="12" class="ion-text-center">
         <ion-text>
-          <h1 class="color_titulos">News articles and events</h1>
+          <h1 class="color_titulos">
+            {{ 'BLOG.News articles and events' | translate }}
+          </h1>
         </ion-text>
       </ion-col>
       <ion-col size="12" *ngIf="is_category_loading === true">
@@ -45,9 +35,13 @@
 
       <ion-col size="12" *ngIf="is_category_loading === false">
         <div class="div_select">
-          <ion-label id="show_border_rigth" mode="ios" interface="popover">Show</ion-label>
+          <ion-label id="show_border_rigth" mode="ios" interface="popover">
+            {{ 'BLOG.Show' | translate }}
+          </ion-label>
           <ion-select placeholder="All categories" interface="popover" id="select" [(ngModel)]="category_selected" (ionChange)="filter ()">
-            <ion-select-option value="">All categories</ion-select-option>
+            <ion-select-option value="">
+              {{ 'BLOG.All categories' | translate }}
+            </ion-select-option>
             <ion-select-option *ngFor="let item of categories" [value]="item.id">
               {{ item.nombre }}
             </ion-select-option>
@@ -66,18 +60,23 @@
               <img [src]="item.imagen" width="100%" height="100%" class="border_radius_imgcard">
               <ion-card-content>
                 <ion-text>
-                  <h2 class="titulo_car">{{ item.titulo_es }}</h2>
+                  <h2 class="titulo_car">{{ get_value (item, 'titulo') }}</h2>
                 </ion-text>
                 <ion-row>
                   <ion-col size="8" style="padding-left: 0px;">
-                    <p class="fecha_nombre_color">Por: {{ item.autor }}</p>
+                    <p class="fecha_nombre_color">
+                      {{ 'BLOG.Por:' | translate }} {{ item.autor }}
+                    </p>
                   </ion-col>
                   <ion-col size="4" class="ion-text-end">
-                    <p class="fecha_nombre_color">Fecha: {{ get_date_format (item.fecha_creado, 'L') }}</p>
+                    <p class="fecha_nombre_color">
+                      {{ 'BLOG.Fecha:' | translate }} {{ get_date_format (item.fecha_creado, 'L') }}</p>
                   </ion-col>
                 </ion-row>
-                <p class="bajar_conten">{{ item.resumen_es }}</p>
-                <button class="btn_leer_color">Leer mas ></button>
+                <p class="bajar_conten">{{ get_value (item, 'resumen') }}</p>
+                <button class="btn_leer_color">
+                  {{ 'BLOG.Leer mas >' | translate }}
+                </button>
               </ion-card-content>
             </ion-card>
           </ion-col>

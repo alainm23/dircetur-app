@@ -1,4 +1,4 @@
-<ion-content>
+<ion-content fullscreen="true">
   <ion-grid class="padding_cero">
     <ion-row id="fondo_imagen">
       <ion-col size="2" offset="10">
@@ -12,29 +12,39 @@
           <ion-img :src="assets/img/Imagen-25.png" class="bajar_imagen_logo" style="width: 100%;"></ion-img>
       </ion-col>
       <ion-col size="10" size-sm="8" size-lg="12" offset="1" offset-sm="2" offset-lg="0" text-center>
-        <p class="color_descripcion_blanco">Regional Directorate of Foreign Trade and tourism - Cusco</p>
+        <p class="color_descripcion_blanco">
+          {{ 'HOME.Regional Directorate of Foreign Trade and tourism - Cusco' | translate }}
+        </p>
       </ion-col>
     </ion-row>
     <ion-row class="ion-padding-start ion-padding-end">
       <ion-col size="12" class="fondo_blanco">
           <ion-icon name="search" class="icon_bajar_buscardor ion-margin-end"></ion-icon>
-          <ion-input type="search" placeholder="Check on your touristic provider" id="input_border_left" (keyup.enter)="onEnter ()" [(ngModel)]="search_text"></ion-input>
+          <ion-input type="search" placeholder="{{ 'HOME.Check on your touristic provider' | translate }}" id="input_border_left" (keyup.enter)="onEnter ()" [(ngModel)]="search_text"></ion-input>
           <ion-icon name="send" class="icon_bajar_buscardor ion-margin-start" (click)="onEnter ()"></ion-icon>
       </ion-col>
       <ion-col size="12" text-center>
-          <p class="color_81" id="espaciado_line">Been subject of fraud? Have any claims or want to congratulate?</p>
+          <p class="color_81" id="espaciado_line">
+            {{ 'HOME.Been subject of fraud? Have any claims or want to congratulate?' | translate }}
+          </p>
       </ion-col>
       <ion-col size="10" size-sm="6" offset="1" offset-sm="3" text-center>
-          <button class="btn_rojo ion-padding-top ion-padding-bottom" (click)="open_report ()">Let us know</button>
+          <button class="btn_rojo ion-padding-top ion-padding-bottom" (click)="open_report ()">
+            {{ 'HOME.Let us know' | translate }}
+          </button>
       </ion-col>
       <ion-col size="12" text-center>
-          <h1 class="color_titulos">What is DIRCETUR</h1>
-          <p class="color_81 espaciados_texto">Es la Dirección Regional de Comercio Exterior y Turismo Cusco (DIRCETUR), es un órgano de línea de segundo nivel organizacional, responsable de proponer y ejecutar la política organizacional, responsable de proponer y ejecutar la política regional de la actividad turística, en el marco de la política nacional de turismo; así como calificar y supervisar a los prestadores de servicios turísticos, de conformidad con las normas y reglamentos expedidos por el ministerio de comercio exterior y turismo, así como ejecutar la política regional de turismo sostenible en materia ambiental, dependiente de la dirección regional.</p>
+          <h1 class="color_titulos">
+            {{ 'HOME.What is DIRCETUR' | translate }}
+          </h1>
+          <div [innerHtml]="etiquetas?.home_parrafo_detalle_01" class="color_81 espaciados_texto"></div>
       </ion-col>
     </ion-row>
     <ion-row class="ion-padding-start ion-padding-end margin_bottom_new">
       <ion-col size="12" text-center>
-          <h2 class="color_titulos">Dircetur news</h2>
+          <h2 class="color_titulos">
+            {{ 'HOME.Dircetur news' | translate }}
+          </h2>
       </ion-col>
 
       <ion-col *ngIf="is_blog_loading" size="12" class="ion-text-center">
@@ -49,12 +59,12 @@
               <img [src]="item.imagen" style="width: 100%;height: 100%;">
             </ion-col>
             <ion-col size="8" class="paddign_top_bottom">
-              <h6 class="ion-no-margin subtitulos_noticia">{{ item.titulo_es }}</h6>
+              <h6 class="ion-no-margin subtitulos_noticia">{{ get_value (item, 'titulo') }}</h6>
               <div style="display:flex;">
                 <p class="even_fecha_color">{{ item.categoria.nombre }}</p>
                 <p class="ion-margin-start even_fecha_color">{{ get_format_date (item.fecha_creado) }}</p>
               </div>
-              <p class="lineas_texto_noticia">{{ item.resumen_es }}</p>
+              <p class="lineas_texto_noticia">{{ get_value (item, 'resumen') }}</p>
             </ion-col>
           </ion-row>
         </ion-col>
@@ -66,18 +76,24 @@
           <img id="subir_img_bloeto" src="assets/img/Grupo_406.png">
       </ion-col>
       <ion-col size="10" size-sm="6" size-md="5" offset="2" offset-sm="6" offset-md="7" id="cuadrado_rojo_boleto">
-        <h2 class="color_blanco" id="subtitulo_bold">Turistic ticket</h2>
-        <p class="color_blanco" id="paddining_right">Tu puerta al Cusco. Es un ticket único de entrada para todos los lugares importantes en Cusco. Es obligatorio comprarlo par entrar ya que no venden entradas individuales en cada sitio.</p>
+        <h2 class="color_blanco" id="subtitulo_bold">
+          {{ 'HOME.Turistic ticket' | translate }}
+        </h2>
+        <div id="paddining_right" [innerHtml]="etiquetas?.home_boleto_texto" class="color_blanco"></div>
         <ion-row>
           <ion-col size="8" offset="4">
-            <button id="bnt_blanco" (click)="go_boleto_turistico ()">Complete info ></button>
+            <button id="bnt_blanco" (click)="go_boleto_turistico ()">
+              {{ 'HOME.Complete info >' | translate }}
+            </button>
           </ion-col>
         </ion-row>
       </ion-col>
     </ion-row>
     <ion-row id="bajar_titutlo" class="ion-padding-start ion-padding-end">
         <ion-col size="12" text-center>
-            <h2 class="color_titulos">Upcoming events</h2>
+            <h2 class="color_titulos">
+              {{ 'HOME.Upcoming events' | translate }}
+            </h2>
         </ion-col>
         <ion-col size="2" text-right>
           <button *ngIf="check_backbutton ()" class="flechas_tamaño_calender padding_cero" (click)="change_month (-1)">
@@ -109,7 +125,7 @@
                 <ion-col size="9" class="sombra_img_descripcion padding_cero">
                   <ion-row style="height: 100%;">
                     <ion-col size="12" class="padding_derecha_izquierda largo_eventos">
-                      <p class="titulo_calnedar">{{ item.datageneral.titulo }}</p>
+                      <p class="titulo_calnedar">{{ get_value (item.datageneral, 'titulo') }}</p>
                       <p class="subtitulo_calendar">{{ item.datageneral.categoria?.name }}</p>
                       <p class="quitar_margin margin_bottom"><span><img src="/assets/img/icono-img1.png" id="margin_left_img"></span><span class="color_81_pau">{{ item.datageneral.provincia.nombre }}</span></p>
                     </ion-col>
@@ -124,19 +140,27 @@
         <ion-col *ngIf="is_calendar_loading === false && eventos.length <= 0" size="12" class="ion-text-center">
           <ion-item class="ion-text-center" lines="none">
             <ion-label>
-              <h1 id="nada-h1-margin">Ningun evento</h1>
-              <p text-wrap>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor necessitatibus molestias eligendi nobis accusamus nostrum voluptatum quibusdam quisquam deleniti voluptatem, incidunt dicta, est optio. Quia quod incidunt iste ullam. Perspiciatis!</p>
+              <h1 id="nada-h1-margin" style="color: #000000b5;">
+                {{ 'CALENDAR.No upcoming events' | translate }}
+              </h1>
+              <p text-wrap style="margin-bottom: 2rem;">
+                {{ 'CALENDAR.No events listed or internet conection failed to establish. Please try again later.' | translate }}
+              </p>
             </ion-label>
           </ion-item> 
         </ion-col>
 
         <ion-col size="10" size-sm="6" offset="1" offset-sm="3" text-center>
-          <button class="btn_blanco_calendario" (click)="go_calendar ()">Show full calendar</button>
+          <button class="btn_blanco_calendario" (click)="go_calendar ()">
+            {{ 'HOME.Show full calendar' | translate }}
+          </button>
         </ion-col>
     </ion-row>
     <ion-row class="ion-padding-start ion-padding-end margin_bottom_new">
       <ion-col size="12" text-center>
-        <h2 class="color_titulos">Turistical circuites in Cusco</h2>
+        <h2 class="color_titulos">
+          {{ 'HOME.Turistical circuites in Cusco' | translate }}
+        </h2>
       </ion-col>
 
       <ion-col *ngIf="is_circuitos_loading === true" size="12">
@@ -155,27 +179,21 @@
                         <img [src]="item.imagen" width="100%">
                       </ion-col>
                       <ion-col size="8">
-                        <h2 class="titulo_card margin_bottom">{{ item.nombre }}</h2>
-                        <p class="descrip_pequeña margin_bottom">{{ item.donde }}</p>
-                        <p class="numero_color">{{ item.altitud }}</p>
+                        <h2 class="titulo_card margin_bottom">{{ get_value (item, 'nombre') }}</h2>
+                        <p class="descrip_pequeña margin_bottom">{{  get_value (item, 'donde') }}</p>
+                        <p class="numero_color">{{ get_value (item, 'altitud') }}</p>
                       </ion-col>
                     </ion-row>
                   </ion-col>
                   <ion-col size="12" class="dercha_izquierda_cero">
                     <ion-row>
-                      <ion-col size="4" size-sm="3" size-md="4" size-lg="3" size-xl="4">
-                        <button class="btn_rojo_car">Alimentacion</button>
-                      </ion-col>
-                      <ion-col size="4" size-sm="3" size-md="4" size-lg="3" size-xl="4">
-                        <button class="btn_rojo_car">Ceramica</button>
-                      </ion-col>
-                      <ion-col size="4" size-sm="3" size-md="4" size-lg="3" size-xl="4">
-                        <button class="btn_rojo_car">Crianza de cuy</button>
+                      <ion-col *ngFor="let t of item.tags" size="4" size-sm="3" size-md="4" size-lg="3" size-xl="4">
+                        <button class="btn_rojo_car">{{ t.nombre }}</button>
                       </ion-col>
                     </ion-row>
                   </ion-col>
                   <ion-col size="12">
-                    <p class="descripcion_completo">{{ item.descripcion }}</p>
+                    <p class="descripcion_completo">{{ get_value (item, 'descripcion') }}</p>
                   </ion-col>
                 </ion-row>
               </ion-card-content>
@@ -184,7 +202,9 @@
         </ion-row>
       </ion-col>
       <ion-col size="10" size-sm="6" offset="1" offset-sm="3" text-center>
-        <button class="btn_blanco_calendario" (click)="go_circuitos ()">Show full turistical circuites</button>
+        <button class="btn_blanco_calendario" (click)="go_circuitos ()">
+          {{ 'HOME.Show full turistical circuites' | translate }}
+        </button>
       </ion-col>
     </ion-row>
   </ion-grid>

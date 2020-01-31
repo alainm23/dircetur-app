@@ -1,0 +1,136 @@
+{
+    "Back": "Atrás",
+    "MENU": {
+        "Tourístic circuits": "Circuitos turisticos",
+        "Touristic ticket": "Boleto turístico",
+        "News and articles": "Noticias y articulos",
+        "Rural turism": "Turismo rural",
+        "Cusco calendar": "Calendario Cusco",
+        "Cusco emergency directory": "Directorio de emergencia Cusco",
+        "Contact": "Contacto",
+        "Change language": "Cambiar idioma",
+        "Credits": "Créditos"
+    },
+    "HOME": {
+        "Regional Directorate of Foreign Trade and tourism - Cusco": "Dirección Regional de Comercio Exterior y Turismo - Cusco",
+        "Been subject of fraud? Have any claims or want to congratulate?": "¿Ha sido objeto de fraude? ¿Tienes alguna reclamación o quieres felicitar?",
+        "Let us know": "Haznos saber",
+        "What is DIRCETUR": "¿Qué es DIRCETUR?",
+        "Dircetur news": "Noticias de Dircetur",
+        "Turistic ticket": "Boleto turístico",
+        "Complete info >": "Información completa >",
+        "Upcoming events": "Próximos Eventos",
+        "Show full calendar": "Mostrar calendario completo",
+        "Turistical circuites in Cusco": "Circuitos turisticos en Cusco",
+        "Show full turistical circuites": "Mostrar circuitos turísticos completos",
+        "Check on your touristic provider": "Consulte a su proveedor turístico"
+    },
+    "BLOG": {
+        "News articles and events": "Noticias, articulos y eventos",
+        "Show": "Ver",
+        "All categories": "Todas las categorías",
+        "Por:": "Por:",
+        "Fecha:": "Fecha:",
+        "Leer mas >": "Leer mas >"
+    },
+    "TouristicTicket": {
+        "Truistic ticket": "Boleto Turístico",
+        "How much does it cost": "¿Cuánto cuesta?",
+        "Nacional": "Nacional",
+        "Extranjero": "Extranjero",
+        "Cost per person:": "Costo por persona:",
+        "Where to purchase": "¿Dónde comprar?",
+        "Counter Central": "Counter Central",
+        "Terms": "Términos",
+        "terms_01": "La Vigencia del boleto turístico completo es de 10 días.",
+        "terms_02": "Los niños pagan desde los 10 años de edad, de 10 a 17 años, pueden adquirir el boleto de estudiante previa presentación del documento de identidad (DNI, Pasaporte, etc.)",
+        "terms_03": "El Boleto Turístico no incluye servicio de guía y movilidad.",
+        "terms_04": "No existen boletos individuales para cada atractivo turístico, se debe adquirir el boleto general o parcial.",
+        "Tickets Partial": "Boleto Parcial",
+        "Tickets Partial Detail": "El boleto turístico completo tiene una valides de 10 días, sin embargo también existe la posibilidad de comprarlo de forma parcial como se detalla a continuación:",
+        "Vigencia": "Vigencia",
+        "To view full site list visit our website": "Para ver la lista completa de sitios visite nuestro sitio web",
+        "Go to website >": "Ir al sitio web >",
+        "direccion_01": "Av. El Sol 103 Galerías Turísticas",
+        "direccion_01_hora": "Lunes a Domingo de 08:00 – 18:00 Hrs.",
+        "direccion_02": "Calle Mantas",
+        "direccion_02_hora": "Lunes a Sábado 09:00 – 13:00 Hrs. / 14:00 – 18:00 Hrs."
+    },
+    "CALENDAR": {
+        "Event calendar": "Calendario de eventos",
+        "Filter by >": "Filtrado por >",
+        "< Previous": "< Previo",
+        "Next >": "Próximo >",
+        "Upcoming events": "Siguientes eventos",
+        "Show full calendar": "Mostrar calendar",
+        "No upcoming events": "No hay eventos próximos.",
+        "No events listed or internet conection failed to establish. Please try again later.": "No se enumeraron eventos o no se pudo establecer la conexión a Internet. Por favor, inténtelo de nuevo más tarde."
+    },
+    "CT": {
+        "Itinerario": "Itinerario",
+        "No incluye": "No incluye"
+    },
+    "CONTACTO": {
+        "Escribenos": "Escríbenos",
+        "Send": "Enviar",
+        "Find us": "Encuentranos",
+        "Or Call": "O llama",
+        "Let us know": "Avísanos",
+        "Let us know details": "¿Ha sido objeto de fraude? ¿Tiene alguna reclamación o desea felicitar por un excelente servicio?",
+        "What is you name?": "¿Cual es tu nombre?",
+        "Enter your e-mail here": "Introduzca su correo electrónico aquí",
+        "What’s your message?": "¿Cuál es tu mensaje?"
+    },
+    "CREDITS": {
+        "Designed and powered by:": "Diseñado y soportado por:"
+    },
+    "EmergencyDirectory": {
+        "Emergency directory": "Directorio de emergencia",
+        "Police": "Policia",
+        "Tourism police": "Policia de turismo",
+        "Health services": "Servicios de salud",
+        "Direct assistance": "Asistanccia directa",
+        "Let us know": "Avísanos"
+    },
+    "ReportProvider": {
+        "Report Provider": "Denuncia un Prestador",
+        "Congratulate Provider": "Felicita un Prestador",
+        "Report Message": "Está a punto de denunciar fraude, abuso o mala conducta causada por un proveedor turístico. Por favor sea específico y ayúdenos a erradicar negocios informales y peligrosos del Cusco.",
+        "Congratulate Message 1": "Estás aquí porque tienes algo extraordinario que decir sobre",
+        "Congratulate Message 2": "Cuéntanoslo todo para que podamos darles el reconocimiento que merecen..<",
+        "Report Message 1": "Está a punto de denunciar fraude, abuso o mala conducta causada por",
+        "Report Message 2": "Por favor sea específico y ayúdenos a erradicar negocios informales y peligrosos de Cusco.",
+        "Provider’s company name": "Nombre del del proveedor",
+        "Your full name": "Tu nombre completo",
+        "E-mail": "Correo electrónico",
+        "Contact number": "Número de contacto",
+        "Tell us what happened": "Cuéntanos que pasó"
+    },
+    "SearchResults": {
+        "Authorized providers directory": "Directorio de proveedores autorizados",
+        "Search results": "Resultados de la búsqueda",
+        "How was your experience with this provider?": "¿Cómo fue su experiencia con este proveedor?",
+        "How do I know if it’s legit": "¿Cómo sé si es legítimo?",
+        "Tourism Agency": "Agencia de turísmo",
+        "Detalle Agencia de turísmo": "",
+        "Accommodations": "Alojamiento",
+        "Accommodations Detail": "Detalle de alojamiento",
+        "Tour guides": "Guia de turismo",
+        "Tour guides Detail": "Detalle Guia de turismo",
+        "Restaurants": "Restaurantes",
+        "Restaurants Detail": "Detalle Restaurantes"
+    },
+    "TRC": {
+        "Turistical circuites in Cusco": "Circuitos turísticos en Cusco",
+        "Distancia": "Distancia",
+        "Itinerario": "Itinerario",
+        "Incluye": "Incluye",
+        "Informes y reservas": "Informes y reservas",
+        "Teléfono:": "Teléfono:",
+        "E-Mail:": "E-Mail:",
+        "Página Web": "Página Web"
+    },
+    "TC": {
+        "Turistical circuites in Cusco": "Circuitos turísticos en Cusco"
+    }
+}

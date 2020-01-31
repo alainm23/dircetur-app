@@ -8,12 +8,16 @@ import { CreditosPageRoutingModule } from './creditos-routing.module';
 
 import { CreditosPage } from './creditos.page';
 
+// Translate
+import { TranslateModule } from '@ngx-translate/core';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CreditosPageRoutingModule
+    CreditosPageRoutingModule,
+    TranslateModule
   ],
   declarations: [CreditosPage]
 })

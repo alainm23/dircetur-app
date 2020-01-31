@@ -3,7 +3,7 @@
     <ion-buttons mode="md" slot="start">
       <!--ion-back-button mode="md" text="Back" color="dark"></!--ion-back-button-->
       <ion-button (click)="onClick()" fill="clear">
-        Atras
+        {{ 'Back' | translate }}
       </ion-button>
     </ion-buttons>
 
@@ -21,42 +21,21 @@
 
 <ion-content>
   <ion-grid class="ion-no-padding">
-    <!--<ion-row class="padding_espacio">
-      <ion-col size="5" size-sm="3">
-        <ion-img :src="assets/img/dircetur@3x.png"></ion-img>
-      </ion-col>
-      <ion-col size="2" size-sm="1" offset="5" offset-sm="8">
-        <button class="btn_menu">
-          <div class="div_linea_color div_line_menu"></div>
-          <div class="div_linea_color div_line_menu"></div>
-          <div class="div_linea_color" id="div_line_menu_peque"></div>
-        </button>
-      </ion-col>
-    </ion-row>-->
-
     <ion-row>
       <ion-spinner *ngIf="is_loading === true" style="width: 100%; margin-top: 1rem;" class="ion-text-center" name="circles"></ion-spinner>
     </ion-row>
 
     <ion-row *ngIf="is_loading === false">
       <ion-col size="12">
-        <h1 class="padding_espacio_descrip color_titulos">{{ blog?.titulo_es }}</h1>
+        <h1 class="padding_espacio_descrip color_titulos">{{ get_value (blog, 'titulo') }}</h1>
         <p class="padding_espacio_descrip pequeño_blog">{{ blog?.autor }}</p>
-        <p class="padding_espacio_descrip pequeño_blog">Fecha: {{ get_date_format (blog?.fecha_creado, 'L') }}</p>
+        <p class="padding_espacio_descrip pequeño_blog">{{ 'BLOG.Fecha:' | translate }} {{ get_date_format (blog?.fecha_creado, 'L') }}</p>
       </ion-col>
       <ion-col size="12" class="ion-no-padding">
-        <div [innerHtml]="blog?.detalle_es" class="padding_espacio_descrip descrip_color"></div>
-        <!--ion-img :src="assets/img/19bdb926157e2433842a419570dda4e2.png"></!--ion-img-->
-        <!--p class="padding_espacio_descrip descrip_color">Formular, proponer, ejecutar, evaluar y controlar las políticas en materia de desarrollo de la artesanía, en concordancia con la política general del gobierno, los planes sectoriales y las políticas de desarrollo regional. Planificar concertadamente y ejecutar el desarrollo de la actividad artesanal de la región, mediante el aprovechamiento de las potencialidades regionales. Fomentar, desarrollar y ejecutar proyectos, programas u otros mecanismos para promover la competitividad y productividad de la actividad artesanal en la región, con la participación de entidades públicas y privadas.</!--p>
-        <!--ion-row>
-          <ion-col size="6" id="padding_derecha">
-            <ion-img :src="assets/img/willian-justen-de-vasconcellos-8lX8jl0y3CI-unsplash.png"></ion-img>
-          </ion-col>
-          <ion-col size="6" id="padding_izquierda">
-            <ion-img :src="assets/img/cef9c9c34a66d925269c2f77b1322607.png"></ion-img>
-          </ion-col>
-        </!--ion-row-->
-        <!--p-- class="padding_espacio_descrip descrip_color">Formular, proponer, ejecutar, evaluar y controlar las políticas en materia de desarrollo de la artesanía, en concordancia con la política general del gobierno, los planes sectoriales y las políticas de desarrollo regional. Planificar concertadamente y ejecutar el desarrollo de la actividad artesanal de la región, mediante el aprovechamiento de las potencialidades regionales. Fomentar, desarrollar y ejecutar proyectos, programas u otros mecanismos para promover la competitividad y productividad de la actividad artesanal en la región, con la participación de entidades públicas y privadas.</!--p-->
+        <div [innerHtml]="get_value (blog, 'detalle')" class="padding_espacio_descrip descrip_color"></div>
+        <ion-col *ngFor="let img of blog?.imagenes" size="6" id="padding_derecha">
+          <ion-img [src]="img.url"></ion-img>
+        </ion-col>
       </ion-col>
     </ion-row>
   </ion-grid>  

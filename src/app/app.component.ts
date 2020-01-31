@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Platform, NavController, AlertController, MenuController } from '@ionic/angular';
+import { Platform, NavController, AlertController, MenuController, Events } from '@ionic/angular';
 
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -16,7 +16,8 @@ import * as moment from 'moment';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-  i18n: string;
+  i18n: string = 'es';
+  flag: string = 'assets/icon/es.png';
 
   constructor(
     private platform: Platform,
@@ -25,9 +26,9 @@ export class AppComponent {
     private translate: TranslateService,
     private navCtrl: NavController,
     private storage: Storage,
-    public alertController: AlertController,
-    private menu: MenuController
-  ) {
+    private alertController: AlertController,
+    private menu: MenuController,
+    private events: Events) {
     this.initializeApp();
   }
 
@@ -61,50 +62,22 @@ export class AppComponent {
   go_page (page: string) {
     this.navCtrl.navigateForward (page);
   }
-  
-  async presentAlertRadio () {
-    const alert = await this.alertController.create({
-      header: 'Radio',
-      inputs: [
-        {
-          name: 'es',
-          type: 'radio',
-          label: 'Español',
-          value: 'es',
-          checked: true
-        },
-        {
-          name: 'en',
-          type: 'radio',
-          label: 'English',
-          value: 'en'
-        }
-      ],
-      buttons: [
-        {
-          text: 'Cancel',
-          role: 'cancel',
-          cssClass: 'secondary',
-          handler: () => {
-            console.log('Confirm Cancel');
-          }
-        }, {
-          text: 'Ok',
-          handler: (data: any) => {
-            console.log('Confirm Ok', data);
 
-            this.translate.use (data);
-            this.storage.set ('i18n', data);
-            moment.locale (data);
-            this.i18n = data;
-          }
-        }
-      ]
-    });
-
-    await alert.present();
+  go_home () {
+    this.navCtrl.navigateRoot ('home');
+    this.menu.close ('first');
   }
   
+  change_language () {
+    this.translate.use (this.i18n);
+    this.storage.set ('i18n', this.i18n);
+    moment.locale (this.i18n);
+
+    this.flag = "assets/icon/" + this.i18n + ".png";
+
+    this.events.publish ('language_changed', this.i18n);
+  }
+
   open_menu () {
     this.menu.enable (true, 'first');
     this.menu.close ('first');

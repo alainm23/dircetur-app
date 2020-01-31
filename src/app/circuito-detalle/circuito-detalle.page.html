@@ -3,7 +3,7 @@
     <ion-buttons mode="md" slot="start">
       <!--ion-back-button mode="md" text="Back" color="dark"></!--ion-back-button-->
       <ion-button (click)="onClick()" fill="clear">
-        Atras
+        {{ 'Back' | translate }}
       </ion-button>
     </ion-buttons>
 
@@ -40,23 +40,19 @@
 
     <ion-row *ngIf="is_loading === false">
       <ion-col size="12" class="padding_espacio_descrip">
-        <h1 class="color_titulos ion-text-lg-center">{{ data?.items }}</h1>
-        <p class="descrip_pequeña margin_bottom">{{ data?.donde }}</p>
-        <p class="numero_color">{{ data?.altitud }}</p>
+        <h1 class="color_titulos ion-text-lg-center">{{ get_value (data, 'nombre') }}</h1>
+        <p class="descrip_pequeña margin_bottom">{{ get_value (data, 'donde') }}</p>
+        <p class="numero_color">{{ get_value (data, 'altitud') }}</p>
       </ion-col>
       <ion-col size="12" class="padding_espacio_descrip">
-        <p class="descripcion_completo">{{ data?.descripcion }}</p>
+        <p class="descripcion_completo">{{ get_value (data, 'descripcion') }}</p>
       </ion-col>
       <ion-col size="12" class="padding_espacio_descrip">
         <ion-row>
-          <ion-col size="4" size-sm="3" size-md="3" size-lg="2" class="padding_derecha_cero">
-            <button class="btn_rojo_car">Alimentacion</button>
-          </ion-col>
-          <ion-col size="4" size-sm="3" size-md="3" size-lg="2" class="padding_derecha_cero">
-            <button class="btn_rojo_car">Ceramica</button>
-          </ion-col>
-          <ion-col size="4" size-sm="3" size-md="3" size-lg="2" class="padding_derecha_cero">
-            <button class="btn_rojo_car">Crianza de cuy</button>
+          <ion-col *ngFor="let t of data?.tags" size="4" size-sm="3" size-md="3" size-lg="2" class="padding_derecha_cero">
+            <button class="btn_rojo_car">
+              {{ t.nombre }}
+            </button>
           </ion-col>
         </ion-row>
       </ion-col>
@@ -65,7 +61,9 @@
     <ion-row>
       <ion-col size="12" class="ion-text-center padding_espacio_descrip">
         <ion-text>
-          <h2 class="color_titulos">Itinerario</h2>
+          <h2 class="color_titulos">
+            {{ 'CT.Itinerario' | translate }}
+          </h2>
         </ion-text>
       </ion-col>
 
@@ -76,15 +74,15 @@
       <ion-col size="12" *ngIf="is_items_loading === false" class="padding_espacio_descrip">
         <ion-list *ngFor="let item of items">
           <ion-list-header style="padding-left: 0px;">
-            <ion-label class="color_dia">{{ item.nombre }}</ion-label>
+            <ion-label class="color_dia">{{ get_value (item, 'nombre') }}</ion-label>
           </ion-list-header>
           <div *ngFor="let actividad of item.actividades">
             <ion-item line="none" (click)="view_item (actividad)">
-              {{ actividad.nombre }}
+              {{ get_value (actividad, 'nombre') }}
               <ion-icon slot="end" name="ios-arrow-forward" [ngStyle]="{'transform': actividad.reveal_child ? 'rotate(90deg)' : 'none' }" class="transition"></ion-icon>
             </ion-item>
             <p *ngIf="actividad.reveal_child" class="color_detalle" [@animation-top]>
-              {{ actividad.detalle }}
+              {{ get_value (actividad, 'detalle') }}
             </p>
           </div>
         </ion-list>
@@ -92,45 +90,34 @@
 
       <ion-col size="12" class="ion-no-padding">
         <ion-row class="ion-margin-top">
-          <ion-col size="4" class="padding_derecha_izquierda_foto">
-            <ion-img :src="assets/img/3e7ab869874850d162983f3c0674485d.png"></ion-img>
-          </ion-col>
-          <ion-col size="4" class="padding_derecha_izquierda_foto">
-            <ion-img :src="assets/img/3e7ab869874850d162983f3c0674485d.png"></ion-img>
-          </ion-col>
-          <ion-col size="4" class="padding_derecha_izquierda_foto">
-            <ion-img :src="assets/img/c0b8f22eea219a48ab35e28378e826fa.png"></ion-img>
-          </ion-col>
-          <ion-col size="4" class="padding_derecha_izquierda_foto">
-            <ion-img :src="assets/img/0cfd75d08b5424086eaba1a3020410db.png"></ion-img>
-          </ion-col>
-          <ion-col size="4" class="padding_derecha_izquierda_foto">
-            <ion-img :src="assets/img/9a219547f8ed30f255bf8a48bcc7cfc0.png"></ion-img>
-          </ion-col>
-          <ion-col size="4" class="padding_derecha_izquierda_foto">
-            <ion-img :src="assets/img/af568f1f1c1a8f132d6f1d69401ad31e.png"></ion-img>
+          <ion-col *ngFor="let item of data?.imagenes" size="4" class="padding_derecha_izquierda_foto">
+            <ion-img [src]="item.url"></ion-img>
           </ion-col>
         </ion-row>
       </ion-col>
 
       <ion-col size="12" class="padding_espacio_descrip">
         <ion-text>
-          <h2 class="color_titulos ion-text-center">Itinerario</h2>
+          <h2 class="color_titulos ion-text-center">
+            {{ 'CT.Itinerario' | translate }}
+          </h2>
         </ion-text>
 
         <ion-spinner *ngIf="is_loading === true" style="width: 100%; margin-top: 1rem;" class="ion-text-center" name="circles"></ion-spinner>
 
-        <p *ngIf="is_loading === false" class="descripn_largo">{{ data?.incluye }}</p>
+        <p *ngIf="is_loading === false" class="descripn_largo">{{ get_value (data, 'incluye') }}</p>
       </ion-col>
 
       <ion-col size="12" class="padding_espacio_descrip">
         <ion-text>
-          <h2 class="color_titulos ion-text-center">No incluye</h2>
+          <h2 class="color_titulos ion-text-center">
+            {{ 'CT.No incluye' | translate }}
+          </h2>
         </ion-text>
 
         <ion-spinner *ngIf="is_loading === true" style="width: 100%; margin-top: 1rem;" class="ion-text-center" name="circles"></ion-spinner>
 
-        <p *ngIf="is_loading === false" class="descripn_largo">{{ data?.no_incluye }}</p>
+        <p *ngIf="is_loading === false" class="descripn_largo">{{ get_value (data, 'no_incluye') }}</p>
       </ion-col>
     </ion-row>
   </ion-grid>

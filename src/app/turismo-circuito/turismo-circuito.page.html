@@ -3,7 +3,7 @@
     <ion-buttons mode="md" slot="start">
       <!--ion-back-button mode="md" text="Back" color="dark"></!--ion-back-button-->
       <ion-button (click)="onClick()" fill="clear">
-        Atras
+        {{ 'Back' | translate }}
       </ion-button>
     </ion-buttons>
 
@@ -35,8 +35,12 @@
     </ion-row>-->
     <ion-row>
       <ion-col size="12" class="padding_espacio_descrip">
-        <h1 class="color_titulos ion-text-lg-center">Turistical circuites in Cusco</h1>
-        <p class="descrip_color">La Dirección de Artesanía, es un Órgano de Línea de segundo nivel organizacional, responsable de proponer y ejecutar la política regional de desarrollo y promoción de la artesanía; así como fomentar las exportaciones de los productos artesanales, su sigla es DART.</p>
+        <h1 class="color_titulos ion-text-lg-center">
+          {{ 'TC.Turistical circuites in Cusco' | translate }}
+        </h1>
+        <p class="descrip_color">
+          La Dirección de Artesanía, es un Órgano de Línea de segundo nivel organizacional, responsable de proponer y ejecutar la política regional de desarrollo y promoción de la artesanía; así como fomentar las exportaciones de los productos artesanales, su sigla es DART.
+        </p>
       </ion-col>
 
       <ion-col *ngIf="is_loading === true" size="12">
@@ -55,27 +59,21 @@
                         <img [src]="item.imagen" width="100%">
                       </ion-col>
                       <ion-col size="8">
-                        <h2 class="titulo_card margin_bottom">{{ item.nombre }}</h2>
-                        <p class="descrip_pequeña margin_bottom">{{ item.donde }}</p>
-                        <p class="numero_color">{{ item.altitud }}</p>
+                        <h2 class="titulo_card margin_bottom">{{ get_value (item, 'nombre') }}</h2>
+                        <p class="descrip_pequeña margin_bottom">{{ get_value (item, 'donde') }}</p>
+                        <p class="numero_color">{{ get_value (item, 'altitud') }}</p>
                       </ion-col>
                     </ion-row>
                   </ion-col>
                   <ion-col size="12" class="dercha_izquierda_cero">
                     <ion-row>
-                      <ion-col size="4" size-sm="3" size-md="4" size-lg="3" size-xl="4">
-                        <button class="btn_rojo_car">Alimentacion</button>
-                      </ion-col>
-                      <ion-col size="4" size-sm="3" size-md="4" size-lg="3" size-xl="4">
-                        <button class="btn_rojo_car">Ceramica</button>
-                      </ion-col>
-                      <ion-col size="4" size-sm="3" size-md="4" size-lg="3" size-xl="4">
-                        <button class="btn_rojo_car">Crianza de cuy</button>
+                      <ion-col *ngFor="let t of item.tags" size="4" size-sm="3" size-md="4" size-lg="3" size-xl="4">
+                        <button class="btn_rojo_car">{{ t.nombre }}</button>
                       </ion-col>
                     </ion-row>
                   </ion-col>
                   <ion-col size="12">
-                    <p class="descripcion_completo">{{ item.descripcion }}</p>
+                    <p class="descripcion_completo">{{ get_value (item, 'descripcion') }}</p>
                   </ion-col>
                 </ion-row>
               </ion-card-content>

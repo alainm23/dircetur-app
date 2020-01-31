@@ -14,14 +14,16 @@
       <ion-item class="ion-text-center" lines="none">
         <ion-label>
           <h1 class="titulo">Dircetur Cusco</h1>
-          <p id="subtitulo">Authorized providers directory</p>
+          <p id="subtitulo">
+            {{ 'SearchResults.Authorized providers directory' | translate }}
+          </p>
         </ion-label>
       </ion-item>
 
       <ion-card class="border-radius-8 margin-top">
         <ion-item>
           <ion-icon name="search" class="color_icoon_search icon-padding"></ion-icon>
-          <ion-input type="search" id="search_input" placeholder="Check on your touristic provider"  (keyup.enter)="onEnter ()" [(ngModel)]="search_text"></ion-input>
+          <ion-input type="search" id="search_input" placeholder="{{ 'HOME.Check on your touristic provider' | translate }}"  (keyup.enter)="onEnter ()" [(ngModel)]="search_text"></ion-input>
           <ion-icon name="send" class="color_icoon_search" (click)="search ()"></ion-icon>
         </ion-item>
       </ion-card>
@@ -30,7 +32,9 @@
     <ion-col size="12">
       <ion-item class="ion-text-center margin-top" lines="none">
         <ion-label>
-          <h1 class="titulo">Search results</h1>
+          <h1 class="titulo">
+            {{ 'SearchResults.Search results' | translate }}
+          </h1>
         </ion-label>
       </ion-item>
 
@@ -50,42 +54,44 @@
               <ion-col size="12" class="ion-no-padding border_col">
                 <ion-row>
                 <ion-col size="12" size-sm="6" class="ion-no-padding">
-                  <ul class="list-none" *ngIf="item.is_loading === false">
+                  <ul class="list-none">
                     <li><span class="header-label">Teléfono:</span> <span class="content-label">{{ item.data.telefono }}</span></li>
                     <li><span class="header-label">E-Mail:</span> <span class="content-label">{{ item.data.correo }}</span></li>
                     <li><span class="header-label">Página Web:</span> <span class="content-label">{{ item.data.pagina_web }}</span></li>
                   </ul>
                 </ion-col>
                 <ion-col size="12" size-sm="6" class="ion-no-padding">
-                  <ul class="list-none" *ngIf="item.is_loading === false">
-                    <li><span class="header-label">Repre. Legal: </span> <span class="content-label">Eric Cantona</span></li>
-                    <li><span class="header-label">Correo:</span> <span class="content-label">e.cantona@hotelazo.com</span></li>
-                    <li><span class="header-label">Teléfono:</span> <span class="content-label">084 878659</span></li>
+                  <ul class="list-none">
+                    <li><span class="header-label">Repre. Legal: </span> <span class="content-label">{{ item.data.representante_nombre }}</span></li>
+                    <li><span class="header-label">Correo:</span> <span class="content-label">{{ item.data.representante_correo }}</span></li>
+                    <li><span class="header-label">Teléfono:</span> <span class="content-label">{{ item.data.representante_telefono }}</span></li>
                   </ul>
                 </ion-col>
               </ion-row>
               </ion-col>
               <ion-col size="12" class="ion-no-padding">
-                <ul class="list-none" *ngIf="item.is_loading === false">
-                  <li><span class="header-label">Clasificación:</span> <span class="content-label">Turismo y aventura</span></li>
-                  <li><span class="header-label">Nro. Certificado:</span> <span class="content-label">1234556 - ABX</span></li>
-                  <li><span class="header-label">Fecha de Expedición:</span> <span class="content-label">01.06.2007</span></li>
-                  <li><span class="header-label">Última fiscalización:</span> <span class="content-label">06.09.2018</span></li>
+                <ul class="list-none">
+                  <li><span class="header-label">Clasificación:</span> <span class="content-label">{{ item.data.clasificacion.nombre }}</span></li>
+                  <li><span class="header-label">Nro. Certificado:</span> <span class="content-label">{{ item.data.representante_telefono }}</span></li>
+                  <li><span class="header-label">Fecha de Expedición:</span> <span class="content-label">{{ item.data.fecha_exp }}</span></li>
+                  <li><span class="header-label">Última fiscalización:</span> <span class="content-label">{{ item.data.fecha_ins }}</span></li>
                   <li class="bajar_list">
                     <ion-row>
                       <ion-col size="4" size-sm="3" size-lg="2" class="ion-no-padding">
                         <span class="header-label">Servicios comp:</span>
                       </ion-col>
-                      <ion-col size="8" size-md="9" size-lg="10" class="padding_left_col" id="descripcion"><span class="content-label">Soy un servicio Este es un servicio mas Aqui va el tercero</span></ion-col>
+                      <ion-col size="8" size-md="9" size-lg="10" class="padding_left_col" id="descripcion"><span class="content-label">{{ item.data.servicios_complementarios }}</span></ion-col>
                     </ion-row>
                   </li>
-                  <li><span class="header-label">Razón social:</span> <span class="content-label">Este es un nombre juridico de un hotel S.A.C</span></li>
-                  <li><span class="header-label">RUC:</span> <span class="content-label">20808776576</span></li>
-                  <li><span class="header-label">Dirección:</span> <span class="content-label">Avenida hotelazo grande j-8, Urb. Santa con nombre largo, San Jeronimo, Cusco</span></li>
+                  <li><span class="header-label">Razón social:</span> <span class="content-label">{{ item.data.razon_social }}</span></li>
+                  <li><span class="header-label">RUC:</span> <span class="content-label">{{ item.data.ruc }}</span></li>
+                  <li><span class="header-label">Dirección:</span> <span class="content-label">{{ item.data.direccion }}</span></li>
                 </ul>
               </ion-col>
               <ion-col size="8" offset="2" class="ion-text-center ion-no-padding">
-                <p id="color_negrita">How was your experience with this provider?</p>
+                <p id="color_negrita">
+                  {{ 'SearchResults.How was your experience with this provider?' | translate }}
+                </p>
                 <ion-row>
                   <ion-col size="6">
                     <button class="btn_manos" id="like_bajo" (click)="open_report (item, 0)">
@@ -105,10 +111,10 @@
               <ion-col size="12" class="ion-no-padding border_col">
                 <ion-row>
                   <ion-col size="6" class="ion-text-center">
-                    <p><span class="number_color">42</span><span class="descripcon_number">Tables</span></p>
+                    <p><span class="number_color">{{ item.data.cantidad_mesas }}</span><span class="descripcon_number">Tables</span></p>
                   </ion-col>
                   <ion-col size="6">
-                    <p><span class="number_color">164</span><span class="descripcon_number">Chairs</span></p>
+                    <p><span class="number_color">{{ item.data.cantidad_sillas }}</span><span class="descripcon_number">Chairs</span></p>
                   </ion-col>
                   <ion-col size="12" size-sm="6" class="ion-no-padding">
                   <ul class="list-none" *ngIf="item.is_loading === false">
@@ -185,7 +191,9 @@
                 </ul>
               </ion-col>
               <ion-col size="8" offset="2" class="ion-text-center ion-no-padding">
-                <p id="color_negrita">How was your experience with this provider?</p>
+                <p id="color_negrita">
+                  {{ 'SearchResults.How was your experience with this provider?' | translate }}
+                </p>
                 <ion-row>
                   <ion-col size="6">
                     <button class="btn_manos" id="like_bajo" (click)="open_report (item, 0)">
@@ -238,7 +246,9 @@
                 </ul>
               </ion-col>
               <ion-col size="8" offset="2" class="ion-text-center ion-no-padding">
-                <p id="color_negrita">How was your experience with this provider?</p>
+                <p id="color_negrita">
+                  {{ 'SearchResults.How was your experience with this provider?' | translate }}
+                </p>
                 <ion-row>
                   <ion-col size="6">
                     <button class="btn_manos" id="like_bajo" (click)="open_report (item, 0)">
@@ -260,7 +270,9 @@
     <ion-col size="12">
       <ion-item class="ion-text-center margin-top" lines="none">
         <ion-label>
-          <h1 class="titulo">How do I know if it’s legit</h1>
+          <h1 class="titulo">
+            {{ 'SearchResults.How do I know if it’s legit' | translate }}
+          </h1>
         </ion-label>
       </ion-item>
 
@@ -268,12 +280,16 @@
         <div> 
           <ion-item (click)="view_help (0)" class="item-header">
             <ion-icon id="icon-padding" src="assets/icon/agencia-blue.svg"></ion-icon>
-            <p class="color-blue">Tourism Agency</p>
+            <p class="color-blue">
+              {{ 'SearchResults.Tourism Agency' | translate }}
+            </p>
             <ion-icon slot="end" name="ios-arrow-forward" [ngStyle]="{'transform': help_0 ? 'rotate(90deg)' : 'none' }" class="transition"></ion-icon>
           </ion-item>
             <ion-row *ngIf="help_0" [@animation-top]>
               <ion-col size="12" class="padding_tops_col">
-                <p class="color_descrion">La persona natural acreditada con el título de Guía Oficial de Turismo otorgado a nombre de la Nación, por institutos superiores y centros de formación superior oficialmente reconocidos, después de haber cursado y aprobado estudios por un lapso mínimo de seis semestres académicos. Licenciado en Turismo: La persona natural que ostenta el título de Licenciado en Turismo expedido por las universidades del país, o revalidado conforme a ley, si el título hubiera sido otorgado por una universidad extranjera, inscrito en el Colegio de Licenciados en Turismo.</p>
+                <p class="color_descrion">
+                  {{ 'SearchResults.Tourism Agency Detail' | translate }}
+                </p>
               </ion-col>
             </ion-row>
         </div>
@@ -281,13 +297,17 @@
         <div> 
           <ion-item (click)="view_help (1)" class="item-header">
             <ion-icon id="icon-padding"  src="assets/icon/alojamiento-blue.svg"></ion-icon>
-            <p class="color-blue">Accommodations</p>
+            <p class="color-blue">
+              {{ 'SearchResults.Accommodations' | translate }}
+            </p>
             <ion-icon slot="end" name="ios-arrow-forward" [ngStyle]="{'transform': help_1 ? 'rotate(90deg)' : 'none' }" class="transition"></ion-icon>
           </ion-item>
 
           <ion-row *ngIf="help_1" [@animation-top]>
             <ion-col size="12" class="padding_tops_col">
-              <p class="color_descrion">La persona natural acreditada con el título de Guía Oficial de Turismo otorgado a nombre de la Nación, por institutos superiores y centros de formación superior oficialmente reconocidos, después de haber cursado y aprobado estudios por un lapso mínimo de seis semestres académicos. Licenciado en Turismo: La persona natural que ostenta el título de Licenciado en Turismo expedido por las universidades del país, o revalidado conforme a ley, si el título hubiera sido otorgado por una universidad extranjera, inscrito en el Colegio de Licenciados en Turismo.</p>
+              <p class="color_descrion">
+                {{ 'SearchResults.Accommodations Detail' | translate }}
+              </p>
             </ion-col>
           </ion-row>
         </div>
@@ -295,13 +315,17 @@
         <div> 
           <ion-item (click)="view_help (2)" class="item-header">
             <ion-icon id="icon-padding"  src="assets/icon/guia-blue.svg"></ion-icon>
-            <p class="color-blue">Tour guides</p>
+            <p class="color-blue">
+              {{ 'SearchResults.Tour guides' | translate }}
+            </p>
             <ion-icon slot="end" name="ios-arrow-forward" [ngStyle]="{'transform': help_2 ? 'rotate(90deg)' : 'none' }" class="transition"></ion-icon>
           </ion-item>
 
           <ion-row *ngIf="help_2" [@animation-top]>
             <ion-col size="12" class="padding_tops_col">
-              <p class="color_descrion">La persona natural acreditada con el título de Guía Oficial de Turismo otorgado a nombre de la Nación, por institutos superiores y centros de formación superior oficialmente reconocidos, después de haber cursado y aprobado estudios por un lapso mínimo de seis semestres académicos. Licenciado en Turismo: La persona natural que ostenta el título de Licenciado en Turismo expedido por las universidades del país, o revalidado conforme a ley, si el título hubiera sido otorgado por una universidad extranjera, inscrito en el Colegio de Licenciados en Turismo.</p>
+              <p class="color_descrion">
+                {{ 'SearchResults.Tour guides Detail' | translate }}
+              </p>
             </ion-col>
           </ion-row>
         </div>
@@ -309,13 +333,17 @@
         <div> 
           <ion-item (click)="view_help (3)" class="item-header">
             <ion-icon id="icon-padding"  src="assets/icon/restaurante-blue.svg"></ion-icon>
-            <p class="color-blue">Restaurants</p>
+            <p class="color-blue">
+              {{ 'SearchResults.Restaurants' | translate }}
+            </p>
             <ion-icon slot="end" name="ios-arrow-forward" [ngStyle]="{'transform': help_3 ? 'rotate(90deg)' : 'none' }" class="transition"></ion-icon>
           </ion-item>
 
           <ion-row *ngIf="help_3" [@animation-top]>
             <ion-col size="12" class="padding_tops_col">
-              <p class="color_descrion">La persona natural acreditada con el título de Guía Oficial de Turismo otorgado a nombre de la Nación, por institutos superiores y centros de formación superior oficialmente reconocidos, después de haber cursado y aprobado estudios por un lapso mínimo de seis semestres académicos. Licenciado en Turismo: La persona natural que ostenta el título de Licenciado en Turismo expedido por las universidades del país, o revalidado conforme a ley, si el título hubiera sido otorgado por una universidad extranjera, inscrito en el Colegio de Licenciados en Turismo.</p>
+              <p class="color_descrion">
+                {{ 'SearchResults.Restaurants Detail' | translate }}
+              </p>
             </ion-col>
           </ion-row>
         </div>

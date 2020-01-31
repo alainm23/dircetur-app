@@ -3,7 +3,7 @@
     <ion-buttons mode="md" slot="start">
       <!--ion-back-button mode="md" text="Back" color="dark"></!--ion-back-button-->
       <ion-button (click)="onClick()" fill="clear">
-        Atras
+        {{ 'Back' | translate }} 
       </ion-button>
     </ion-buttons>
 
@@ -35,8 +35,12 @@
     </ion-row>-->
     <ion-row>
       <ion-col size="12" class="padding_espacio_descrip">
-        <h1 class="color_titulos ion-text-lg-center">Turistical circuites in Cusco</h1>
-        <p class="descrip_color">La Dirección de Artesanía, es un Órgano de Línea de segundo nivel organizacional, responsable de proponer y ejecutar la política regional de desarrollo y promoción de la artesanía; así como fomentar las exportaciones de los productos artesanales, su sigla es DART.</p>
+        <h1 class="color_titulos ion-text-lg-center">
+          {{ 'TRC.Turistical circuites in Cusco' | translate }}
+        </h1>
+        <p class="descrip_color">
+          La Dirección de Artesanía, es un Órgano de Línea de segundo nivel organizacional, responsable de proponer y ejecutar la política regional de desarrollo y promoción de la artesanía; así como fomentar las exportaciones de los productos artesanales, su sigla es DART.
+        </p>
       </ion-col>
       
       <ion-col *ngIf="is_loading === true" size="12">

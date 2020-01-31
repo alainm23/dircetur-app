@@ -3,7 +3,7 @@
     <ion-buttons mode="md" slot="start">
       <!--ion-back-button mode="md" text="Back" color="dark"></!--ion-back-button-->
       <ion-button (click)="onClick()" fill="clear">
-        Atras
+        {{ 'Back' | translate }}
       </ion-button>
     </ion-buttons>
 
@@ -41,23 +41,17 @@
     <div *ngIf="is_loading === false">
       <ion-row>
         <ion-col size="12" class="padding_espacio_descrip">
-          <h1 class="color_titulos ion-text-lg-center">{{ data?.nombre }}</h1>
-          <p class="descrip_pequeña margin_bottom">{{ data?.donde }}</p>
-          <p class="numero_color">{{ data?.altitud }}</p>
+          <h1 class="color_titulos ion-text-lg-center">{{ get_value (data, 'nombre') }}</h1>
+          <p class="descrip_pequeña margin_bottom">{{ get_value (data, 'donde') }}</p>
+          <p class="numero_color">{{ get_value (data, 'altitud') }}</p>
         </ion-col>
         <ion-col size="12" class="padding_espacio_descrip">
-          <p class="descripcion_completo">{{ data?.descripcion }}</p>
+          <p class="descripcion_completo">{{ get_value (data, 'descripcion') }}</p>
         </ion-col>
         <ion-col size="12" class="padding_espacio_descrip">
           <ion-row>
-            <ion-col size="4" size-sm="3" size-md="3" size-lg="2" class="padding_derecha_cero">
-              <button class="btn_rojo_car">Alimentacion</button>
-            </ion-col>
-            <ion-col size="4" size-sm="3" size-md="3" size-lg="2" class="padding_derecha_cero">
-              <button class="btn_rojo_car">Ceramica</button>
-            </ion-col>
-            <ion-col size="4" size-sm="3" size-md="3" size-lg="2" class="padding_derecha_cero">
-              <button class="btn_rojo_car">Crianza de cuy</button>
+            <ion-col *ngFor="let t of item.tags" size="4" size-sm="3" size-md="4" size-lg="3" size-xl="4">
+              <button class="btn_rojo_car">{{ t.nombre }}</button>
             </ion-col>
           </ion-row>
         </ion-col>
@@ -66,12 +60,14 @@
       <ion-row>
         <ion-col isze="12" class="ion-text-center padding_espacio_descrip">
           <ion-text>
-            <h2 class="color_titulos">Distancia</h2>
+            <h2 class="color_titulos">
+              {{ 'TRC.Distancia' | translate }}
+            </h2>
           </ion-text>
         </ion-col>
   
         <ion-col size="12" class="padding_espacio_descrip">
-          <p class="descripcion_completo">{{ data?.distancia }}</p>
+          <p class="descripcion_completo">{{ get_value (data, 'distancia') }}</p>
         </ion-col>
         
         <ion-col size="12" class="ion-no-padding">
@@ -83,26 +79,34 @@
         </ion-col>
         <ion-col size="12" class="padding_espacio_descrip">
           <ion-text>
-            <h2 class="color_titulos ion-text-center">Itinerario</h2>
+            <h2 class="color_titulos ion-text-center">
+              {{ 'TRC.Itinerario' | translate }}
+            </h2>
           </ion-text>
-          <p class="descripn_largo">{{ data?.itinerario }}</p>
+          <p class="descripn_largo">{{ get_value (data, 'itinerario') }}</p>
         </ion-col>
         <ion-col size="12" class="padding_espacio_descrip">
           <ion-text>
-            <h2 class="color_titulos ion-text-center">Incluye</h2>
+            <h2 class="color_titulos ion-text-center">
+              {{ 'TRC.Incluye' | translate }}
+            </h2>
           </ion-text>
-          <p class="descripn_largo">{{ data?.incluye }}</p>
+          <p class="descripn_largo">{{ get_value (data, 'incluye') }}</p>
         </ion-col>
         <ion-col size="12" class="padding_espacio_descrip">
           <ion-text>
-            <h2 class="color_titulos ion-text-center">Informes y reservas</h2>
+            <h2 class="color_titulos ion-text-center">
+              {{ 'TRC.Informes y reservas' | translate }}
+            </h2>
           </ion-text>
-          <p class="descripn_largo">{{ data?.informes_reserva }}</p>
+          <p class="descripn_largo">{{ get_value (data, 'informes_reserva') }}</p>
           <ul class="list-none ion-no-padding" style="list-style-type:none;">
             <li class="descripn_largo">
               <ion-row>
                 <ion-col size="4" size-sm="2" size-xl="1" class="padding_derecha_cero">
-                  <span class="font_size_list">Teléfono:</span>
+                  <span class="font_size_list">
+                    {{ 'TRC.Teléfono:' | translate }}
+                  </span>
                 </ion-col>
                 <ion-col size="8" size-sm="10">
                   <span class="font_size_list">{{ data?.telefono }}</span>
@@ -111,7 +115,9 @@
               </li>
             <li class="descripn_largo"><ion-row>
               <ion-col size="4" size-sm="2" size-xl="1" class="padding_derecha_cero">
-                <span class="font_size_list">E-Mail:</span>
+                <span class="font_size_list">
+                  {{ 'TRC.E-Mail:' | translate }}
+                </span>
               </ion-col>
               <ion-col size="8" size-sm="10">
                 <span class="font_size_list">{{ data?.email }}</span>
@@ -119,7 +125,9 @@
             </ion-row></li>
             <li class="descripn_largo"><ion-row>
               <ion-col size="4" size-sm="2" size-xl="1" class="padding_derecha_cero">
-                <span class="font_size_list">Página Web:</span>
+                <span class="font_size_list">
+                  {{ 'TRC.Página Web:' | translate }}
+                </span>
               </ion-col>
               <ion-col size="8" size-sm="10">
                 <span class="font_size_list">{{ data?.pagina_web }}</span>
