@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
-import { MenuController} from '@ionic/angular'; 
+import { MenuController, NavController } from '@ionic/angular'; 
 
 // Param
 import { ActivatedRoute } from '@angular/router';
@@ -33,6 +33,7 @@ export class TrcDetallePage implements OnInit {
   is_items_loading: boolean = true;
   constructor(private route: ActivatedRoute,
               private database: DatabaseService,
+              private navCtrl: NavController,
               private menu:MenuController) { }
 
   ngOnInit() {
@@ -44,18 +45,32 @@ export class TrcDetallePage implements OnInit {
 
       this.is_loading = false;
     });
-
-    /*
-    this.database.get_dias_by_circuito_turistico (this.id).subscribe ((res: any []) => {
-      this.items = res;
-      console.log (res);
-
-      this.is_items_loading = false;
-    });
-    */
   }
+
   open_menu () {
     this.menu.enable (true, 'first');
     this.menu.open ('first');
+  }
+
+  onClick () {
+    this.navCtrl.back ();
+  }
+
+  get_value (item: any, val: string) {
+    let returned = item [val + '_' + this.database.idioma];
+        
+    if (returned === null || returned === undefined) {
+      returned = item [val + '_es'];
+    }
+    
+    if (returned === null || returned === undefined) {
+      returned = item [val];
+    }
+
+    if (returned === null || returned === undefined) {
+      returned = "";
+    }
+
+    return returned;
   }
 }

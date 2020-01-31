@@ -1,0 +1,136 @@
+{
+    "Back": "Back",
+    "MENU": {
+        "Tourístic circuits": "Tourístic circuits",
+        "Touristic ticket": "Touristic ticket",
+        "News and articles": "News and articles",
+        "Rural turism": "Rural turism",
+        "Cusco calendar": "Cusco calendar",
+        "Cusco emergency directory": "Cusco emergency directory",
+        "Contact": "Contact",
+        "Change language": "Change language",
+        "Credits": "Credits"
+    },
+    "HOME": {
+        "Regional Directorate of Foreign Trade and tourism - Cusco": "Regional Directorate of Foreign Trade and tourism - Cusco",
+        "Been subject of fraud? Have any claims or want to congratulate?": "Been subject of fraud? Have any claims or want to congratulate?",
+        "Let us know": "Let us know",
+        "What is DIRCETUR": "What is DIRCETUR",
+        "Dircetur news": "Dircetur news",
+        "Turistic ticket": "Turistic ticket",
+        "Complete info >": "Complete info >",
+        "Upcoming events": "Upcoming events",
+        "Show full calendar": "Show full calendar",
+        "Turistical circuites in Cusco": "Turistical circuites in Cusco",
+        "Show full turistical circuites": "Show full turistical circuites",
+        "Check on your touristic provider": "Check on your touristic provider"
+    },
+    "BLOG": {
+        "News articles and events": "News articles and events",
+        "Show": "Show",
+        "All categories": "All categories",
+        "Por:": "By:",
+        "Fecha:": "Date:",
+        "Leer mas >": "Read more >"
+    },
+    "TouristicTicket": {
+        "Truistic ticket": "Truistic ticket",
+        "How much does it cost": "How much does it cost",
+        "Nacional": "Peruvian",
+        "Extranjero": "Foriegner",
+        "Cost per person:": "Cost per person:",
+        "Where to purchase": "Where to purchase",
+        "Counter Central": "Central counter",
+        "Terms": "Terms",
+        "terms_01": "The validity of the complete tourist ticket is 10 days.",
+        "terms_02": "Children pay from 10 years of age, from 10 to 17 years, can acquire the student ticket upon presentation of the identity document (ID, Passport, etc.)",
+        "terms_03": "The Tourist Ticket does not include guide nor mobility service.",
+        "terms_04": "There are no individual tickets for each tourist attraction, you must purchase the general or partial ticket.",
+        "Tickets Partial": "Partial tickets",
+        "Partial tickets detail": "The complete tourist ticket has a validity of 10 days, however there is also the possibility of buying it partially as detailed below:",
+        "Vigencia": "Expiration",
+        "To view full site list visit our website": "To view full site list visit our website",
+        "Go to website >": "Go to website >",
+        "direccion_01": "Av El Sol 103 Tourist Galleries",
+        "direccion_01_hora": "Monday to Sunday from 8:00 to 18:00 Hrs.",
+        "direccion_02": "Calle Mantas",
+        "direccion_02_hora": "Monday to Saturday 9:00 to 13:00 Hrs. / 14:00 to 18:00 Hrs."
+    },
+    "CALENDAR": {
+        "Event calendar": "Event calendar",
+        "Filter by >": "Filter by >",
+        "< Previous": "< Previous",
+        "Next >": "Next >",
+        "Upcoming events": "Upcoming events",
+        "Show full calendar": "Show full calendar",
+        "No upcoming events": "No upcoming events",
+        "No events listed or internet conection failed to establish. Please try again later.": "No events listed or internet conection failed to establish. Please try again later."
+    },
+    "CT": {
+        "Itinerario": "Itinerary",
+        "No incluye": "Not included"
+    },
+    "CONTACTO": {
+        "Escribenos": "Write us",
+        "Send": "Send",
+        "Find us": "Find us",
+        "Or Call": "Or Call",
+        "Let us know": "Let us know",
+        "Let us know details": "Been subject of fraud? Have any claims or want to congratulate for an excellent service?",
+        "What is you name?": "What is you name?",
+        "Enter your e-mail here": "Enter your e-mail here",
+        "What’s your message?": "What’s your message?"
+    },
+    "CREDITS": {
+        "Designed and powered by:": "Designed and powered by:"
+    },
+    "EmergencyDirectory": {
+        "Emergency directory": "Emergency directory",
+        "Police": "Police",
+        "Tourism police": "Tourism police",
+        "Health services": "Health services",
+        "Direct assistance": "Direct assistance",
+        "Let us know": "Let us know"
+    },
+    "ReportProvider": {
+        "Report Provider": "Report Provider",
+        "Congratulate Provider": "Congratulate Provider",
+        "Report Message": "You are about to report fraude, abuse or misconduct caused by a touristic provider. Please be specific and help us eradicate unwelcoming, informal and hazardous businesses from Cusco.",
+        "Congratulate Message 1": "You are here because you hav something extraordinary to say about",
+        "Congratulate Message 2": "Please tell us all about it so we may give them the recognition they deserve.<",
+        "Report Message 1": "You are about to report fraude, abuse or misconduct caused by",
+        "Report Message 2": "Please be specific and help us eradicate unwelcoming, informal and hazardous businesses from Cusco.",
+        "Provider’s company name": "Provider’s company name",
+        "Your full name": "Your full name",
+        "E-mail": "E-mail",
+        "Contact number": "Contact number",
+        "Tell us what happened": "Tell us what happened"
+    },
+    "SearchResults": {
+        "Authorized providers directory": "Authorized providers directory",
+        "Search results": "Search results",
+        "How was your experience with this provider?": "How was your experience with this provider?",
+        "How do I know if it’s legit": "How do I know if it’s legit",
+        "Tourism Agency": "Tourism Agency",
+        "Tourism Agency Detail": "",
+        "Accommodations": "Accommodations",
+        "Accommodations Detail": "Accommodations Detail",
+        "Tour guides": "Tour guides",
+        "Tour guides Detail": "",
+        "Restaurants": "Restaurants",
+        "Restaurants Detail": ""
+    },
+    "TRC": {
+        "Turistical circuites in Cusco": "Turistical circuites in Cusco",
+        "Distancia": "Distance",
+        "Itinerario": "Itinerary",
+        "Incluye": "Included",
+        "Informes y reservas": "Information & reserve",
+        "Teléfono:": "Telephoe:",
+        "E-Mail:": "E-Mail:",
+        "Página Web": "Web site"
+    },
+    "TC": {
+        "Turistical circuites in Cusco": "Turistical circuites in Cusco"
+    }
+}

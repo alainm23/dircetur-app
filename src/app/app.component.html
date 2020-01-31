@@ -5,7 +5,7 @@
         <ion-grid class="ion-no-padding">
           <ion-row class="padding_espacio" id="bajar_header">
             <ion-col size="6" size-sm="6">
-              <ion-img :src="assets/img/Imagen-25.png"></ion-img>
+              <ion-img :src="assets/img/Imagen-25.png" (click)="go_home ()"></ion-img>
             </ion-col>
             <ion-col size="1" size-sm="1" offset="4" offset-sm="4">
               <button class="btn_menu" (click)="open_menu ()">
@@ -20,48 +20,69 @@
       <ion-list lines="none" class="border_bottom">
         <ion-menu-toggle auto-hide="false" >
           <ion-item (click)="go_page ('turismo-circuito')" class="ion-text-center ">
-            <ion-label class="color_menu">Tourístic circuits</ion-label>
+            <ion-label class="color_menu">
+              {{ 'MENU.Tourístic circuits' | translate }}
+            </ion-label>
           </ion-item>
         </ion-menu-toggle>
 
         <div></div>
         <ion-menu-toggle auto-hide="false">
-          <ion-item (click)="go_page ('boleto-turistico')" class="ion-text-center"><ion-label class="color_menu">Touristic ticket</ion-label></ion-item>
+          <ion-item (click)="go_page ('boleto-turistico')" class="ion-text-center"><ion-label class="color_menu">
+            {{ 'MENU.Touristic ticket' | translate }}
+          </ion-label></ion-item>
         </ion-menu-toggle>
 
         <div></div>
         <ion-menu-toggle auto-hide="false">
-          <ion-item (click)="go_page ('blog')" class="ion-text-center"><ion-label class="color_menu">News and articles</ion-label></ion-item>
+          <ion-item (click)="go_page ('blog')" class="ion-text-center"><ion-label class="color_menu">
+            {{ 'MENU.News and articles' | translate }}
+          </ion-label></ion-item>
         </ion-menu-toggle>
 
         <div></div>
         <ion-menu-toggle auto-hide="false">
-          <ion-item (click)="go_page ('trc')" class="ion-text-center"><ion-label class="color_menu">Rural turism</ion-label></ion-item>
+          <ion-item (click)="go_page ('trc')" class="ion-text-center"><ion-label class="color_menu">
+            
+            {{ 'MENU.Rural turism' | translate }}
+          </ion-label></ion-item>
         </ion-menu-toggle>
 
         <div></div>
         <ion-menu-toggle auto-hide="false">
-          <ion-item (click)="go_page ('calendario')" class="ion-text-center"><ion-label class="color_menu">Cusco calendar</ion-label></ion-item>
+          <ion-item (click)="go_page ('calendario')" class="ion-text-center"><ion-label class="color_menu">
+            {{ 'MENU.Cusco calendar' | translate }}
+          </ion-label></ion-item>
         </ion-menu-toggle>
 
         <div></div>
         <ion-menu-toggle auto-hide="false">
-          <ion-item (click)="go_page ('energency-direct')" class="ion-text-center"><ion-label class="color_menu">Cusco emergency directory</ion-label></ion-item>
+          <ion-item (click)="go_page ('energency-direct')" class="ion-text-center"><ion-label class="color_menu">
+            {{ 'MENU.Cusco emergency directory' | translate }}
+          </ion-label></ion-item>
         </ion-menu-toggle>
 
         <div></div>
         <ion-menu-toggle auto-hide="false">
-          <ion-item (click)="go_page ('contacto')" class="ion-text-center"><ion-label class="color_menu">Contacto</ion-label></ion-item>
+          <ion-item (click)="go_page ('contacto')" class="ion-text-center"><ion-label class="color_menu">
+            {{ 'MENU.Contact' | translate }}
+          </ion-label></ion-item>
         </ion-menu-toggle>
 
         <div></div>
-        <ion-menu-toggle auto-hide="false">
-          <ion-item (click)="presentAlertRadio ()" class="ion-text-center"><ion-label class="color_menu">Change language</ion-label></ion-item>
-        </ion-menu-toggle>
+        <ion-item class="ion-text-center">
+          <ion-select [(ngModel)]="i18n" (ionChange)="change_language ()" interface="popover" id="select-item" placeholder="{{ 'MENU.Change language' | translate }}">
+            <ion-select-option value="es">Español</ion-select-option>
+            <ion-select-option value="en">English</ion-select-option>
+          </ion-select>
 
+          <img slot="end" [src]="flag">
+        </ion-item>
         <div></div>
         <ion-menu-toggle auto-hide="false">
-          <ion-item (click)="go_page ('creditos')" class="ion-text-center"><ion-label class="color_menu">Credits</ion-label></ion-item>
+          <ion-item (click)="go_page ('creditos')" class="ion-text-center"><ion-label class="color_menu">
+            {{ 'MENU.Credits' | translate }}
+          </ion-label></ion-item>
         </ion-menu-toggle>
       </ion-list>
     </ion-content>

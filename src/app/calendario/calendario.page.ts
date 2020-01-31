@@ -93,4 +93,21 @@ export class CalendarioPage implements OnInit {
     this.menu.enable (true, 'first');
     this.menu.open ('first');
   }
+
+  get_value (item: any, val: string) {
+    let returned = item [val + '_' + this.database.idioma];
+    if (returned === null || returned === undefined) {
+      returned = item [val + '_es'];
+    }
+    
+    if (returned === null || returned === undefined) {
+      returned = item [val];
+    }
+
+    if (returned === null || returned === undefined) {
+      returned = "";
+    }
+
+    return returned;
+  }
 }

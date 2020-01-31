@@ -8,12 +8,16 @@ import { TrcDetallePageRoutingModule } from './trc-detalle-routing.module';
 
 import { TrcDetallePage } from './trc-detalle.page';
 
+// Translate
+import { TranslateModule } from '@ngx-translate/core';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TrcDetallePageRoutingModule
+    TrcDetallePageRoutingModule,
+    TranslateModule
   ],
   declarations: [TrcDetallePage]
 })

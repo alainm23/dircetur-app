@@ -18,13 +18,14 @@ import { environment } from '../environments/environment';
 import { SlugifyPipe } from './pipes/slugify.pipe';
 
 // Translate
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 // Storage
 import { IonicStorageModule } from '@ionic/storage';
 
 // API REST
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 // Form
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -37,6 +38,10 @@ import { SearchResultsPageModule } from './search-results/search-results.module'
 import { ReportProviderPageModule } from './report-provider/report-provider.module';
 
 declare var require: any;
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [AppComponent, SlugifyPipe],
@@ -52,7 +57,13 @@ declare var require: any;
     BrowserAnimationsModule,
     FormsModule, 
     ReactiveFormsModule,
-    TranslateModule.forRoot (),
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: (createTranslateLoader),
+          deps: [HttpClient]
+      }
+    }),
     IonicStorageModule.forRoot (),
     HttpClientModule,
 

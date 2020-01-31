@@ -8,12 +8,16 @@ import { BlogArticuloPageRoutingModule } from './blog-articulo-routing.module';
 
 import { BlogArticuloPage } from './blog-articulo.page';
 
+// Translate
+import { TranslateModule } from '@ngx-translate/core';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    BlogArticuloPageRoutingModule
+    BlogArticuloPageRoutingModule,
+    TranslateModule
   ],
   declarations: [BlogArticuloPage]
 })

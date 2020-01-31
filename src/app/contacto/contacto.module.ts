@@ -8,13 +8,17 @@ import { ContactoPageRoutingModule } from './contacto-routing.module';
 
 import { ContactoPage } from './contacto.page';
 
+// Translate
+import { TranslateModule } from '@ngx-translate/core';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    ContactoPageRoutingModule
+    ContactoPageRoutingModule,
+    TranslateModule
   ],
   declarations: [ContactoPage]
 })

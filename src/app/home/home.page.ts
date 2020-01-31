@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 
 // Ionic
-import { MenuController, LoadingController, ModalController, NavController } from '@ionic/angular'; 
+import { MenuController, LoadingController, ModalController, NavController, Events } from '@ionic/angular'; 
 
 // Services
 import { DatabaseService } from '../services/database.service';
 import { SlugifyPipe } from '../pipes/slugify.pipe';
+import { Storage } from '@ionic/storage';
 
 // Modals
 import { SearchResultsPage } from '../search-results/search-results.page';
@@ -25,6 +26,8 @@ export class HomePage {
   eventos: any = [];
   circuitos: any = [];
 
+  idioma: string;
+
   search_text: string = "";
   current_date: string = moment ().format ();
 
@@ -32,16 +35,50 @@ export class HomePage {
   is_blog_loading: boolean = true;
   is_circuitos_loading: boolean = true;
 
+  etiquetas: any;
   constructor(private menu:MenuController,
               private loadingController: LoadingController,
               private slugifyPipe: SlugifyPipe,
               private modalController: ModalController,
               private navCtrl: NavController,
-              private database: DatabaseService
-  ) {
+              private database: DatabaseService,
+              private storage: Storage,
+              private events: Events) {
     this.get_blogs ();
     this.get_events ();
     this.get_circuitos ();
+
+    this.get_etiquetas ();
+
+    this.events.subscribe ('language_changed', (lang) => {
+      this.idioma = lang;
+
+      this.database.get_etiquetas ("home_" + lang).subscribe ((res: any) => {
+        this.etiquetas = res;
+      });
+    });
+
+    this.storage.get ('i18n').then ((response: string) => {
+      this.idioma = response;
+
+      if (this.idioma === null || this.idioma === undefined) {
+        this.idioma = 'es';
+      }
+    });
+  }
+
+  get_etiquetas () {
+    this.storage.get ('i18n').then ((response: string) => {
+      let lang: string = response;
+
+      if (lang === null || lang === undefined) {
+        lang = 'es';
+      }
+
+      this.database.get_etiquetas ("home_" + lang).subscribe ((res: any) => {
+        this.etiquetas = res;
+      });
+    });
   }
 
   get_blogs () {
@@ -52,9 +89,11 @@ export class HomePage {
   }
 
   get_circuitos () {
-    this.database.get_circuitos_turisticos_limit (3).subscribe ((res: any []) => {
+    this.database.get_circuitos_turisticos_limit (10).subscribe ((res: any []) => {
       this.circuitos = res;
       this.is_circuitos_loading = false;
+
+      console.log (res);
     });
   }
 
@@ -163,6 +202,24 @@ export class HomePage {
     await modal.present();
   }
 
+  get_value (item: any, val: string) {
+    let returned = item [val + '_' + this.idioma];
+    if (returned === null || returned === undefined) {
+      returned = item [val + '_es'];
+    }
+    
+    if (returned === null || returned === undefined) {
+      returned = item [val];
+    }
+
+    if (returned === null || returned === undefined) {
+      returned = '';
+    }
+
+    return returned;
+  }
+
+  // Vires
   go_calendar () {
     this.navCtrl.navigateForward ('calendario');
   }

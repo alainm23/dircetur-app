@@ -4,6 +4,9 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
+// Translate
+import { TranslateModule } from '@ngx-translate/core';
+
 import { HomePage } from './home.page';
 
 @NgModule({
@@ -16,7 +19,8 @@ import { HomePage } from './home.page';
         path: '',
         component: HomePage
       }
-    ])
+    ]),
+    TranslateModule
   ],
   declarations: [HomePage]
 })

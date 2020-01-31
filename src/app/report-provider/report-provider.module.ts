@@ -8,13 +8,17 @@ import { ReportProviderPageRoutingModule } from './report-provider-routing.modul
 
 import { ReportProviderPage } from './report-provider.page';
 
+// Translate
+import { TranslateModule } from '@ngx-translate/core';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    ReportProviderPageRoutingModule
+    ReportProviderPageRoutingModule,
+    TranslateModule
   ],
   declarations: [ReportProviderPage]
 })

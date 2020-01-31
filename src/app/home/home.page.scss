@@ -62,16 +62,17 @@
         margin-top: -1rem;
     }
 }
-.btn_menu{
+.btn_menu {
+    border: 1px solid #b7b7b7 !important;
+    position: fixed;
     width: 25px;
     height: 25px;
     border-radius: 50%;
     background-color: #ffffff;
     padding-top: 2px;
-    position: absolute;
     z-index: 9999;
-    top: 26px;
-    right: 39px;
+    top: 12px;
+    right: 12px;
 }
 .div_linea_color{
     height: 1px;
@@ -86,8 +87,8 @@
 }
 @media(min-width: 411px){
     .btn_menu{
-        top: 26px;
-        right: 40px;
+        top: 12px;
+        right: 12px;
         width: 29px;
         height: 29px;
     }
@@ -258,7 +259,7 @@ button:focus{
     padding-bottom: 0;
 }
 .margin_bottom_escpacio{
-    margin-bottom: 0.125rem;
+    margin-bottom: 1rem;
 }
 #fondo_boleto_img{
     --background: none;

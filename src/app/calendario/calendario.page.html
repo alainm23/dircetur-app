@@ -3,11 +3,13 @@
     <ion-buttons mode="md" slot="start">
       <!--ion-back-button mode="md" text="Back" color="dark"></!--ion-back-button-->
       <ion-button (click)="onClick()" fill="clear">
-        Atras
+        {{ 'Back' | translate }}
       </ion-button>
     </ion-buttons>
 
-    <ion-title>Event clendar</ion-title>
+    <ion-title>
+      {{ 'CALENDAR.Event calendar' | translate }}
+    </ion-title>
 
     <ion-buttons mode="md" slot="end">
       <button class="btn_menu" (click)="open_menu ()">
@@ -22,32 +24,34 @@
 <ion-content>
   <ion-grid class="padding_cero">
     <ion-row class="ion-padding-start ion-margin-top ion-padding-end">      
-        <ion-col size="12" id="subir_mesyear">
-          <ion-row>
-            <ion-col size="2" text-center class="ion-margin-bottom">
-              <button class="flechas_tamaño_calender padding_cero" (click)="change_month (-1)">
-                <img src="assets/img/icono-derecha.png" width="100%" height="100%">
-              </button>
-            </ion-col>
-            <ion-col size="8" text-center class="ion-margin-bottom">
-              <p id="diciembre_year"><span id="mes_color">{{ get_current_date_format ("MMM") }} </span><span id="year_number">{{ get_current_date_format ("YYYY") }}</span></p>
-            </ion-col>
-            <ion-col size="2" text-center class="ion-margin-bottom">
-              <button class="flechas_tamaño_calender padding_cero" (click)="change_month (+1)">
-                <img src="assets/img/icono-izquierda.png" width="100%" height="100%">
-              </button>
-            </ion-col>
-          </ion-row>
-        </ion-col>
+      <ion-col size="12" id="subir_mesyear">
+        <ion-row>
+          <ion-col size="2" text-center class="ion-margin-bottom">
+            <button class="flechas_tamaño_calender padding_cero" (click)="change_month (-1)">
+              <img src="assets/img/icono-derecha.png" width="100%" height="100%">
+            </button>
+          </ion-col>
+          <ion-col size="8" text-center class="ion-margin-bottom">
+            <p id="diciembre_year"><span id="mes_color">{{ get_current_date_format ("MMM") }} </span><span id="year_number">{{ get_current_date_format ("YYYY") }}</span></p>
+          </ion-col>
+          <ion-col size="2" text-center class="ion-margin-bottom">
+            <button class="flechas_tamaño_calender padding_cero" (click)="change_month (+1)">
+              <img src="assets/img/icono-izquierda.png" width="100%" height="100%">
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-col>
 
-        <ion-col size="12" text-center id="subir_filter">
-          <p>Filter by ></p>
-        </ion-col>
+      <ion-col size="12" text-center id="subir_filter">
+        <p>
+          {{ 'CALENDAR.Filter by >' | translate }}
+        </p>
+      </ion-col>
 
-        <ion-spinner style="width: 100%; margin-top: 1rem;" class="ion-text-center" *ngIf="is_loading" name="circles"></ion-spinner>
-        
-        <div *ngIf="is_loading === false && eventos.length > 0">
-          <ion-row>
+      <ion-spinner style="width: 100%; margin-top: 1rem;" class="ion-text-center" *ngIf="is_loading" name="circles"></ion-spinner>
+      
+      <div style="width: 100%;" *ngIf="is_loading === false && eventos.length > 0">
+        <ion-row>
           <ion-col *ngFor="let item of eventos" size="12" size-md="6" size-lg="6" class="padding_eventos ion-margin-bottom">
             <ion-card (click)="view_calendar_detail (item)">
               <ion-row>
@@ -58,8 +62,8 @@
                 <ion-col size="9" class="sombra_img_descripcion padding_cero">
                   <ion-row style="height: 100%;">
                     <ion-col size="12" class="padding_derecha_izquierda largo_eventos">
-                      <p class="titulo_calnedar">{{ item.datageneral.titulo }}</p>
-                      <p class="subtitulo_calendar">{{ item.datageneral.categoria?.name }}</p>
+                      <p class="titulo_calnedar">{{ get_value (item.datageneral,'titulo') }}</p>
+                      <p class="subtitulo_calendar">{{ item.datageneral.tipo?.nombre }}</p>
                       <p class="quitar_margin margin_bottom"><span><img src="/assets/img/icono-img1.png" id="margin_left_img"></span><span class="color_81_pau">{{ item.datageneral.provincia.nombre }}</span></p>
                     </ion-col>
                   </ion-row>
@@ -68,16 +72,20 @@
             </ion-card>
           </ion-col>
         </ion-row>
-        </div>
+      </div>
 
-        <div style="width: 100%;" *ngIf="is_loading === false && eventos.length <= 0">
-          <ion-item class="ion-text-center" lines="none">
-            <ion-label>
-              <h1 id="nada-h1-margin">Ningun evento</h1>
-              <p text-wrap>Lorem ipsum dolor, sit amet consectetur </p>
-            </ion-label>
-          </ion-item>        
-        </div>
+      <div style="width: 100%;" *ngIf="is_loading === false && eventos.length <= 0">
+        <ion-item class="ion-text-center" lines="none">
+          <ion-label>
+            <h1 id="nada-h1-margin" style="color: #000000b5;">
+              {{ 'CALENDAR.No upcoming events' | translate }}
+            </h1>
+            <p text-wrap style="margin-bottom: 2rem;">
+              {{ 'CALENDAR.No events listed or internet conection failed to establish. Please try again later.' | translate }}
+            </p>
+          </ion-label>
+        </ion-item>        
+      </div>
     </ion-row>
   </ion-grid>
 </ion-content>

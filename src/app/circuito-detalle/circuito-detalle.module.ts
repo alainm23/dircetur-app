@@ -8,12 +8,16 @@ import { CircuitoDetallePageRoutingModule } from './circuito-detalle-routing.mod
 
 import { CircuitoDetallePage } from './circuito-detalle.page';
 
+// Translate
+import { TranslateModule } from '@ngx-translate/core';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CircuitoDetallePageRoutingModule
+    CircuitoDetallePageRoutingModule,
+    TranslateModule
   ],
   declarations: [CircuitoDetallePage]
 })

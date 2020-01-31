@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
-import { MenuController} from '@ionic/angular'; 
+import { MenuController, NavController} from '@ionic/angular'; 
 // Param
 import { ActivatedRoute } from '@angular/router';
 
@@ -32,6 +32,7 @@ export class CircuitoDetallePage implements OnInit {
   is_items_loading: boolean = true;
   constructor(private route: ActivatedRoute,
               private database: DatabaseService,
+              private navCtrl: NavController,
               private menu:MenuController) { }
 
   ngOnInit() {
@@ -52,6 +53,10 @@ export class CircuitoDetallePage implements OnInit {
     });
   }
 
+  onClick () {
+    this.navCtrl.back ();
+  }
+
   view_item (item: any) {
     if (item.reveal_child === true) {
       item.reveal_child = false;
@@ -62,5 +67,23 @@ export class CircuitoDetallePage implements OnInit {
   open_menu () {
     this.menu.enable (true, 'first');
     this.menu.open ('first');
+  }
+
+  get_value (item: any, val: string) {
+    let returned = item [val + '_' + this.database.idioma];
+        
+    if (returned === null || returned === undefined) {
+      returned = item [val + '_es'];
+    }
+    
+    if (returned === null || returned === undefined) {
+      returned = item [val];
+    }
+
+    if (returned === null || returned === undefined) {
+      returned = "";
+    }
+
+    return returned;
   }
 }

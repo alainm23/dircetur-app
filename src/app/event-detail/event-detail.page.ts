@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 // Param
 import { ActivatedRoute } from '@angular/router';
 
 // Ionic
-import { NavController, MenuController } from '@ionic/angular'; 
+import { NavController, MenuController, IonContent } from '@ionic/angular'; 
 
 // Services
 import { DatabaseService } from '../services/database.service';
@@ -18,8 +18,13 @@ import * as moment from 'moment';
   styleUrls: ['./event-detail.page.scss'],
 })
 export class EventDetailPage implements OnInit {
+  @ViewChild(IonContent, { static: false }) content: IonContent;
+
   id: string;
+  current_index: number = 0;
   evento: any;
+  
+  items: any [] = [];
 
   is_loading: boolean = true;
   is_upcomming_loading: boolean = true;
@@ -33,13 +38,44 @@ export class EventDetailPage implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get ('id');
-    this.database.get_evento_by_key (this.id).subscribe ((res: any) => {
-      this.evento = res;
+
+    this.database.get_eventos ().subscribe ((res: any []) => {
+      this.items = res;
       console.log (res);
       this.is_loading = false;
+      this.view_blog_by_id (this.id);
     });
 
     this.get_events ();
+  }
+
+  view_blog_by_id (id: string) {
+    this.evento = this.view_blog_by_index (this.deepIndexOf (id));
+    this.id = this.evento.id;
+  }
+
+  view_blog_by_index (index: number) {
+    return this.items [index];
+  }
+
+  deepIndexOf (id: string) {
+    return this.items.findIndex(obj => obj.id === id);
+  }
+
+  view_event (i: number) {
+    let index = this.deepIndexOf (this.id);
+    index += i;
+
+    if (index < 0) {
+      index = this.items.length - 1;
+    }
+
+    if (index >= this.items.length) {
+      index = 0;
+    }
+
+    this.evento = this.view_blog_by_index (index);
+    this.id = this.evento.id;
   }
 
   onClick () {
@@ -84,8 +120,14 @@ export class EventDetailPage implements OnInit {
   }
 
   view_calendar_detail (item: any) {
+    this.view_blog_by_id (item.data.id);
+    this.content.scrollToTop (300);
     console.log (item);
-    this.navCtrl.navigateForward ('event-detail/' + item.data.id);
+    //this.navCtrl.navigateForward ('event-detail/' + item.data.id);
+  }
+
+  go_calendar () {
+    this.navCtrl.navigateForward ('calendario');
   }
 
   get_date_format (date: string, format: string) {
@@ -94,5 +136,22 @@ export class EventDetailPage implements OnInit {
   open_menu () {
     this.menu.enable (true, 'first');
     this.menu.open ('first');
+  }
+
+  get_value (item: any, val: string) {
+    let returned = item [val + '_' + this.database.idioma];
+    if (returned === null || returned === undefined) {
+      returned = item [val + '_es'];
+    }
+    
+    if (returned === null || returned === undefined) {
+      returned = item [val];
+    }
+
+    if (returned === null || returned === undefined) {
+      returned = "";
+    }
+
+    return returned;
   }
 }

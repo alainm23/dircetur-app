@@ -4,6 +4,10 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
+// Services
+import { Events } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
+
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 import { first, map } from 'rxjs/operators';
@@ -13,8 +17,23 @@ import { combineLatest, of } from "rxjs/index";
   providedIn: 'root'
 })
 export class DatabaseService {
+  public idioma: string;
+  
+  constructor(private afs: AngularFirestore,
+              private events: Events,
+              private storage: Storage) {
+    this.events.subscribe ('language_changed', (lang) => {
+      this.idioma = lang;
+    });
 
-  constructor (private afs: AngularFirestore) { }
+    this.storage.get ('i18n').then ((response: string) => {
+      this.idioma = response;
+
+      if (this.idioma === null || this.idioma === undefined) {
+        this.idioma = 'es';
+      }
+    });
+  }
 
   // Proveedores
   get_prestador_by_id (nodo: string, id: string) {
@@ -74,6 +93,10 @@ export class DatabaseService {
     return this.afs.collection ("Eventos").doc (id).valueChanges ();
   }
 
+  get_eventos () {
+    return this.afs.collection ("Eventos", ref => ref.orderBy ('fecha_creado')).valueChanges ();
+  }
+
   get_events_by_month (month: string) {
     const collection = this.afs.collection ("Eventos_Fechas").doc (month).collection ('Eventos');
                                                                                                                                                                                                                                     
@@ -92,5 +115,10 @@ export class DatabaseService {
         return of([]);
       }
     });
+  }
+
+  // Etiquetas
+  get_etiquetas (doc: string) {
+    return this.afs.collection ('PaginaWeb').doc (doc).valueChanges ();
   }
 }

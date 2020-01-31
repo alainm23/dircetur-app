@@ -8,12 +8,16 @@ import { BoletoTuristicoPageRoutingModule } from './boleto-turistico-routing.mod
 
 import { BoletoTuristicoPage } from './boleto-turistico.page';
 
+// Translate
+import { TranslateModule } from '@ngx-translate/core';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    BoletoTuristicoPageRoutingModule
+    BoletoTuristicoPageRoutingModule,
+    TranslateModule
   ],
   declarations: [BoletoTuristicoPage]
 })

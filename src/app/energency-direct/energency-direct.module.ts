@@ -8,12 +8,16 @@ import { EnergencyDirectPageRoutingModule } from './energency-direct-routing.mod
 
 import { EnergencyDirectPage } from './energency-direct.page';
 
+// Translate
+import { TranslateModule } from '@ngx-translate/core';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EnergencyDirectPageRoutingModule
+    EnergencyDirectPageRoutingModule,
+    TranslateModule
   ],
   declarations: [EnergencyDirectPage]
 })
