@@ -73,3 +73,24 @@
 #icon-padding {
     padding-right: 1rem;
 }
+.padding_todos_iguales
+{
+    padding-left: 16px;
+    padding-right: 16px;
+}
+@media(min-width: 568px)
+{
+    .padding_todos_iguales
+   {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+@media(min-width: 731px)
+{
+    .padding_todos_iguales
+   {
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+}

@@ -136,6 +136,10 @@
     background-color: #fff;
     color: #a5a5a5;
 }
+.tamaño_manos
+{
+    width: 100%;
+}
 button:focus{
     outline:none;
     box-shadow:none;
@@ -157,18 +161,47 @@ button:focus{
     #descripcion{
        margin-left: -37px; 
     }
+    .tamaño_manos
+    {
+    width: 70%;
+    }
+    #derecha_mano
+    {
+        float: right;
+    }
+    #izquierda_mano
+    {
+        float: left;
+    }
+    #like_bajo{
+        margin-top: 19px;
+    }
 }
 @media(min-width: 640px){
     #descripcion{
        margin-left: -16px; 
     }
     #like_bajo{
-        margin-top: 41px;
+        margin-top: 19px;
+    }
+    .tamaño_manos
+    {
+    width: 60%;
     }
 }
 @media(min-width: 731px){
     #descripcion{
        margin-left: -44px; 
+    }
+    .tamaño_manos
+    {
+    width: 50%;
+    }
+}
+@media(min-width: 768px)
+{
+    #like_bajo{
+        margin-top: 14px;
     }
 }
 @media(min-width: 812px){
@@ -181,7 +214,7 @@ button:focus{
        margin-left: -36px; 
     }
     #like_bajo{
-        margin-top: 67px;
+        margin-top: 12px;
     }
 }
 @media(min-width: 1366px){
@@ -189,7 +222,7 @@ button:focus{
        margin-left: -90px; 
     }
     #like_bajo{
-        margin-top: 94px;
+        margin-top: 10px;
     }
 }
 .number_color{
@@ -224,5 +257,25 @@ button:focus{
    padding-left: 25px;
    padding-right: 16px;
 }
-
+.padding_todos_iguales
+{
+    padding-left: 16px;
+    padding-right: 16px;
+}
+@media(min-width: 568px)
+{
+    .padding_todos_iguales
+   {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+@media(min-width: 731px)
+{
+    .padding_todos_iguales
+   {
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+}
 

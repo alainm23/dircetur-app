@@ -1,5 +1,5 @@
 <ion-header no-border>
-  <ion-toolbar mode="ios">
+  <ion-toolbar mode="ios" class="padding_todos_iguales">
     <ion-buttons mode="md" slot="start">
       <!--ion-back-button mode="md" text="Back" color="dark"></!--ion-back-button-->
       <ion-button (click)="onClick()" fill="clear">
@@ -33,7 +33,7 @@
         </button>
       </ion-col>
     </ion-row>-->
-    <ion-row>
+    <ion-row class="padding_todos_iguales">
       <ion-col size="12" class="padding_espacio_descrip">
         <h1 class="color_titulos ion-text-lg-center">
           {{ 'TRC.Turistical circuites in Cusco' | translate }}
@@ -56,7 +56,7 @@
                   <ion-col size="12" class="dercha_izquierda_cero">
                     <ion-row>
                       <ion-col size="4">
-                        <img [src]="item.imagen" width="100%">
+                        <img [src]="item.imagen" width="100%" height="100%" style="object-fit: cover;">
                       </ion-col>
                       <ion-col size="8">
                         <h2 class="titulo_card margin_bottom"></h2>
@@ -65,7 +65,7 @@
                       </ion-col>
                     </ion-row>
                   </ion-col>
-                  <ion-col size="12" class="dercha_izquierda_cero">
+                  <!--<ion-col size="12" class="dercha_izquierda_cero">
                     <ion-row>
                       <ion-col size="4" size-sm="3" size-md="4" size-lg="3" size-xl="4">
                         <button class="btn_rojo_car">Alimentacion</button>
@@ -77,7 +77,7 @@
                         <button class="btn_rojo_car">Crianza de cuy</button>
                       </ion-col>
                     </ion-row>
-                  </ion-col>
+                  </ion-col>-->
                   <ion-col size="12">
                     <p class="descripcion_completo">Órgano de Línea de segundo nivel organizacional, responsable de proponer y ejecutar la política regional de desarrollo y promoción de la artesanía; así como fomentar las exportaciones de los productos artesanales, su sigla es DART.</p>
                   </ion-col>

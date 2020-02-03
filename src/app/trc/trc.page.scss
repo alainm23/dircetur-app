@@ -32,11 +32,11 @@
 }
 @media(min-width: 1024px){
     .btn_menu{
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
     }
     .div_linea_color{
-        height: 4px;
+        height: 2px;
     }
 }
 .color_titulos{
@@ -278,4 +278,25 @@ ion-card-content{
 button:focus{
     outline:none;
     box-shadow:none;
+}
+.padding_todos_iguales
+{
+    padding-left: 16px;
+    padding-right: 16px;
+}
+@media(min-width: 568px)
+{
+    .padding_todos_iguales
+   {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+@media(min-width: 731px)
+{
+    .padding_todos_iguales
+   {
+    padding-left: 70px;
+    padding-right: 70px;
+  }
 }
