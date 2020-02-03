@@ -27,7 +27,7 @@
       <ion-col size="12" id="subir_mesyear">
         <ion-row>
           <ion-col size="2" text-center class="ion-margin-bottom">
-            <button class="flechas_tamaño_calender padding_cero" (click)="change_month (-1)">
+            <button *ngIf="check_backbutton ()" class="flechas_tamaño_calender padding_cero" (click)="change_month (-1)">
               <img src="assets/img/icono-derecha.png" width="100%" height="100%">
             </button>
           </ion-col>
