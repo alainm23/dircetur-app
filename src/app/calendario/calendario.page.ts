@@ -110,4 +110,14 @@ export class CalendarioPage implements OnInit {
 
     return returned;
   }
+
+  check_backbutton () {
+    let current_date = new Date (this.current_date).getMonth ();
+
+    if (current_date <= 0) {
+      return false;
+    }
+
+    return true;
+  }
 }
