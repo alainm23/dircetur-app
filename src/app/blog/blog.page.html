@@ -55,7 +55,7 @@
 
       <ion-col *ngIf="is_loading === false" size="12" class="ion-no-padding" id="bajar_card">
         <ion-row>
-          <ion-col *ngFor="let item of items" size="12" size-md="6" class="ion-no-padding ion-margin-bottom espacio_derecha_izquierda">
+          <ion-col *ngFor="let item of items" size="12" size-md="6" class="espacio_derecha_izquierda" style="margin-bottom: 2px; margin-top: 2px;">
             <ion-card (click)="view_blog (item)">
               <img [src]="item.imagen" width="100%" height="100%" class="border_radius_imgcard">
               <ion-card-content>

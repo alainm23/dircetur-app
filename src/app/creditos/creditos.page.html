@@ -1,11 +1,11 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header no-border>
+  <ion-toolbar no-border>
     <ion-grid class="ion-no-padding">
       <ion-row class="padding_espacio" id="bajar_header">
-        <ion-col size="5" size-sm="3">
-          <ion-img :src="assets/img/Imagen-25.png"></ion-img>
+        <ion-col size="5" size-sm="3" style="margin-bottom: 16px;">
+          <ion-img id="centar_img" :src="assets/img/dircetur_logo.png" style="width: 85%;"></ion-img>
         </ion-col>
-        <ion-col size="2" size-sm="1" offset="5" offset-sm="8">
+        <ion-col size="2" size-sm="1" offset="5" offset-sm="8" class="ion-text-right">
           <button class="btn_menu" (click)="go_home ()">
             <ion-icon name="close"></ion-icon>
           </button>

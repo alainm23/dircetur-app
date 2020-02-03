@@ -88,7 +88,7 @@
     padding-top: 2px;
     z-index: 9999;
     top: 17px;
-    right: 29px;
+    right: 17px;
 }
 .div_linea_color{
     height: 1px;
@@ -104,7 +104,7 @@
 @media(min-width: 411px){
     .btn_menu{
         top: 24px;
-        right: 30px;
+        right: 17px;
         width: 29px;
         height: 29px;
     }
@@ -115,7 +115,7 @@
 @media(min-width: 1024px){
     .btn_menu{
         top: 46px;
-        right: 69px;
+        right: 17px;
         width: 40px;
         height: 40px;
     }
@@ -129,6 +129,8 @@
     color: #505050;
     font-family: 'Roboto', sans-serif;
     --padding-start: 1rem;
+    --padding-end: 2.8125rem;
+    font-size: 12.7px;
 }
 #input_border_left::placeholder{
     color: #505050;
@@ -138,6 +140,7 @@
     #input_border_left{
         height: 2.1875rem;
         --padding-start: 1rem;
+        --padding-end: 2.8125rem;
     } 
 }
 
@@ -275,7 +278,7 @@ button:focus{
     padding-bottom: 0;
 }
 .margin_bottom_escpacio{
-    margin-bottom: 0.1875rem;
+    margin-bottom: 6px;
 }
 #fondo_boleto_img{
     --background: none;
@@ -814,4 +817,9 @@ ion-card-content{
        padding-left: 8px;
        padding-right: 8px;
    }
+}
+#icono_buscar
+{
+    position: absolute;
+    right: 15px;
 }

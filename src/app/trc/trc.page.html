@@ -34,7 +34,7 @@
       </ion-col>
     </ion-row>-->
     <ion-row class="padding_todos_iguales">
-      <ion-col size="12" class="padding_espacio_descrip">
+      <ion-col size="12" class="">
         <h1 class="color_titulos ion-text-lg-center">
           {{ 'TRC.Turistical circuites in Cusco' | translate }}
         </h1>
@@ -49,7 +49,7 @@
 
       <ion-col *ngIf="is_loading === false" size="12">
         <ion-row>
-          <ion-col *ngFor="let item of items" size="12" size-md="6" size-xl="4">
+          <ion-col *ngFor="let item of items" size="12" size-md="6" size-xl="4" style="margin-top: 2px; margin-bottom: 2px;">
             <ion-card (click)="view (item)">
               <ion-card-content>
                 <ion-row>

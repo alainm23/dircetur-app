@@ -23,15 +23,20 @@
 }
 ion-header,
 ion-toolbar {
-    --background: #4C486F !important;
+    --background: #fff !important;
     height: 20vh;
+    box-shadow: 0px;
 }
 #bajar_header{
     margin-top: 5%;
 }
 p{
     color: #656565;
-    margin-top: 90px;
+    margin-top: 46px;
+}
+#centar_img
+{
+    margin-left: 85%;
 }
 @media(min-width: 375px) and (min-height: 812px){
     ion-header,
@@ -45,7 +50,7 @@ p{
         margin-top: 12px;
     }
     p{
-        margin-top: 200px;
+        margin-top: 46px;
     }
 }
 @media(min-width: 411px)and (min-height: 731px){
@@ -55,7 +60,7 @@ p{
 }
 @media(min-width: 411px) and (min-height: 823px){
     p{
-        margin-top: 150px;
+        margin-top: 46px;
     }
     #bajar_header{
         margin-top: 5%;
@@ -102,6 +107,10 @@ p{
     }
     #bajar_header{
         margin-top: 1.5%;
+    }
+    #centar_img
+    {
+    margin-left: 170%;
     }
 }
 @media(min-width: 768px){
