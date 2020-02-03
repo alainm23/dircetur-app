@@ -1,5 +1,5 @@
 <ion-header no-border>
-  <ion-toolbar mode="ios">
+  <ion-toolbar mode="ios" class="padding_todos_iguales">
     <ion-buttons mode="md" slot="start">
       <!--ion-back-button mode="md" text="Back" color="dark"></!--ion-back-button-->
       <ion-button (click)="onClick()" fill="clear">
@@ -21,7 +21,7 @@
 
 <ion-content>
 <ion-grid class="ion-no-padding">
-  <ion-row class="padding_espacio">
+  <ion-row class="padding_todos_iguales">
     <ion-col size="12">
       <ion-text>
         <h1 class="color_titulos">
@@ -71,7 +71,7 @@
     </ion-col>
     <ion-col size="12"></ion-col>
   </ion-row>
-  <ion-row class="padding_espacio">
+  <ion-row class="padding_todos_iguales">
     <ion-col size="12" text-center>
       <ion-text>
         <h2 class="color_titulos">
@@ -86,27 +86,27 @@
         </h6>
       </ion-text>
       
-      <ion-card class="map-class">
+      <ion-card class="map-class ion-no-margin">
         <div #map id="map"></div>
       </ion-card>
 
-      <p class="direcciones_map">{{ 'TouristicTicket.direccion_01' | translate }}</p>
-      <p class="horario_map">{{ 'TouristicTicket.direccion_01_hora' | translate }}</p>
+      <p class="direcciones_map" style="margin-top: 10px;margin-bottom: 5px;">{{ 'TouristicTicket.direccion_01' | translate }}</p>
+      <p class="horario_map ion-no-margin">{{ 'TouristicTicket.direccion_01_hora' | translate }}</p>
     </ion-col>
     <ion-col size="12" size-sm="6" text-center text-sm-left id="padding_left">
       <ion-text>
         <h6 class="subtitulos_map">Tourist Information office</h6>
       </ion-text>
 
-      <ion-card class="map-class">
+      <ion-card class="map-class ion-no-margin">
         <div #map2 id="map2"></div>
       </ion-card>
 
-      <p class="direcciones_map">{{ 'TouristicTicket.direccion_02' | translate }}</p>
-      <p class="horario_map">{{ 'TouristicTicket.direccion_02_hora' | translate }}</p>
+      <p class="direcciones_map" style="margin-top: 10px;margin-bottom: 5px;">{{ 'TouristicTicket.direccion_02' | translate }}</p>
+      <p class="horario_map ion-no-margin">{{ 'TouristicTicket.direccion_02_hora' | translate }}</p>
     </ion-col>
   </ion-row>
-  <ion-row class="padding_espacio">
+  <ion-row class=" padding_todos_iguales">
     <ion-col size="12">
       <ion-text>
         <h2 class="color_titulos" text-center>
@@ -130,7 +130,7 @@
       </p>
     </ion-col>
   </ion-row>
-  <ion-row class="padding_espacio">
+  <ion-row class="padding_todos_iguales">
      <ion-col size="12" text-center>
       <ion-text>
         <h2 class="color_titulos">
@@ -148,7 +148,7 @@
 
      <div *ngIf="is_loading === false" style="width: 100%;">
       <ion-row>
-      <ion-col *ngFor="let item of items" size="12" size-md="6" class="margin_bottom_card">
+      <ion-col *ngFor="let item of items" size="12" size-md="6" class=" ion-margin-top ion-margin-bottom">
         <ion-card class="ion-no-margin alturar_igualar">
           <img [src]="item.imagen" class="sombra_car_img">
           <ion-card-content class="padding_top_car_conten cantidad_datos">

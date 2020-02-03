@@ -2,7 +2,7 @@
   <ion-grid class="padding_cero">
     <ion-row id="fondo_imagen">
       <ion-col size="2" offset="10">
-        <button class="btn_menu" (click)="open_menu ()">
+        <button class="btn_menu" (click)="open_menu ()" style="cursor: pointer;">
           <div class="div_linea_color div_line_menu"></div>
           <div class="div_linea_color div_line_menu"></div>
           <div class="div_linea_color" id="div_line_menu_peque"></div>
@@ -17,7 +17,7 @@
         </p>
       </ion-col>
     </ion-row>
-    <ion-row class="ion-padding-start ion-padding-end">
+    <ion-row class="padding_todos_iguales">
       <ion-col size="12" class="fondo_blanco">
           <ion-icon name="search" class="icon_bajar_buscardor ion-margin-end"></ion-icon>
           <ion-input type="search" placeholder="{{ 'HOME.Check on your touristic provider' | translate }}" id="input_border_left" (keyup.enter)="onEnter ()" [(ngModel)]="search_text"></ion-input>
@@ -40,7 +40,7 @@
           <div [innerHtml]="etiquetas?.home_parrafo_detalle_01" class="color_81 espaciados_texto"></div>
       </ion-col>
     </ion-row>
-    <ion-row class="ion-padding-start ion-padding-end margin_bottom_new">
+    <ion-row class="padding_todos_iguales margin_bottom_new">
       <ion-col size="12" text-center>
           <h2 class="color_titulos">
             {{ 'HOME.Dircetur news' | translate }}
@@ -56,7 +56,7 @@
         <ion-col *ngFor="let item of blogs" size="12" size-md="6" class="margin_bottom_escpacio">
           <ion-row (click)="view_blog (item)">
             <ion-col size="4" class="paddign_top_bottom">
-              <img [src]="item.imagen" style="width: 100%;height: 100%;">
+              <img [src]="item.imagen" style="width: 100%;height: 100%;object-fit: cover;">
             </ion-col>
             <ion-col size="8" class="paddign_top_bottom">
               <h6 class="ion-no-margin subtitulos_noticia">{{ get_value (item, 'titulo') }}</h6>
@@ -71,7 +71,7 @@
       </ion-row>
       </div>
     </ion-row>
-    <ion-row id="fondo_boleto_img" class="ion-padding-end">
+    <ion-row id="fondo_boleto_img" class="padding_todos_iguales">
       <ion-col size="12">
           <img id="subir_img_bloeto" src="assets/img/Grupo_406.png">
       </ion-col>
@@ -81,7 +81,7 @@
         </h2>
         <div id="paddining_right" [innerHtml]="etiquetas?.home_boleto_texto" class="color_blanco"></div>
         <ion-row>
-          <ion-col size="8" offset="4">
+          <ion-col size="10" offset="2">
             <button id="bnt_blanco" (click)="go_boleto_turistico ()">
               {{ 'HOME.Complete info >' | translate }}
             </button>
@@ -89,7 +89,7 @@
         </ion-row>
       </ion-col>
     </ion-row>
-    <ion-row id="bajar_titutlo" class="ion-padding-start ion-padding-end">
+    <ion-row id="bajar_titutlo" class="padding_todos_iguales">
         <ion-col size="12" text-center>
             <h2 class="color_titulos">
               {{ 'HOME.Upcoming events' | translate }}
@@ -113,7 +113,7 @@
           <ion-spinner style="width: 100%; margin-top: 1rem;" class="ion-text-center" name="circles"></ion-spinner>
         </ion-col>
 
-        <div *ngIf="is_calendar_loading === false && eventos.length > 0" style="width: 100%;" class="habrir_espacios">
+        <div *ngIf="is_calendar_loading === false && eventos.length > 0" style="width: 100%;" class="ion-margin-top ion-margin-bottom">
           <ion-row>
           <ion-col *ngFor="let item of eventos" size="12" size-md="6" size-lg="6" class="padding_eventos ion-margin-bottom">
             <ion-card (click)="view_calendar_detail (item)">
@@ -156,9 +156,9 @@
           </button>
         </ion-col>
     </ion-row>
-    <ion-row class="ion-padding-start ion-padding-end margin_bottom_new">
+    <ion-row class="padding_todos_iguales margin_bottom_new">
       <ion-col size="12" text-center>
-        <h2 class="color_titulos">
+        <h2 class="color_titulos ion-no-margin">
           {{ 'HOME.Turistical circuites in Cusco' | translate }}
         </h2>
       </ion-col>
@@ -167,31 +167,31 @@
         <ion-spinner style="width: 100%; margin-top: 1rem;" class="ion-text-center" name="circles"></ion-spinner>
       </ion-col>
 
-      <ion-col size="12" *ngIf="is_circuitos_loading === false" class="habrir_espacios">
+      <ion-col size="12" *ngIf="is_circuitos_loading === false" class="ion-no-padding">
         <ion-row>
-          <ion-col *ngFor="let item of circuitos" size="12" size-md="6" size-xl="4">
-            <ion-card (click)="view_circuito_detalle (item)">
+          <ion-col *ngFor="let item of circuitos" class="ion-margin-top ion-margin-bottom margin_left_riht" size="12" size-md="6" size-xl="4">
+            <ion-card (click)="view_circuito_detalle (item)" style="height: 100%;">
               <ion-card-content>
                 <ion-row>
                   <ion-col size="12" class="dercha_izquierda_cero">
                     <ion-row>
                       <ion-col size="4">
-                        <img [src]="item.imagen" width="100%">
+                        <img [src]="item.imagen" width="100%" height="100%;" style="object-fit: cover;">
                       </ion-col>
                       <ion-col size="8">
-                        <h2 class="titulo_card margin_bottom">{{ get_value (item, 'nombre') }}</h2>
-                        <p class="descrip_pequeña margin_bottom">{{  get_value (item, 'donde') }}</p>
-                        <p class="numero_color">{{ get_value (item, 'altitud') }}</p>
+                        <h2 class="titulo_card margin_bottom" style="margin-top: -3px;">{{ get_value (item, 'nombre') }}</h2>
+                        <p class="descrip_pequeña" style="margin-bottom: 0;">{{  get_value (item, 'donde') }}</p>
+                        <p class="numero_color ion-no-margin">{{ get_value (item, 'altitud') }}</p>
                       </ion-col>
                     </ion-row>
                   </ion-col>
-                  <ion-col size="12" class="dercha_izquierda_cero">
+                  <!--<ion-col size="12" class="dercha_izquierda_cero">
                     <ion-row>
                       <ion-col *ngFor="let t of item.tags" size="4" size-sm="3" size-md="4" size-lg="3" size-xl="4">
                         <button class="btn_rojo_car">{{ t.nombre }}</button>
                       </ion-col>
                     </ion-row>
-                  </ion-col>
+                  </ion-col>-->
                   <ion-col size="12">
                     <p class="descripcion_completo">{{ get_value (item, 'descripcion') }}</p>
                   </ion-col>

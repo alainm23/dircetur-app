@@ -110,11 +110,11 @@ ion-button {
 }
 @media(min-width: 1024px){
     .btn_menu{
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
     }
     .div_linea_color{
-        height: 4px;
+        height: 2px;
     }
 }
 #input_border_left{
@@ -314,33 +314,48 @@ button:focus{
 
 .flechas_tamaño_calender{
     width: 30%;
-    height: 1.75rem;
+    height: 32%;
     background-color: #ffffff;
-    margin-top: 2.0625rem;
+    margin-top: 32px;
 }
-@media(min-width: 360px){
+@media(min-width: 568px){
     .flechas_tamaño_calender{
-        height: 1.875rem;
-        margin-top: 2.25rem;
-    }  
+        margin-top: 32px;
+    } 
 }
 @media(min-width: 640px){
     .flechas_tamaño_calender{
-        margin-top: 2rem;
+        margin-top: 40px;
+        width: 23%;
+        height: 24%;
     } 
 }
 @media(min-width: 768px){
     .flechas_tamaño_calender{
-        margin-top: 1.6875rem;
+        margin-top: 34px;
+        width: 27%;
+        height: 30%;
+    } 
+}
+@media(min-width: 812px){
+    .flechas_tamaño_calender{
+        margin-top: 39px;
+        width: 15%;
+        height: 25%;
+    } 
+}
+@media(min-width: 823px){
+    .flechas_tamaño_calender{
+        margin-top: 36px;
         width: 19%;
-        height: 44%;
+        height: 30%;
     } 
 }
 @media(min-width: 1024px){
     .flechas_tamaño_calender{
-        margin-top: 54px;
-        width: 26%;
-      height: 2.8125rem;
+        margin-top: 58px;
+        width: 22%;
+        height: 25%;
     } 
 }
 #diciembre_year{
@@ -565,4 +580,25 @@ ion-card{
     margin-right: 0px;
     margin-top: 0px;
     margin-bottom: -7px;
+}
+.padding_todos_iguales
+{
+    padding-left: 16px;
+    padding-right: 16px;
+}
+@media(min-width: 568px)
+{
+    .padding_todos_iguales
+   {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+@media(min-width: 731px)
+{
+    .padding_todos_iguales
+   {
+    padding-left: 70px;
+    padding-right: 70px;
+  }
 }

@@ -184,7 +184,7 @@ ion-select::placeholder{
 }
 .direcciones_map{
     color: #818181;
-    font-size: 1rem;
+    font-size: 15px;
     font-weight: 900;
 }
 .horario_map{
@@ -197,7 +197,7 @@ ion-select::placeholder{
         font-size: 24px;
     }
     .direcciones_map{
-        font-size: 1.25rem;
+        font-size: 1rem;
     }
     .horario_map{
         font-size: 1rem;
@@ -208,7 +208,7 @@ ion-select::placeholder{
         font-size: 20px;
     }
     .direcciones_map{
-        font-size: 1rem;
+        font-size: 0.9375rem;
     }
     .horario_map{
         font-size: 0.9375rem;
@@ -219,7 +219,7 @@ ion-select::placeholder{
         font-size: 29px;
     }
     .direcciones_map{
-        font-size: 18px;
+        font-size: 1rem;
     }
     .horario_map{
         font-size: 1rem;
@@ -230,7 +230,7 @@ ion-select::placeholder{
         font-size: 25px;
     }
     .direcciones_map{
-        font-size: 17px;
+        font-size: 15px;
     }
     .horario_map{
         font-size: 15px;
@@ -241,17 +241,13 @@ ion-select::placeholder{
         font-size: 29px;
     }
     .direcciones_map{
-        font-size: 18px;
+        font-size: 1rem;
     }
     .horario_map{
         font-size: 1rem;
     }
 }
-.sombra_car_img{
-    -webkit-box-shadow: 0px 5px 6px 0px rgba(150,150,150,0.75);
-    -moz-box-shadow: 0px 5px 6px 0px rgba(150,150,150,0.75);
-    box-shadow: 0px 5px 6px 0px rgba(150,150,150,0.75);
-}
+
 ion-card{
     -webkit-box-shadow: 0px 5px 6px 0px rgba(150,150,150,0.75);
     -moz-box-shadow: 0px 5px 6px 0px rgba(150,150,150,0.75);
@@ -378,11 +374,11 @@ button:focus{
 }
 @media(min-width: 1024px){
     .btn_menu{
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
     }
     .div_linea_color{
-        height: 4px;
+        height: 2px;
     }
 }
 
@@ -415,4 +411,25 @@ button:focus{
 #map2{
     width: 100%;
     height: 100%;
+}
+.padding_todos_iguales
+{
+    padding-left: 16px;
+    padding-right: 16px;
+}
+@media(min-width: 568px)
+{
+    .padding_todos_iguales
+   {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+@media(min-width: 731px)
+{
+    .padding_todos_iguales
+   {
+    padding-left: 70px;
+    padding-right: 70px;
+  }
 }
