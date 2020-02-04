@@ -120,4 +120,14 @@ export class CalendarioPage implements OnInit {
 
     return true;
   }
+
+  check_next_button () {
+    let current_date = new Date (this.current_date).getMonth ();
+
+    if (current_date >= 11) {
+      return false;
+    }
+
+    return true;
+  }
 }

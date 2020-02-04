@@ -89,7 +89,7 @@ export class ReportProviderPage implements OnInit {
     }
   }
 
-  selct_item (item: any) {
+  select_item (item: any) {
     if (item != null) {
       this.item = item;
       this.form.controls ['provider'].setValue (item.nombre_comercial);
@@ -101,5 +101,12 @@ export class ReportProviderPage implements OnInit {
   submit () {
     console.log (this.item);
     console.log (this.form.value);
+  }
+
+  remove_item () {
+    if (this.item != null) {
+      this.item = null;
+      this.form.controls ['provider'].setValue ("");
+    }
   }
 }

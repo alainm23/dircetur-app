@@ -54,6 +54,13 @@
             </ion-item>
           </ion-col-->
 
+          <ion-col size="12" class="no-padding" *ngIf="item !== null">
+            <ion-item [className]="type === 0 ? 'ion-item-0' : 'ion-item-1'">
+              {{ item.nombre_comercial }}
+              <ion-button slot="end" fill="clear" color="dark" (click)="remove_item ()"><ion-icon name="close" class="icon-only"></ion-icon></ion-button>
+            </ion-item>
+          </ion-col>
+
           <ion-col size="12" class="no-padding" *ngIf="item === null">
             <ion-item [className]="type === 0 ? 'ion-item-0' : 'ion-item-1'">
               <ion-input type="text" placeholder="{{ 'ReportProvider.Provider’s company name' | translate }}" formControlName="provider" (ionChange)="on_input_change ($event.detail.value)"></ion-input>
@@ -61,7 +68,7 @@
 
             <ion-card id="search-card" *ngIf="show_searchbox">
               <ion-list [className]="type === 0 ? 'ion-item-0' : 'ion-item-1'">
-                <ion-item [className]="type === 0 ? 'ion-item-0' : 'ion-item-1'" *ngFor="let item of items" (click)="selct_item (item)">
+                <ion-item [className]="type === 0 ? 'ion-item-0' : 'ion-item-1'" *ngFor="let item of items" (click)="select_item (item)">
                   <ion-icon id="icon-padding" name="search"></ion-icon>
                   {{ item.nombre_comercial }}
                   <span slot="end">{{ item.tipo }}</span>

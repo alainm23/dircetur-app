@@ -288,9 +288,7 @@
           </ion-item>
             <ion-row *ngIf="help_0" [@animation-top]>
               <ion-col size="12" class="padding_tops_col">
-                <p class="color_descrion">
-                  {{ 'SearchResults.Tourism Agency Detail' | translate }}
-                </p>
+                <div [innerHtml]="etiquetas?.turismo_rubros_alojamiento_texto" class="padding_tops_col color_descrion"></div>
               </ion-col>
             </ion-row>
         </div>
@@ -306,9 +304,7 @@
 
           <ion-row *ngIf="help_1" [@animation-top]>
             <ion-col size="12" class="padding_tops_col">
-              <p class="color_descrion">
-                {{ 'SearchResults.Accommodations Detail' | translate }}
-              </p>
+              <div [innerHtml]="etiquetas?.turismo_rubros_alojamiento_subtitulo" class="padding_tops_col color_descrion"></div>
             </ion-col>
           </ion-row>
         </div>
@@ -324,9 +320,7 @@
 
           <ion-row *ngIf="help_2" [@animation-top]>
             <ion-col size="12" class="padding_tops_col">
-              <p class="color_descrion">
-                {{ 'SearchResults.Tour guides Detail' | translate }}
-              </p>
+              <div [innerHtml]="etiquetas?.turismo_rubros_guias_texto" class="padding_tops_col color_descrion"></div>
             </ion-col>
           </ion-row>
         </div>
@@ -342,9 +336,7 @@
 
           <ion-row *ngIf="help_3" [@animation-top]>
             <ion-col size="12" class="padding_tops_col">
-              <p class="color_descrion">
-                {{ 'SearchResults.Restaurants Detail' | translate }}
-              </p>
+              <div [innerHtml]="etiquetas?.turismo_rubros_restuarante_texto" class="padding_tops_col color_descrion"></div>
             </ion-col>
           </ion-row>
         </div>

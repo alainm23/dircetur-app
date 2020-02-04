@@ -3,7 +3,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 declare var require: any
 
 // Ionic
-import { ModalController, } from '@ionic/angular';
+import { ModalController, Events } from '@ionic/angular';
 
 // AlgoliaSearch
 import * as algoliasearch from 'algoliasearch/dist/algoliasearch.js';
@@ -11,6 +11,7 @@ import { environment } from '../../environments/environment';
 
 // Services
 import { DatabaseService } from '../services/database.service'
+import { Storage } from '@ionic/storage';
 
 // Modals
 import { ReportProviderPage } from '../report-provider/report-provider.page';
@@ -35,6 +36,9 @@ export class SearchResultsPage implements OnInit {
   client: any;
   algolia_index: any;
 
+  idioma: string;
+  etiquetas: any;
+
   items: any [] = [];
   is_loading:boolean = false;
 
@@ -44,6 +48,8 @@ export class SearchResultsPage implements OnInit {
   help_3: boolean = false;
 
   constructor(private database: DatabaseService, 
+              private storage: Storage,
+              private events: Events,
               private modalCtrl: ModalController) { }
 
   ngOnInit() {
@@ -52,6 +58,30 @@ export class SearchResultsPage implements OnInit {
     if (this.search_text != "") {
       this.search ();
     }
+
+    this.get_etiquetas ();
+
+    this.events.subscribe ('language_changed', (lang) => {
+      this.idioma = lang;
+
+      this.database.get_etiquetas ("turismo_" + lang).subscribe ((res: any) => {
+        this.etiquetas = res;
+      });
+    });
+  }
+  
+  get_etiquetas () {
+    this.storage.get ('i18n').then ((response: string) => {
+      let lang: string = response;
+
+      if (lang === null || lang === undefined) {
+        lang = 'es';
+      }
+
+      this.database.get_etiquetas ("turismo_" + lang).subscribe ((res: any) => {
+        this.etiquetas = res;
+      });
+    });
   }
 
   initalgolia () {

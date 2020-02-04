@@ -153,6 +153,16 @@ export class HomePage {
     return date.getTime () > today.getTime ();
   }
 
+  check_next_button () {
+    let current_date = new Date (this.current_date).getMonth ();
+
+    if (current_date >= 11) {
+      return false;
+    }
+
+    return true;
+  }
+  
   open_menu () {
     this.menu.enable (true, 'first');
     this.menu.open ('first');
