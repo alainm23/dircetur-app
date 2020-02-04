@@ -19,9 +19,9 @@
     </ion-row>
     <ion-row class="padding_todos_iguales">
       <ion-col size="12" class="fondo_blanco">
-          <ion-icon name="search" class="icon_bajar_buscardor ion-margin-end"></ion-icon>
+          <ion-icon name="search" class="icon_bajar_buscardor" style="margin-right: 4px;"></ion-icon>
           <ion-input type="search" placeholder="{{ 'HOME.Check on your touristic provider' | translate }}" id="input_border_left" (keyup.enter)="onEnter ()" [(ngModel)]="search_text"></ion-input>
-          <ion-icon name="send" class="icon_bajar_buscardor ion-margin-start" (click)="onEnter ()"></ion-icon>
+          <ion-icon name="send" class="icon_bajar_buscardor" id="icono_buscar" (click)="onEnter ()"></ion-icon>
       </ion-col>
       <ion-col size="12" text-center>
           <p class="color_81" id="espaciado_line">
@@ -53,7 +53,7 @@
 
       <div *ngIf="is_blog_loading === false" class="habrir_espacios">
         <ion-row>
-        <ion-col *ngFor="let item of blogs" size="12" size-md="6" class="margin_bottom_escpacio">
+        <ion-col *ngFor="let item of blogs" size="12" size-md="6" class="margin_bottom_escpacio ion-no-padding">
           <ion-row (click)="view_blog (item)">
             <ion-col size="4" class="paddign_top_bottom">
               <img [src]="item.imagen" style="width: 100%;height: 100%;object-fit: cover;">
@@ -169,7 +169,7 @@
 
       <ion-col size="12" *ngIf="is_circuitos_loading === false" class="ion-no-padding">
         <ion-row>
-          <ion-col *ngFor="let item of circuitos" class="ion-margin-top ion-margin-bottom margin_left_riht" size="12" size-md="6" size-xl="4">
+          <ion-col *ngFor="let item of circuitos" class="margin_left_riht" size="12" size-md="6" size-xl="4" style="margin-top: 2px; margin-bottom: 2px;">
             <ion-card (click)="view_circuito_detalle (item)" style="height: 100%;">
               <ion-card-content>
                 <ion-row>
@@ -202,7 +202,7 @@
         </ion-row>
       </ion-col>
       <ion-col size="10" size-sm="6" offset="1" offset-sm="3" text-center>
-        <button class="btn_blanco_calendario" (click)="go_circuitos ()">
+        <button class="btn_blanco_calendario ion-margin-top" (click)="go_circuitos ()">
           {{ 'HOME.Show full turistical circuites' | translate }}
         </button>
       </ion-col>

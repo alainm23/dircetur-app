@@ -1,11 +1,11 @@
 <ion-app>
   <ion-menu side="end" menuId="first" type="overlay">
-    <ion-header>
-      <ion-toolbar>
+    <ion-header no-border>
+      <ion-toolbar no-border>
         <ion-grid class="ion-no-padding">
-          <ion-row class="padding_espacio" id="bajar_header">
+          <ion-row class="padding_espacio ion-margin-bottom" id="bajar_header">
             <ion-col size="6" size-sm="6">
-              <ion-img :src="assets/img/Imagen-25.png" (click)="go_home ()"></ion-img>
+              <ion-img class="img_subir_menu" :src="assets/img/dircetur_logo.png" (click)="go_home ()"></ion-img>
             </ion-col>
             <ion-col size="1" size-sm="1" offset="4" offset-sm="4">
               <button class="btn_menu" (click)="open_menu ()">

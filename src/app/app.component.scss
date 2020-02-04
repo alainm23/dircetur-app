@@ -1,9 +1,16 @@
 ion-header, ion-toolbar{
-    --background: #4C486F !important;
+    --background: #fff !important;
     height: 15vh;
+    border: 0px !important;
 }
 #bajar_header{
     margin-top: 7px;
+}
+.img_subir_menu
+{
+    margin-top: 29px;
+    width: 85%;
+    margin-left: 60%;
 }
 .btn_menu{
     width: 25px;
@@ -12,12 +19,15 @@ ion-header, ion-toolbar{
     background-color: #ffffff;
     padding-top: 2px;
     margin-top: 7px;
+    margin-left: 17px;
+    
 }
 ion-icon{
     color: #676767;
     font-size: 18px;
     margin-left: -2px;
 }
+
 @media(min-width: 320px) and (min-height: 812px){
     ion-header, ion-toolbar {
         height: 12vh;
@@ -150,6 +160,7 @@ ion-icon{
 .border_bottom{
     padding-left: 20px;
     padding-right: 20px;
+    margin-top: 20px;
 }
 div{
     background-color: #818181;
