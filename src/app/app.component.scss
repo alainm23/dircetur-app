@@ -1,6 +1,6 @@
 ion-header, ion-toolbar{
     --background: #fff !important;
-    height: 15vh;
+    /*height: 15vh;*/
     border: 0px !important;
 }
 #bajar_header{
@@ -28,97 +28,36 @@ ion-icon{
     margin-left: -2px;
 }
 
-@media(min-width: 320px) and (min-height: 812px){
-    ion-header, ion-toolbar {
-        height: 12vh;
-    }
-}
-@media(min-width: 375px) and (min-height: 812px){
-    ion-header, ion-toolbar {
-        height: 12vh;
-    }
-}
+
+
 @media(min-width: 411px) and (min-height: 731px){
-    ion-header, ion-toolbar {
-        height: 12vh;
-    }
     .btn_menu{
         margin-top: 13px;
     }
 }
 @media(min-width: 411px) and (min-height: 823px){
-    ion-header, ion-toolbar {
-        height: 12vh;
-    }
     .btn_menu{
         margin-top: 13px;
     }
 }
-@media(min-width: 480px) and (min-height: 320px){
-    ion-header, ion-toolbar {
-        height: 29vh;
-    }
-}
-@media(min-width: 480px) and (min-height: 854px){
-    ion-header, ion-toolbar {
-        height: 12vh;
-    }
-}
-@media(min-width: 568px){
-    ion-header, ion-toolbar{
-        height: 29vh;
-    }
-}
+
 @media(min-width: 640px){
-    ion-header, ion-toolbar {
-        height: 28vh;
-    }
     .btn_menu{
         margin-top: 15px;
     }
 }
 @media(min-width: 731px){
-    ion-header, ion-toolbar {
-        height: 25vh;
-    }
     .btn_menu{
         margin-top: 15px;
     }
 }
 @media(min-width: 736px){
-    ion-header, ion-toolbar {
-        height: 25vh;
-    }
     .btn_menu{
         margin-top: 15px;
     }
 }
-@media(min-width: 768px){
-    ion-header, ion-toolbar {
-        height: 10vh;
-    }
-}
-@media(min-width: 812px){
-    ion-header, ion-toolbar {
-        height: 40vh;
-    }
-}
-@media(min-width: 823px){
-    ion-header, ion-toolbar{
-        height: 35vh;
-    }
 
-}
-@media(min-width: 854px){
-    ion-header, ion-toolbar{
-        height: 30vh;
-    }
-
-}
 @media(min-width: 1024px) and (min-height: 768px){
-    ion-header, ion-toolbar{
-        height: 14vh;
-    }
     ion-icon{
         font-size: 25px;
         margin-left: -6px;
@@ -131,9 +70,6 @@ ion-icon{
     }
 }
 @media(min-width: 1024px) and (min-height: 1366px){
-    ion-header, ion-toolbar{
-        height: 8vh;
-    }
     ion-icon{
         font-size: 25px;
         margin-left: -6px;
@@ -145,11 +81,7 @@ ion-icon{
         margin-left: -40px;
     }
 }
-@media(min-width: 1366px){
-    ion-header, ion-toolbar{
-        height: 10vh;
-    }
-}
+
 .padding_espacio{
     padding-left: 1rem;
     padding-right: 1rem;

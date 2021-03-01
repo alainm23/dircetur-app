@@ -109,4 +109,8 @@ export class BoletoTuristicoPage implements OnInit {
       animation: google.maps.Animation.DROP
     });
   }
+
+  go_website () {
+    window.open("http://www.dirceturcusco.gob.pe",'_system', 'location=yes');
+  }
 }

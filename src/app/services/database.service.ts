@@ -94,7 +94,11 @@ export class DatabaseService {
   }
 
   get_eventos () {
-    return this.afs.collection ("Eventos", ref => ref.orderBy ('fecha_creado')).valueChanges ();
+    return this.afs.collection ("Eventos", ref => ref.orderBy ('fecha')).valueChanges ();
+  }
+
+  get_eventos_categorias () {
+    return this.afs.collection ('Eventos_Tipos').valueChanges ();
   }
 
   get_events_by_month (month: string) {

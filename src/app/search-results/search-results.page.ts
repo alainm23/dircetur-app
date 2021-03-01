@@ -118,7 +118,7 @@ export class SearchResultsPage implements OnInit {
     }).then((data: any) => {
       this.is_loading = false;
       console.log ('algolia_search', data);
-      this.items = [];  
+      this.items = [];
       if (data.hits.length > 0) {
         this.items = data.hits;
       }
@@ -127,7 +127,7 @@ export class SearchResultsPage implements OnInit {
 
   view_item (item: any) {
     console.log (item);
-    
+
     if (item.reveal_child === true) {
       item.reveal_child = false;
     } else {

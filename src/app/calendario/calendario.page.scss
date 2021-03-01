@@ -602,3 +602,18 @@ ion-card{
     padding-right: 70px;
   }
 }
+
+.hide {
+    padding: 0px;
+    .select-icon-inner {
+        display: none;
+    }
+}
+
+.hide select-icon-inner {
+    display: none;
+}
+
+.select-icon-inner {
+    border-top: transparent !important;
+}

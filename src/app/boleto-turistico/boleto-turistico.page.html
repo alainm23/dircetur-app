@@ -148,33 +148,33 @@
 
      <div *ngIf="is_loading === false" style="width: 100%;">
       <ion-row>
-      <ion-col *ngFor="let item of items" size="12" size-md="6" class="" style="margin-top: 2px; margin-bottom: 2px;">
-        <ion-card class="ion-no-margin alturar_igualar">
-          <img [src]="item.imagen" class="sombra_car_img">
-          <ion-card-content class="padding_top_car_conten cantidad_datos">
-            <ion-text>
-              <h3 class="titulo_card">{{ item.titulo }}</h3>
-            </ion-text>
+        <ion-col *ngFor="let item of items" size="12" size-md="6" class="" style="margin-top: 2px; margin-bottom: 2px;">
+          <ion-card class="ion-no-margin alturar_igualar">
+            <img [src]="item.imagen" class="sombra_car_img">
+            <ion-card-content class="padding_top_car_conten cantidad_datos">
+              <ion-text>
+                <h3 class="titulo_card">{{ item.titulo }}</h3>
+              </ion-text>
 
-            <p class="detalle">
-              {{ item.detalle }}
-            </p>
-            <p class="color_viegencia">
-              {{ 'TouristicTicket.Vigencia' | translate }}
-            <ion-text class="dia_bolder">{{ item.vigencia }}</ion-text></p>
-          </ion-card-content>
-        </ion-card>
-       </ion-col>
+              <p class="detalle">
+                {{ item.detalle }}
+              </p>
+              <p class="color_viegencia">
+                {{ 'TouristicTicket.Vigencia' | translate }}
+              <ion-text class="dia_bolder">{{ item.vigencia }}</ion-text></p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
       </ion-row>
      </div>
-
   </ion-row>
+  <br>
   <ion-row id="fondoazul" class="padding_espacio">
     <p id="decripcion_ultimo">
       {{ 'TouristicTicket.To view full site list visit our website' | translate }}
     </p>
     <ion-col size="10" size-sm="8" size-md="6" offset="1" offset-sm="2" offset-md="3">
-      <button id="btn_blanco_ultimo">
+      <button id="btn_blanco_ultimo" (click)="go_website ()">
         {{ 'TouristicTicket.Go to website >' | translate }}
       </button>
     </ion-col>

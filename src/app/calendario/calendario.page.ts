@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 
 // Ionic
-import { MenuController, LoadingController, ModalController, NavController } from '@ionic/angular'; 
+import { MenuController, NavController } from '@ionic/angular'; 
 
 // Services
 import { DatabaseService } from '../services/database.service';
@@ -17,19 +17,55 @@ export class CalendarioPage implements OnInit {
   eventos: any [] = [];
   eventos_backup: any [] = [];
 
+  tipos: any [] = [];
+  tipo_selected: any = "todos";
+
   current_date: string = moment ().format ();
   is_loading: boolean = false;
 
   constructor(private database: DatabaseService,
               private navCtrl: NavController,
-              private menu:MenuController) { }
+              private el: ElementRef,
+              private menu:MenuController) 
+  {
+    
+  }
+
+  onChange () {
+    this.eventos = this.eventos_backup;
+
+    if (this.tipo_selected !== 'todos') {
+      this.eventos = this.eventos.filter ((item: any) => {
+        return item.datageneral.tipo.id === this.tipo_selected;
+      });
+    }
+  }
 
   ngOnInit() {
     this.get_events ();
+    this.get_all_categories ();
   }
 
   onClick () {
     this.navCtrl.back ();
+  }
+
+  get_all_categories () {
+    this.database.get_eventos_categorias ().subscribe ((res: any []) => {
+      this.tipos = res;
+    });
+  }
+
+  ionViewDidEnter() {
+    // ion-select customizing
+    const ionSelects = document.querySelectorAll('ion-select');
+    let img = null;
+    ionSelects.forEach((ionSelect) => {
+      const selectIconInner = ionSelect.shadowRoot.querySelector('.select-icon').querySelector('.select-icon-inner');
+      if(selectIconInner){
+        selectIconInner.setAttribute('style', 'display: none !important');
+      }
+    });
   }
 
   async get_events () {
@@ -39,7 +75,6 @@ export class CalendarioPage implements OnInit {
       this.eventos = this.order_items (res);
       this.eventos_backup = this.order_items (res);
       this.is_loading = false;
-
       console.log (this.eventos);
     });
   }

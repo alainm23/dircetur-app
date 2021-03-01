@@ -3,7 +3,7 @@
     <ion-grid class="ion-no-padding">
       <ion-row class="padding_espacio" id="bajar_header">
         <ion-col size="5" size-sm="3" style="margin-bottom: 16px;">
-          <ion-img id="centar_img" :src="assets/img/dircetur_logo.png" style="width: 85%;"></ion-img>
+          <ion-img id="centar_img" :src="assets/img/dircetur_logo.png" style="width: 85%; margin-top: 1rem;"></ion-img>
         </ion-col>
         <ion-col size="2" size-sm="1" offset="5" offset-sm="8" class="ion-text-right">
           <button class="btn_menu" (click)="go_home ()">
@@ -16,8 +16,8 @@
 </ion-header>
 
 <ion-content class="ion-text-center">
-<p>
-  {{ 'CREDITS.Designed and powered by:' | translate }}
-</p>
-<ion-img :src="assets/img/Logon19-01@2x.png"></ion-img>
+  <p>
+    {{ 'CREDITS.Designed and powered by:' | translate }}
+  </p>
+  <ion-img :src="assets/img/Logon19-01@2x.png"></ion-img>
 </ion-content>

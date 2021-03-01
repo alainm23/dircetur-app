@@ -45,6 +45,14 @@
       <ion-col size="12" text-center id="subir_filter">
         <p>
           {{ 'CALENDAR.Filter by >' | translate }}
+          <ion-select class="hide" interface="popover" [(ngModel)]="tipo_selected" (ionChange)="onChange()">
+            <ion-select-option value="todos">
+              Todos
+            </ion-select-option>
+            <ion-select-option *ngFor="let item of tipos" [value]="item.id">
+              {{ item.nombre }}
+            </ion-select-option>
+          </ion-select>
         </p>
       </ion-col>
 
